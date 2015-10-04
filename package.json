@@ -19,6 +19,8 @@
   "author": "Kirill Anoshin",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.9.8",
+    "gulp": "^3.9.0",
     "jspm": "^0.16.11"
   },
   "jspm": {
