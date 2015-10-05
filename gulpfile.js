@@ -5,7 +5,7 @@ var reload = browserSync.reload;
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: "./src/"
+            baseDir: "."
         }
     });
 });
@@ -15,7 +15,7 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('serveit', ['browser-sync'], function () {
-    gulp.watch("src/**/*.html", ['bs-reload']);
-    gulp.watch("src/**/*.js", ['bs-reload']);
-    gulp.watch("src/**/*.css", ['bs-reload']);
+    gulp.watch("index.html", ['bs-reload']);
+    gulp.watch("lib/**/*.js", ['bs-reload']);
+    gulp.watch("*.css", ['bs-reload']);
 });

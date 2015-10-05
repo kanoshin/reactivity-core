@@ -25,6 +25,11 @@
   },
   "jspm": {
     "format": "es6",
+    "dependencies": {
+      "material-ui": "npm:material-ui@^0.12.1",
+      "react": "npm:react@^0.13.3",
+      "react-router": "npm:react-router@^1.0.0-rc1"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
