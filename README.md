@@ -9,7 +9,7 @@ Reactivity is an admin web site template based on Facebook React and Google Mate
 * Basic pages (Login/Sign Up, 404, 500)
 * Form controls
 * Theming functionality
-* Multi-language support container
+* Multi-language support container (http://l20n.org/)
 * UI elements (tables, spinners, growl boxes, lightbox, etc...)
 
 # Technologies stack
