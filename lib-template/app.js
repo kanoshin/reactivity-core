@@ -1,3 +1,3 @@
-import router from 'lib-template/router.jsx'
+import app from 'lib-template/app.jsx'
 
-router.run();
+app.run();
