@@ -17,10 +17,20 @@ class Layout extends React.Component {
 			navBar: {
 				marginTop: '65px',
 				zIndex: 0
+			},
+			workZone: {
+				default: {
+			    	marginTop: '20px',
+    				marginLeft: '300px',
+					marginRight: '20px'
+				},
+				wide: {
+					marginLeft: '20px'
+				}
 			}
 		};
 		this._toggleNav = this._toggleNav.bind(this);
-		this.state = {menuButton: <NavigationClose />};
+		this.state = { menuOpen: true };
 	}
 
 	render() {
@@ -29,12 +39,12 @@ class Layout extends React.Component {
 			<AppBar ref='appBar' 
 			title='Reactivity' 
 			onLeftIconButtonTouchTap={this._toggleNav} 
-			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuButton}</IconButton>} />
+			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} />
 			<LeftNav ref='nav'
 				docked={true}
 				menuItems={menuItems}
 				style={this.styles.navBar} />
-			{this.props.children}
+			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
 	
@@ -44,8 +54,7 @@ class Layout extends React.Component {
 	
 	_toggleNav() {
 		this.refs.nav.toggle();
-		let menuButton = this.refs.nav.state.open ? <Menu /> : <NavigationClose />;
-		this.setState({menuButton: menuButton});
+		this.setState({menuOpen: !this.refs.nav.state.open});
 	}
 }
 
