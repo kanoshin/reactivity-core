@@ -20,3 +20,9 @@ Reactivity is an admin web site template based on Facebook React and Google Mate
 * React Router
 * Radium
 * Google Material UI
+
+# Installation
+1. Install Node.js (https://nodejs.org)
+2. Run `npm install` in your project folder
+3. Run `jspm install` in your project folder
+4. Run `gulp serveit` in your project folder (if you are using VS Code - Ctrl + Shift + P -> Run Task -> serveit)
