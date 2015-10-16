@@ -1,6 +1,8 @@
 import React from 'react'
-import { AppBar, LeftNav } from 'material-ui'
+import { AppBar, LeftNav, IconButton } from 'material-ui'
 import Radium from 'radium'
+import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
+import Menu from 'material-ui/lib/svg-icons/navigation/menu'
 
 let menuItems = [
     { route: 'dashboard', text: 'Dashboard' },
@@ -17,13 +19,18 @@ class Layout extends React.Component {
 				zIndex: 0
 			}
 		};
+		this._toggleNav = this._toggleNav.bind(this);
+		this.state = {menuButton: <NavigationClose />};
 	}
 
 	render() {
 		return (
 		<div>
-			<AppBar title='Reactivity' />
-			<LeftNav ref="leftNav"
+			<AppBar ref='appBar' 
+			title='Reactivity' 
+			onLeftIconButtonTouchTap={this._toggleNav} 
+			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuButton}</IconButton>} />
+			<LeftNav ref='nav'
 				docked={true}
 				menuItems={menuItems}
 				style={this.styles.navBar} />
@@ -32,7 +39,13 @@ class Layout extends React.Component {
 	}
 	
 	componentDidMount() {
-		//this.refs.leftNav.open();
+		//this.refs.appBar.onLeftIconButtonTouchTap(() => this.refs.leftNav.toggle());
+	}
+	
+	_toggleNav() {
+		this.refs.nav.toggle();
+		let menuButton = this.refs.nav.state.open ? <Menu /> : <NavigationClose />;
+		this.setState({menuButton: menuButton});
 	}
 }
 

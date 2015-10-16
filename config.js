@@ -21,6 +21,7 @@ System.config({
     "radium": "npm:radium@0.14.1",
     "react": "npm:react@0.13.3",
     "react-router": "npm:react-router@1.0.0-rc3",
+    "react-tap-event-plugin": "npm:react-tap-event-plugin@0.1.8",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

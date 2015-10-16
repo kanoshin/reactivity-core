@@ -2,6 +2,9 @@ import React from 'react'
 import { Router, Route, Link, IndexRoute } from 'react-router'
 import { Dashboard } from 'reactivity'
 import Layout from 'lib-template/layout.jsx'
+import initTouchPlugin from 'react-tap-event-plugin'
+
+initTouchPlugin();
 
 export default {
     run: () => {
