@@ -3,6 +3,9 @@ import { AppBar, LeftNav, IconButton } from 'material-ui'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
+import MenuItem from 'material-ui/lib/menus/menu-item'
+import IconMenu from 'material-ui/lib/menus/icon-menu'
+import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 
 let menuItems = [
     { route: 'dashboard', text: 'Dashboard' },
@@ -27,6 +30,9 @@ class Layout extends React.Component {
 				wide: {
 					marginLeft: '20px'
 				}
+			},
+			moreVertIcon: {
+				fill: '#FFFFFF'
 			}
 		};
 		this._toggleNav = this._toggleNav.bind(this);
@@ -39,7 +45,16 @@ class Layout extends React.Component {
 			<AppBar ref='appBar' 
 			title='Reactivity' 
 			onLeftIconButtonTouchTap={this._toggleNav} 
-			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} />
+			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
+			iconElementRight={
+					<IconMenu iconButtonElement={
+						<IconButton > <MoreVertIcon style={this.styles.moreVertIcon}  /></IconButton>
+					}>
+						<MenuItem primaryText="Settings" />
+						<MenuItem primaryText="Sign out" />
+					</IconMenu>
+				}
+			/>
 			<LeftNav ref='nav'
 				docked={true}
 				menuItems={menuItems}
