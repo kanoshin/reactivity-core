@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
 			{grids.map((grid) => { return (
 				<Grid>
 					{grid.map((widget) => { return (
-						<Cell>{widget}</Cell>
+						<Cell size={widget.props.width + '/13'}>{widget}</Cell>
 						); })}
 				</Grid>
 				); })}

@@ -1,11 +1,13 @@
 import React from 'react'
+import { Card, CardText } from 'material-ui'
 
 class Widget extends React.Component {
 	render() {
 		return (
-			<div>
-				Ima widget.
-			</div>);
+			<Card>
+				{this.props.children}
+			</Card>
+			);
 	}
 }
 
