@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, LeftNav, IconButton } from 'material-ui'
+import { AppBar, LeftNav, IconButton, Avatar } from 'material-ui'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -31,8 +31,18 @@ class Layout extends React.Component {
 					marginLeft: '20px'
 				}
 			},
-			moreVertIcon: {
-				fill: '#FFFFFF'
+			rightBlock: {
+				avatarWrapper: {
+					display: 'inline-block',
+					verticalAlign: 'top',
+					paddingTop: '5px'
+				},
+				iconMenu: {
+					verticalAlign: 'top'
+				},
+				moreVertIcon: {
+					fill: '#FFFFFF'
+				}
 			}
 		};
 		this._toggleNav = this._toggleNav.bind(this);
@@ -47,12 +57,17 @@ class Layout extends React.Component {
 			onLeftIconButtonTouchTap={this._toggleNav} 
 			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
 			iconElementRight={
-					<IconMenu iconButtonElement={
-						<IconButton > <MoreVertIcon style={this.styles.moreVertIcon}  /></IconButton>
-					}>
-						<MenuItem primaryText="Settings" />
-						<MenuItem primaryText="Sign out" />
-					</IconMenu>
+					<div>
+						<div style={this.styles.rightBlock.avatarWrapper}>
+							<Avatar src='lib-template/content/avatar.jpg' />
+						</div>
+						<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
+							<IconButton > <MoreVertIcon style={this.styles.rightBlock.moreVertIcon}  /></IconButton>
+							}>
+							<MenuItem primaryText="Settings" />
+							<MenuItem primaryText="Sign out" />
+						</IconMenu>
+					</div>
 				}
 			/>
 			<LeftNav ref='nav'
