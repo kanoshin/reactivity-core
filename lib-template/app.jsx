@@ -9,14 +9,10 @@ import { createHistory } from 'history'
 
 initTouchPlugin();
 
-let history = createHistory({
-  queryKey: false
-});
-
 export default {
     run: () => {
         React.render((
-            <Router history={history}>
+            <Router history={createHistory()}>
                 <Route path="/" component={Layout}>
                     <IndexRoute component={Dashboard}/>
                     <Route name='charts' path="/charts" component={Charts}/>

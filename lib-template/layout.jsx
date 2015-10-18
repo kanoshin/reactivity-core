@@ -8,9 +8,9 @@ import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 
 let menuItems = [
-    { route: 'dashboard', text: 'Dashboard' },
-    { route: 'charts', text: 'Charts' },
-    { route: 'forms', text: 'Forms' }
+    { route: '/', text: 'Dashboard' },
+    { route: '/charts', text: 'Charts' },
+    { route: '/forms', text: 'Forms' }
   ];
 
 class Layout extends React.Component {
@@ -46,6 +46,8 @@ class Layout extends React.Component {
 			}
 		};
 		this._toggleNav = this._toggleNav.bind(this);
+		this._changeLocation = this._changeLocation.bind(this);
+		this._currentNavIndex = this._currentNavIndex.bind(this);
 		this.state = { menuOpen: true };
 	}
 
@@ -53,27 +55,29 @@ class Layout extends React.Component {
 		return (
 		<div>
 			<AppBar ref='appBar' 
-			title='Reactivity' 
-			onLeftIconButtonTouchTap={this._toggleNav} 
-			iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
-			iconElementRight={
-					<div>
-						<div style={this.styles.rightBlock.avatarWrapper}>
-							<Avatar src='lib-template/content/avatar.jpg' />
+				title='Reactivity' 
+				onLeftIconButtonTouchTap={this._toggleNav} 
+				iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
+				iconElementRight={
+						<div>
+							<div style={this.styles.rightBlock.avatarWrapper}>
+								<Avatar src='lib-template/content/avatar.jpg' />
+							</div>
+							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
+								<IconButton > <MoreVertIcon style={this.styles.rightBlock.moreVertIcon}  /></IconButton>
+								}>
+								<MenuItem primaryText="Settings" />
+								<MenuItem primaryText="Sign out" />
+							</IconMenu>
 						</div>
-						<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
-							<IconButton > <MoreVertIcon style={this.styles.rightBlock.moreVertIcon}  /></IconButton>
-							}>
-							<MenuItem primaryText="Settings" />
-							<MenuItem primaryText="Sign out" />
-						</IconMenu>
-					</div>
-				}
-			/>
+					}
+				/>
 			<LeftNav ref='nav'
 				docked={true}
 				menuItems={menuItems}
-				style={this.styles.navBar} />
+				style={this.styles.navBar}
+				onChange={this._changeLocation}
+				selectedIndex={this._currentNavIndex()} />
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
@@ -85,6 +89,15 @@ class Layout extends React.Component {
 	_toggleNav() {
 		this.refs.nav.toggle();
 		this.setState({menuOpen: !this.refs.nav.state.open});
+	}
+	
+	_changeLocation(e, i, item) {
+		this.props.history.replaceState({}, item.route)
+	}
+	
+	_currentNavIndex() {
+		let currentPath = this.props.location.pathname;
+		return menuItems.findIndex((item) => currentPath === item.route);
 	}
 }
 
