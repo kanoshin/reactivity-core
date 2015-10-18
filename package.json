@@ -27,11 +27,13 @@
   "jspm": {
     "format": "es6",
     "dependencies": {
+      "css": "github:systemjs/plugin-css@^0.1.18",
       "history": "npm:history@^1.12.5",
       "material-ui": "npm:material-ui@^0.12.3",
       "radium": "npm:radium@^0.14.1",
       "react": "npm:react@^0.14.0",
       "react-dom": "npm:react-dom@^0.14.0",
+      "react-flexr": "npm:react-flexr@^2.0.2",
       "react-router": "npm:react-router@^1.0.0-rc3"
     },
     "devDependencies": {

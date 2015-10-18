@@ -17,10 +17,13 @@ System.config({
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
     "core-js": "npm:core-js@1.2.1",
+    "css": "github:systemjs/plugin-css@0.1.18",
     "history": "npm:history@1.12.5",
     "material-ui": "npm:material-ui@0.12.3",
     "radium": "npm:radium@0.14.1",
     "react": "npm:react@0.13.3",
+    "react-dom": "npm:react-dom@0.14.0",
+    "react-flexr": "npm:react-flexr@2.0.2",
     "react-router": "npm:react-router@1.0.0-rc3",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@0.1.8",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -455,8 +458,9 @@ System.config({
       "promise": "npm:promise@7.0.4",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
-    "npm:fbjs@0.3.1": {
+    "npm:fbjs@0.3.2": {
       "core-js": "npm:core-js@1.2.1",
+      "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
       "ua-parser-js": "npm:ua-parser-js@0.7.9",
@@ -755,6 +759,12 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:loose-envify@1.1.0": {
+      "js-tokens": "npm:js-tokens@1.0.2",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
     "npm:material-ui@0.12.3": {
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -965,6 +975,10 @@ System.config({
     "npm:react-dom@0.14.0": {
       "react": "npm:react@0.14.0"
     },
+    "npm:react-flexr@2.0.2": {
+      "react": "npm:react@0.13.3",
+      "stilr": "npm:stilr@1.2.1"
+    },
     "npm:react-router@1.0.0-rc3": {
       "history": "npm:history@1.12.3",
       "invariant": "npm:invariant@2.1.1",
@@ -982,7 +996,7 @@ System.config({
     },
     "npm:react@0.14.0": {
       "envify": "npm:envify@3.4.0",
-      "fbjs": "npm:fbjs@0.3.1",
+      "fbjs": "npm:fbjs@0.3.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:readable-stream@1.0.33": {
@@ -1107,6 +1121,10 @@ System.config({
     "npm:source-map@0.4.4": {
       "amdefine": "npm:amdefine@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:stilr@1.2.1": {
+      "babel-runtime": "npm:babel-runtime@5.8.25",
+      "react": "npm:react@0.14.0"
     },
     "npm:stream-browserify@1.0.0": {
       "events": "github:jspm/nodelibs-events@0.1.1",
