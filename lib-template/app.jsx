@@ -1,9 +1,9 @@
 import React from 'react'
 import { Router, Route, Link, IndexRoute } from 'react-router'
-import { Dashboard } from 'reactivity'
 import Layout from 'lib-template/layout.jsx'
-import Charts from 'lib-template/charts.jsx'
-import Forms from 'lib-template/forms.jsx'
+import ChartsPage from 'lib-template/charts-page.jsx'
+import FormsPage from 'lib-template/forms-page.jsx'
+import DashboardPage from 'lib-template/dashboard-page.jsx'
 import initTouchPlugin from 'react-tap-event-plugin'
 import { createHistory } from 'history'
 
@@ -14,13 +14,10 @@ export default {
         React.render((
             <Router history={createHistory()}>
                 <Route path="/" component={Layout}>
-                    <IndexRoute component={Dashboard}/>
-                    <Route name='charts' path="/charts" component={Charts}/>
-                    <Route name='forms' path="/forms" component={Forms}/>
-                    {/*<Route path="users" component={Users}>
-                        <Route path="/user/:userId" component={User}/>
-                    </Route>
-                    <Route path="*" component={NoMatch}/>*/}
+                    <IndexRoute component={DashboardPage}/>
+                    <Route name='charts' path="/charts" component={ChartsPage}/>
+                    <Route name='forms' path="/forms" component={FormsPage}/>
+                    {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
             </Router>
         ), document.body)
