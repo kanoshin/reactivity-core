@@ -26,6 +26,7 @@
   "jspm": {
     "format": "es6",
     "dependencies": {
+      "history": "npm:history@^1.12.5",
       "material-ui": "npm:material-ui@^0.12.3",
       "radium": "npm:radium@^0.14.1",
       "react": "npm:react@^0.14.0",
