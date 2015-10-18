@@ -1,10 +1,10 @@
 import React from 'react'
-import { Card, CardText } from 'material-ui'
+import { Card } from 'material-ui'
 
 class Widget extends React.Component {
 	render() {
 		return (
-			<Card>
+			<Card {...this.props}>
 				{this.props.children}
 			</Card>
 			);

@@ -4,7 +4,7 @@ import { CardText } from 'material-ui'
 class WidgetText extends React.Component {
 	render() {
 		return (
-			<CardText>
+			<CardText {...this.props}>
 				{this.props.children}
 			</CardText>
 			);
