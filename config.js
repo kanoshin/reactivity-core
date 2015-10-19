@@ -3,6 +3,8 @@ System.config({
   defaultJSExtensions: true,
   transpiler: "babel",
   babelOptions: {
+    "blacklist": [],
+    "stage": 0,
     "optional": [
       "runtime",
       "optimisation.modules.system"

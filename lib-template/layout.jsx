@@ -18,8 +18,7 @@ class Layout extends React.Component {
 		super();
 		this.styles = {
 			navBar: {
-				marginTop: '65px',
-				zIndex: 0
+				marginTop: '65px'
 			},
 			workZone: {
 				default: {

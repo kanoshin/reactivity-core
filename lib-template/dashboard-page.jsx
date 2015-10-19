@@ -1,20 +1,18 @@
 import React from 'react'
 import { IconButton } from 'material-ui'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
-import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetControls } from 'reactivity'
+import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetControls, WidgetCloseControl } from 'reactivity'
 
 class DashboardPage extends React.Component {
 	render() {
 		return (
-			<Dashboard>
+			<Dashboard fullHeight={true}>
 				<Widget width={6}>
 					<WidgetHeader
 						title="Title"
 						subtitle="Subtitle">
 						<WidgetControls>
-							<IconButton onTouchTap={this._toggleNav}>
-								<NavigationClose />
-							</IconButton>
+							<WidgetCloseControl />
 						</WidgetControls>
 					</WidgetHeader>
 					<WidgetText>
@@ -29,9 +27,12 @@ class DashboardPage extends React.Component {
 						title="Title"
 						subtitle="Subtitle"
 						actAsExpander={true}
-						showExpandableButton={true}
-						avatar={<div></div>} />
+						showExpandableButton={true} />
 					<WidgetText expandable={true}>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
 						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
@@ -39,6 +40,11 @@ class DashboardPage extends React.Component {
 					</WidgetText>
 				</Widget>
 				<Widget width={9}>
+					<WidgetHeader>
+						<WidgetControls>
+							<WidgetCloseControl />
+						</WidgetControls>
+					</WidgetHeader>
 					<WidgetText>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
