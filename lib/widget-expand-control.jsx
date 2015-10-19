@@ -1,12 +1,13 @@
 import React from 'react'
 import { IconButton } from 'material-ui'
-import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
+import ExpandLess from 'material-ui/lib/svg-icons/navigation/expand-less'
+import ExpandMore from 'material-ui/lib/svg-icons/navigation/expand-more'
 
 class WidgetCloseControl extends React.Component {
 	render() {
 		return (
 			<IconButton onTouchTap={this.props.onTouchTap}>
-				<NavigationClose />
+				<ExpandLess />
 			</IconButton>
 			);
 	}

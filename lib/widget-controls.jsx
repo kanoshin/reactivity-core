@@ -6,11 +6,9 @@ class WidgetControls extends React.Component {
 		super();
 		this.styles = {
 			wrapper: {
-				display: 'inline-block',
-				float: 'right',
-				verticalAlign: 'top',
-				marginTop: '-6px',
-				marginRight: '-12px'
+				position: 'absolute',
+				right: '5px',
+				zIndex: '5'
 			}
 		};
 	}

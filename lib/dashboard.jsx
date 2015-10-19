@@ -6,17 +6,20 @@ import { Widget } from 'reactivity'
 
 class Dashboard extends React.Component {
 	render() {
+		let widgets = React.Children.map(this.props.children, (child) => {
+			if (child.type === Widget) {
+				return React.addons.cloneWithProps(child, {
+						fullHeight: this.props.fullHeight
+					});
+			}
+			else {
+				return child;
+			}
+		});
 		return (
 			<div>
 				<Grid>
-					{React.Children.map(this.props.children, (child) => {
-						if (child.type === Widget)
-							return React.addons.cloneWithProps(child, {
-									fullHeight: this.props.fullHeight
-								});
-						else
-							return child;
-						})}
+					{widgets}
 				</Grid>
 			</div>
 			);

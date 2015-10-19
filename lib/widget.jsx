@@ -1,32 +1,62 @@
 import React from 'react'
-import { Card } from 'material-ui'
 import Radium from 'radium'
 import { Cell } from 'react-flexr';
 import 'react-flexr/styles.css!'
+import { WidgetExpandControl, WidgetCloseControl, WidgetRefreshControl, WidgetControls } from 'reactivity'
+import { Card } from 'material-ui'
 
 class Widget extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			isOpen: true
+			isOpen: true,
+			controls: [],
+			expanded: props.initiallyExpanded
 		};
-		let hasExpander = false;
+		
+		if(props.onRefresh) {
+			this.state.controls.push(<WidgetRefreshControl onTouchTap={props.onRefresh} />);
+		}
+		
+		let hasExpandableChild = false;
 		React.Children.forEach(props.children, (child) => {
-			if(child.props.actAsExpander){
-				hasExpander = true;
+			if(hasExpandableChild) {
+				return;
+			}
+			if(child.props.expandable) {
+				hasExpandableChild = true;
 			}
 		});
-		this.state.isExpanded = !hasExpander || !!props.initiallyExpanded;
+		
+		this.state.hasExpandableChild = hasExpandableChild;
+		
+		if(hasExpandableChild) {
+			this.state.controls.push(<WidgetExpandControl onTouchTap={this._toggleExpand} />);
+		}
+			
+		if(props.closeControl) {
+			this.state.controls.push(<WidgetCloseControl onTouchTap={this._toggleClose} />);
+		}
+		
 		this.styles = {
 			default: {
-				paddingBottom: '10px'
+				paddingBottom: '20px'
 			},
 			closed: {
 				display: 'none'
 			},
 			fullHeight: {
 				display: 'flex'
+			},
+			relative: {
+				position: 'relative'
 			}
+		};
+	}
+	
+	getDefaultProps() {
+		return {
+			initiallyExpanded: false
 		};
 	}
 
@@ -36,8 +66,14 @@ class Widget extends React.Component {
 	
 	render() {
 		return (
-			<Cell size={this.props.width + '/13'} style={Object.assign({}, this.styles.default, this.props.fullHeight && this.state.isExpanded && this.styles.fullHeight, !this.state.isOpen && this.styles.closed)}>
-				<Card {...this.props} onExpandChange={this._onExpandChange}>
+			<Cell size={this.props.width + '/13'} style={Object.assign({}, 
+				this.styles.default, 
+				this.props.fullHeight && (!this.state.hasExpandableChild || this.state.expanded) && this.styles.fullHeight, 
+				!this.state.isOpen && this.styles.closed)}>
+				<Card ref={'card'} {...this.props} style={this.styles.relative}>
+					<WidgetControls>
+						{this.state.controls}
+					</WidgetControls>
 					{this.props.children}
 				</Card>
 			</Cell>
@@ -48,12 +84,13 @@ class Widget extends React.Component {
 		close: React.PropTypes.func
 	}
 	
-	_close = () => {
+	_toggleClose = () => {
 		this.setState({isOpen: false});
 	}
 	
-	_onExpandChange = (isExpanded) => {
-		this.setState({isExpanded: isExpanded});
+	_toggleExpand = () => {
+		this.refs.card._onExpandable();
+		this.setState({expanded: !this.state.expanded});
 	}
 }
 

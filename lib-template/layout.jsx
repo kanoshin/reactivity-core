@@ -6,6 +6,7 @@ import Menu from 'material-ui/lib/svg-icons/navigation/menu'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
+import Message from 'material-ui/lib/svg-icons/communication/message';
 
 let menuItems = [
     { route: '/', text: 'Dashboard' },
@@ -34,12 +35,13 @@ class Layout extends React.Component {
 				avatarWrapper: {
 					display: 'inline-block',
 					verticalAlign: 'top',
-					paddingTop: '5px'
+					paddingTop: '5px',
+					paddingRight: '12px'
 				},
 				iconMenu: {
 					verticalAlign: 'top'
 				},
-				moreVertIcon: {
+				icon: {
 					fill: '#FFFFFF'
 				}
 			}
@@ -62,8 +64,9 @@ class Layout extends React.Component {
 							<div style={this.styles.rightBlock.avatarWrapper}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
+							<IconButton > <Message style={this.styles.rightBlock.icon}  /></IconButton>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
-								<IconButton > <MoreVertIcon style={this.styles.rightBlock.moreVertIcon}  /></IconButton>
+								<IconButton > <MoreVertIcon style={this.styles.rightBlock.icon}  /></IconButton>
 								}>
 								<MenuItem primaryText="Settings" />
 								<MenuItem primaryText="Sign out" />
