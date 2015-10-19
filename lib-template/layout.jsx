@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, LeftNav, IconButton, Avatar } from 'material-ui'
+import { MessageNav } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -49,6 +50,7 @@ class Layout extends React.Component {
 		this._toggleNav = this._toggleNav.bind(this);
 		this._changeLocation = this._changeLocation.bind(this);
 		this._currentNavIndex = this._currentNavIndex.bind(this);
+		this._toggleMessageNav = this._toggleMessageNav.bind(this);
 		this.state = { menuOpen: true };
 	}
 
@@ -64,7 +66,7 @@ class Layout extends React.Component {
 							<div style={this.styles.rightBlock.avatarWrapper}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
-							<IconButton > <Message style={this.styles.rightBlock.icon}  /></IconButton>
+							<IconButton onTouchTap={this._toggleMessageNav}> <Message style={this.styles.rightBlock.icon}  /></IconButton>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
 								<IconButton > <MoreVertIcon style={this.styles.rightBlock.icon}  /></IconButton>
 								}>
@@ -80,6 +82,11 @@ class Layout extends React.Component {
 				style={this.styles.navBar}
 				onChange={this._changeLocation}
 				selectedIndex={this._currentNavIndex()} />
+			<MessageNav 
+				ref={'messageNav'}
+				openRight={true} 
+				menuItems={[]} 
+				style={this.styles.navBar} />
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
@@ -100,6 +107,10 @@ class Layout extends React.Component {
 	_currentNavIndex() {
 		let currentPath = this.props.location.pathname;
 		return menuItems.findIndex((item) => currentPath === item.route);
+	}
+	
+	_toggleMessageNav() {
+		this.refs.messageNav.toggle();
 	}
 }
 
