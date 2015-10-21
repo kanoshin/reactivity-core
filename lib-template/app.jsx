@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { Router, Route, Link, IndexRoute } from 'react-router'
 import Layout from 'lib-template/layout.jsx'
 import ChartsPage from 'lib-template/charts-page.jsx'
@@ -11,7 +12,7 @@ initTouchPlugin();
 
 export default {
     run: () => {
-        React.render((
+        ReactDOM.render((
             <Router history={createHistory()}>
                 <Route path="/" component={Layout}>
                     <IndexRoute component={DashboardPage}/>
