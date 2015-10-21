@@ -7,6 +7,18 @@ class DashboardPage extends React.Component {
 	render() {
 		return (
 			<Dashboard fullHeight={true}>
+				<Widget width={12} closeControl={true}>
+					<WidgetHeader
+						title="Title"
+						subtitle="Subtitle">
+					</WidgetHeader>
+					<WidgetText>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+					</WidgetText>
+				</Widget>
 				<Widget width={6} closeControl={true}>
 					<WidgetHeader
 						title="Title"

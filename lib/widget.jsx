@@ -40,7 +40,7 @@ class Widget extends React.Component {
 		
 		this.styles = {
 			default: {
-				paddingBottom: '20px'
+				padding: '0'
 			},
 			closed: {
 				display: 'none'
@@ -48,16 +48,15 @@ class Widget extends React.Component {
 			fullHeight: {
 				display: 'flex'
 			},
-			relative: {
-				position: 'relative'
+			card: {
+				position: 'relative',
+				margin: '10px'
 			}
 		};
 	}
 	
-	getDefaultProps() {
-		return {
-			initiallyExpanded: false
-		};
+	static defaultProps = {
+		initiallyExpanded: false
 	}
 
 	getChildContext() {
@@ -70,7 +69,7 @@ class Widget extends React.Component {
 				this.styles.default, 
 				this.props.fullHeight && (!this.state.hasExpandableChild || this.state.expanded) && this.styles.fullHeight, 
 				!this.state.isOpen && this.styles.closed)}>
-				<Card ref={'card'} {...this.props} style={this.styles.relative}>
+				<Card ref={'card'} {...this.props} style={this.styles.card}>
 					<WidgetControls>
 						{this.state.controls}
 					</WidgetControls>
