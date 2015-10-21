@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
 	render() {
 		let widgets = React.Children.map(this.props.children, (child) => {
 			if (child.type === Widget) {
-				return React.addons.cloneWithProps(child, {
+				return React.cloneElement(child, {
 						fullHeight: this.props.fullHeight
 					});
 			}

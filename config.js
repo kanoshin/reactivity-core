@@ -18,16 +18,16 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
-    "core-js": "npm:core-js@1.2.1",
+    "core-js": "npm:core-js@1.2.2",
     "css": "github:systemjs/plugin-css@0.1.18",
     "history": "npm:history@1.12.5",
-    "material-ui": "npm:material-ui@0.12.3",
+    "material-ui": "npm:material-ui@0.12.4",
     "radium": "npm:radium@0.14.1",
-    "react": "npm:react@0.13.3",
+    "react": "npm:react@0.14.0",
     "react-dom": "npm:react-dom@0.14.0",
     "react-flexr": "npm:react-flexr@2.0.2",
     "react-router": "npm:react-router@1.0.0-rc3",
-    "react-tap-event-plugin": "npm:react-tap-event-plugin@0.1.8",
+    "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.1",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -347,8 +347,9 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
-    "npm:core-js@1.2.1": {
+    "npm:core-js@1.2.2": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
@@ -455,13 +456,13 @@ System.config({
       "success-symbol": "npm:success-symbol@0.1.0"
     },
     "npm:fbjs@0.2.1": {
-      "core-js": "npm:core-js@1.2.1",
+      "core-js": "npm:core-js@1.2.2",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
     "npm:fbjs@0.3.2": {
-      "core-js": "npm:core-js@1.2.1",
+      "core-js": "npm:core-js@1.2.2",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
@@ -767,12 +768,16 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
-    "npm:material-ui@0.12.3": {
+    "npm:material-ui@0.12.4": {
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@0.13.3",
-      "react-draggable2": "npm:react-draggable2@0.5.1",
-      "react-tap-event-plugin": "npm:react-tap-event-plugin@0.1.8"
+      "react": "npm:react@0.14.0",
+      "react-addons-create-fragment": "npm:react-addons-create-fragment@0.14.0",
+      "react-addons-pure-render-mixin": "npm:react-addons-pure-render-mixin@0.14.0",
+      "react-addons-transition-group": "npm:react-addons-transition-group@0.14.0",
+      "react-addons-update": "npm:react-addons-update@0.14.0",
+      "react-dom": "npm:react-dom@0.14.0",
+      "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.1"
     },
     "npm:micromatch@2.2.0": {
       "arr-diff": "npm:arr-diff@1.1.0",
@@ -974,11 +979,23 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "strip-json-comments": "npm:strip-json-comments@0.1.3"
     },
+    "npm:react-addons-create-fragment@0.14.0": {
+      "react": "npm:react@0.14.0"
+    },
+    "npm:react-addons-pure-render-mixin@0.14.0": {
+      "react": "npm:react@0.14.0"
+    },
+    "npm:react-addons-transition-group@0.14.0": {
+      "react": "npm:react@0.14.0"
+    },
+    "npm:react-addons-update@0.14.0": {
+      "react": "npm:react@0.14.0"
+    },
     "npm:react-dom@0.14.0": {
       "react": "npm:react@0.14.0"
     },
     "npm:react-flexr@2.0.2": {
-      "react": "npm:react@0.13.3",
+      "react": "npm:react@0.14.0",
       "stilr": "npm:stilr@1.2.1"
     },
     "npm:react-router@1.0.0-rc3": {
@@ -986,15 +1003,9 @@ System.config({
       "invariant": "npm:invariant@2.1.1",
       "warning": "npm:warning@2.1.0"
     },
-    "npm:react-tap-event-plugin@0.1.8": {
+    "npm:react-tap-event-plugin@0.2.1": {
       "fbjs": "npm:fbjs@0.2.1",
-      "react": "npm:react@0.13.3",
-      "react-dom": "npm:react-dom@0.14.0"
-    },
-    "npm:react@0.13.3": {
-      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
-      "envify": "npm:envify@3.4.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
+      "react": "npm:react@0.14.0"
     },
     "npm:react@0.14.0": {
       "envify": "npm:envify@3.4.0",
