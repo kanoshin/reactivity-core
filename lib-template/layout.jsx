@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, LeftNav, IconButton, Avatar } from 'material-ui'
+import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld } from 'material-ui'
 import { MessageNav } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
@@ -13,6 +13,7 @@ let menuItems = [
     { route: '/', text: 'Dashboard' },
     { route: '/charts', text: 'Charts' },
     { route: '/forms', text: 'Forms' },
+	{ type: MenuItemOld.Types.SUBHEADER, text: 'Pages' },
 	{ route: '/logins', text: 'Logins' }
   ];
 
