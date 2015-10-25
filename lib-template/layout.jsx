@@ -20,14 +20,18 @@ class Layout extends React.Component {
 	constructor() {
 		super();
 		this.styles = {
+			appBar: {
+				position: 'fixed',
+				top: '0'
+			},
 			navBar: {
 				marginTop: '65px'
 			},
 			workZone: {
 				default: {
-			    	marginTop: '20px',
+			    	marginTop: '88px',
     				marginLeft: '300px',
-					marginRight: '20px'
+					marginRight: '35px'
 				},
 				wide: {
 					marginLeft: '20px'
@@ -76,6 +80,7 @@ class Layout extends React.Component {
 							</IconMenu>
 						</div>
 					}
+				style={this.styles.appBar}
 				/>
 			<LeftNav ref='nav'
 				docked={true}

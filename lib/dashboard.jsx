@@ -17,11 +17,9 @@ class Dashboard extends React.Component {
 			}
 		});
 		return (
-			<div>
-				<Grid>
-					{widgets}
-				</Grid>
-			</div>
+			<Grid>
+				{widgets}
+			</Grid>
 			);
 	}
 }

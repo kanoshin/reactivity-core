@@ -48,9 +48,15 @@ class Widget extends React.Component {
 			fullHeight: {
 				display: 'flex'
 			},
+			cardWrapper: {
+				padding: '10px', 
+				width: '100%', 
+				display: 'flex', 
+				boxSizing: 'border-box'
+			},
 			card: {
 				position: 'relative',
-				margin: '10px'
+				width: '100%'
 			}
 		};
 	}
@@ -65,16 +71,18 @@ class Widget extends React.Component {
 	
 	render() {
 		return (
-			<Cell size={this.props.width + '/13'} style={Object.assign({}, 
+			<Cell size={this.props.width + '/12'} style={Object.assign({}, 
 				this.styles.default, 
 				this.props.fullHeight && (!this.state.hasExpandableChild || this.state.expanded) && this.styles.fullHeight, 
 				!this.state.isOpen && this.styles.closed)}>
+				<div style={this.styles.cardWrapper}>
 				<Card ref={'card'} {...this.props} style={this.styles.card}>
 					<WidgetControls>
 						{this.state.controls}
 					</WidgetControls>
 					{this.props.children}
 				</Card>
+				</div>
 			</Cell>
 			);
 	}
