@@ -8,6 +8,7 @@ import WidgetExpandControl from 'lib/widget-expand-control.jsx'
 import WidgetRefreshControl from 'lib/widget-refresh-control.jsx'
 import WidgetActions from 'lib/widget-actions.jsx'
 import MessageNav from 'lib/message-nav.jsx'
+import Login from 'lib/login.jsx'
 
 export {Dashboard}
 export {Widget}
@@ -19,3 +20,4 @@ export {WidgetExpandControl}
 export {WidgetRefreshControl}
 export {WidgetActions}
 export {MessageNav}
+export {Login}

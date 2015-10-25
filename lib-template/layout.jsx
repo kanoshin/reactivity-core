@@ -12,7 +12,8 @@ import Message from 'material-ui/lib/svg-icons/communication/message';
 let menuItems = [
     { route: '/', text: 'Dashboard' },
     { route: '/charts', text: 'Charts' },
-    { route: '/forms', text: 'Forms' }
+    { route: '/forms', text: 'Forms' },
+	{ route: '/logins', text: 'Logins' }
   ];
 
 class Layout extends React.Component {
