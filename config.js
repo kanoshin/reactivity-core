@@ -18,12 +18,13 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.25",
-    "core-js": "npm:core-js@1.2.2",
+    "core-js": "npm:core-js@1.2.3",
     "css": "github:systemjs/plugin-css@0.1.18",
     "history": "npm:history@1.12.5",
     "material-ui": "npm:material-ui@0.12.4",
     "radium": "npm:radium@0.14.1",
     "react": "npm:react@0.14.0",
+    "react-chartjs": "npm:react-chartjs@0.6.0",
     "react-dom": "npm:react-dom@0.14.0",
     "react-flexr": "npm:react-flexr@2.0.2",
     "react-router": "npm:react-router@1.0.0-rc3",
@@ -303,6 +304,11 @@ System.config({
       "strip-ansi": "npm:strip-ansi@3.0.0",
       "supports-color": "npm:supports-color@2.0.0"
     },
+    "npm:chart.js@1.0.2": {
+      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
     "npm:chokidar@1.2.0": {
       "anymatch": "npm:anymatch@1.3.0",
       "arrify": "npm:arrify@1.0.0",
@@ -347,7 +353,7 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
-    "npm:core-js@1.2.2": {
+    "npm:core-js@1.2.3": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -456,13 +462,13 @@ System.config({
       "success-symbol": "npm:success-symbol@0.1.0"
     },
     "npm:fbjs@0.2.1": {
-      "core-js": "npm:core-js@1.2.2",
+      "core-js": "npm:core-js@1.2.3",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
       "whatwg-fetch": "npm:whatwg-fetch@0.9.0"
     },
     "npm:fbjs@0.3.2": {
-      "core-js": "npm:core-js@1.2.2",
+      "core-js": "npm:core-js@1.2.3",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "promise": "npm:promise@7.0.4",
@@ -989,6 +995,10 @@ System.config({
       "react": "npm:react@0.14.0"
     },
     "npm:react-addons-update@0.14.0": {
+      "react": "npm:react@0.14.0"
+    },
+    "npm:react-chartjs@0.6.0": {
+      "chart.js": "npm:chart.js@1.0.2",
       "react": "npm:react@0.14.0"
     },
     "npm:react-dom@0.14.0": {

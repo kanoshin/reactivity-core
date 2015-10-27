@@ -11,7 +11,7 @@ import Message from 'material-ui/lib/svg-icons/communication/message';
 
 let menuItems = [
     { route: '/', text: 'Dashboard' },
-    { route: '/charts', text: 'Charts' },
+    { route: '/chartjs', text: 'ChartJs' },
     { route: '/forms', text: 'Forms' },
 	{ type: MenuItemOld.Types.SUBHEADER, text: 'Pages' },
 	{ route: '/logins', text: 'Logins' }
