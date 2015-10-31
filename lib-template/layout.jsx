@@ -11,7 +11,7 @@ import Message from 'material-ui/lib/svg-icons/communication/message';
 
 let menuItems = [
     { route: '/', text: 'Dashboard' },
-    { route: '/chartjs', text: 'ChartJs' },
+    { route: '/chartjs', text: 'Chart.js' },
     { route: '/forms', text: 'Forms' },
 	{ type: MenuItemOld.Types.SUBHEADER, text: 'Pages' },
 	{ route: '/logins', text: 'Logins' }
@@ -105,6 +105,7 @@ class Layout extends React.Component {
 	_toggleNav() {
 		this.refs.nav.toggle();
 		this.setState({menuOpen: !this.refs.nav.state.open});
+		window.dispatchEvent(new Event('resize'));
 	}
 	
 	_changeLocation(e, i, item) {
