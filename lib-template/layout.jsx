@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld } from 'material-ui'
-import { MessageNav } from 'reactivity'
+import { MessageNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -83,12 +83,16 @@ class Layout extends React.Component {
 					}
 				style={this.styles.appBar}
 				/>
-			<LeftNav ref='nav'
+			<Nav ref='nav'
 				docked={true}
-				menuItems={menuItems}
-				style={this.styles.navBar}
-				onChange={this._changeLocation}
-				selectedIndex={this._currentNavIndex()} />
+				style={this.styles.navBar}>
+				<NavMenuItem route='/'>Dashboard</NavMenuItem>
+				<NavBlock text='Charts'>
+					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
+				</NavBlock>
+				<NavMenuItem route='/forms'>Forms</NavMenuItem>
+				<NavMenuItem route='/logins'>Login</NavMenuItem>
+			</Nav>
 			<MessageNav 
 				ref={'messageNav'}
 				openRight={true} 
@@ -120,6 +124,18 @@ class Layout extends React.Component {
 	_toggleMessageNav() {
 		this.refs.messageNav.toggle();
 	}
+	
+	static childContextTypes = {
+    	location: React.PropTypes.object,
+		history: React.PropTypes.object
+ 	}
+  
+  	getChildContext() {
+    	return {
+			location: this.props.location,
+			history: this.props.history
+		};
+  	}
 }
 
 Layout = Radium(Layout);

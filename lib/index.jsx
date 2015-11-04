@@ -13,6 +13,9 @@ import Login from 'lib/login.jsx'
 import Grid from 'lib/Grid.jsx'
 import Cell from 'lib/Cell.jsx'
 import Login2 from 'lib/login2.jsx'
+import Nav from 'lib/nav.jsx'
+import NavMenuItem from 'lib/nav-menu-item.jsx'
+import NavBlock from 'lib/nav-block.jsx'
 
 export {Dashboard}
 export {Widget}
@@ -27,3 +30,6 @@ export {WidgetActions}
 export {MessageNav}
 export {Login, Grid, Cell}
 export {Login2}
+export {Login}
+export {Nav}
+export {NavMenuItem, NavBlock}
