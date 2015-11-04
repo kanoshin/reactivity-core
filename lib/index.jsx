@@ -12,6 +12,7 @@ import MessageNav from 'lib/message-nav.jsx'
 import Login from 'lib/login.jsx'
 import Grid from 'lib/Grid.jsx'
 import Cell from 'lib/Cell.jsx'
+import Login2 from 'lib/login2.jsx'
 
 export {Dashboard}
 export {Widget}
@@ -25,3 +26,4 @@ export {WidgetRefreshControl}
 export {WidgetActions}
 export {MessageNav}
 export {Login, Grid, Cell}
+export {Login2}
