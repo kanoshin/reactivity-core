@@ -10,6 +10,8 @@ import WidgetRefreshControl from 'lib/widget-refresh-control.jsx'
 import WidgetActions from 'lib/widget-actions.jsx'
 import MessageNav from 'lib/message-nav.jsx'
 import Login from 'lib/login.jsx'
+import Grid from 'lib/Grid.jsx'
+import Cell from 'lib/Cell.jsx'
 
 export {Dashboard}
 export {Widget}
@@ -22,4 +24,4 @@ export {WidgetExpandControl}
 export {WidgetRefreshControl}
 export {WidgetActions}
 export {MessageNav}
-export {Login}
+export {Login, Grid, Cell}
