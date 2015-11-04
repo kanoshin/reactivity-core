@@ -1,6 +1,8 @@
 import React from 'react'
 import MenuItem from 'material-ui/lib/menus/menu-item'
 import Radium from 'radium'
+import ExpandLess from 'material-ui/lib/svg-icons/navigation/expand-less'
+import ExpandMore from 'material-ui/lib/svg-icons/navigation/expand-more'
 
 let styles = {
 	default: {
@@ -31,7 +33,10 @@ class NavBlock extends React.Component {
 	render() {
 		return (
 			<div>
-				<MenuItem primaryText={this.props.text} onTouchTap={this._toggle} />
+				<MenuItem 
+					primaryText={this.props.text} 
+					onTouchTap={this._toggle} 
+					rightIcon={this.state.open ? <ExpandLess /> : <ExpandMore />} />
 				<div style={[styles.default, !this.state.open && styles.closed]}>
 					{this.props.children}
 				</div>

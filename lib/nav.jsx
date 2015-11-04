@@ -25,13 +25,17 @@ class Nav extends React.Component {
 			getId: () => this.menuItemId++
 		};
   	}
-
+	  
 	render() {
 		return (
-			<LeftNav {...this.props}>
+			<LeftNav ref='leftNav' {...this.props}>
 				{this.props.children}
 			</LeftNav>
 			);
+	}
+	
+	toggle() {
+		this.refs.leftNav.toggle();
 	}
 }
 

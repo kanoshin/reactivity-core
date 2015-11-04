@@ -108,7 +108,7 @@ class Layout extends React.Component {
 	
 	_toggleNav() {
 		this.refs.nav.toggle();
-		this.setState({menuOpen: !this.refs.nav.state.open});
+		this.setState({menuOpen: !this.state.menuOpen});
 		window.dispatchEvent(new Event('resize'));
 	}
 	
