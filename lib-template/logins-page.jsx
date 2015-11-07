@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { Login, Login2, Dashboard } from 'reactivity'
 
+@Radium
 class LoginsPage extends React.Component {
 	constructor() {
 		super();
@@ -24,7 +25,5 @@ class LoginsPage extends React.Component {
 				</div>);
 	}
 }
-
-LoginsPage = Radium(LoginsPage);
 
 export default LoginsPage

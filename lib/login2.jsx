@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { Card, CardTitle, TextField, Checkbox, RaisedButton } from 'material-ui'
 
+@Radium
 class Login2 extends React.Component {
 	constructor() {
 		super();
@@ -63,18 +64,16 @@ class Login2 extends React.Component {
 							hintText="Password"
 							style={this.styles.field} />
 						<div style={this.styles.bottomBlock}>
-								<a href='#'>Forgot Password?</a>
-								<RaisedButton 
-									label="Log in"
-									secondary={true}
-									style={this.styles.button}/>
+							<a href='#'>Forgot Password?</a>
+							<RaisedButton 
+								label="Log in"
+								secondary={true}
+								style={this.styles.button}/>
 						</div>
 					</div>
 				</Card>
 			);
 	}
 }
-
-Login2 = Radium(Login2);
 
 export default Login2

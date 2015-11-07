@@ -2,6 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { Card, CardTitle, TextField, Checkbox, RaisedButton } from 'material-ui'
 
+@Radium
 class Login extends React.Component {
 	constructor() {
 		super();
@@ -54,7 +55,5 @@ class Login extends React.Component {
 			);
 	}
 }
-
-Login = Radium(Login);
 
 export default Login
