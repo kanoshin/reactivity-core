@@ -27,6 +27,7 @@ System.config({
     "react-chartjs": "npm:rc-chartjs@0.7.1",
     "react-dom": "npm:react-dom@0.14.2",
     "react-flexr": "npm:react-flexr@2.0.2",
+    "react-progress-deck": "npm:react-progress-deck@0.0.4",
     "react-router": "npm:react-router@1.0.0-rc3",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.1",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -686,6 +687,10 @@ System.config({
       "loose-envify": "npm:loose-envify@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:invariant@2.1.2": {
+      "loose-envify": "npm:loose-envify@1.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:is-binary-path@1.0.1": {
       "binary-extensions": "npm:binary-extensions@1.3.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
@@ -1011,6 +1016,11 @@ System.config({
     "npm:react-flexr@2.0.2": {
       "react": "npm:react@0.14.2",
       "stilr": "npm:stilr@1.2.1"
+    },
+    "npm:react-progress-deck@0.0.4": {
+      "invariant": "npm:invariant@2.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:react-router@1.0.0-rc3": {
       "history": "npm:history@1.12.3",

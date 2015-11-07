@@ -14,7 +14,6 @@ let menuItems = [
     { route: '/chartjs', text: 'Chart.js' },
     { route: '/forms', text: 'Forms' },
 	{ type: MenuItemOld.Types.SUBHEADER, text: 'Pages' },
-	{ route: '/progress', text: 'Progress' },
 	{ route: '/logins', text: 'Logins' }
   ];
 
@@ -92,7 +91,12 @@ class Layout extends React.Component {
 					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
 				</NavBlock>
 				<NavMenuItem route='/forms'>Forms</NavMenuItem>
-				<NavMenuItem route='/progress'>Progress</NavMenuItem>
+				<NavBlock text='Progress'>
+					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
+					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
+					<NavMenuItem route='/timer'>Timer</NavMenuItem>
+				</NavBlock>
+				
 				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
 			<MessageNav 

@@ -9,7 +9,8 @@ import ChartJsPage from 'lib-template/chart-js-page.jsx'
 import initTouchPlugin from 'react-tap-event-plugin'
 import { createHistory } from 'history'
 import LoginsPage from 'lib-template/logins-page.jsx'
-import ProgressPage from 'lib-template/progress-page.jsx'
+import ProgressBarsPage from 'lib-template/progress-bars-page.jsx'
+import ProgressDecksPage from 'lib-template/progress-decks-page.jsx'
 
 initTouchPlugin();
 
@@ -22,7 +23,8 @@ export default {
                     <Route name='charts' path="/charts" component={ChartsPage}/>
                     <Route name='forms' path="/forms" component={FormsPage}/>
                     <Route name='chartjs' path="/chartjs" component={ChartJsPage}/>
-                    <Route name='progress' path="/progress" component={ProgressPage}/>
+                    <Route name='progress' path="/progressBars" component={ProgressBarsPage}/>
+                    <Route name='decks' path="/progressDecks" component={ProgressDecksPage}/>
                     <Route name='logins' path="/logins" component={LoginsPage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>

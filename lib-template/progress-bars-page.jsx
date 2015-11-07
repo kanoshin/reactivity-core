@@ -1,8 +1,10 @@
 import React from 'react'
+import Radium from 'radium'
 import { TextField, LinearProgress, CircularProgress } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetTitle, Grid, Cell } from 'reactivity'
 
-class ProgressPage extends React.Component {
+@Radium
+class ProgressBarsPage extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -64,4 +66,4 @@ class ProgressPage extends React.Component {
 	}
 }
 
-export default ProgressPage
+export default ProgressBarsPage
