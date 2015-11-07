@@ -9,7 +9,7 @@ class ProgressPage extends React.Component {
 			progressValue: 0
 		};
 
-		setInterval(() => {
+		this.setProgressId = setInterval(() => {
 			if(this.state.progressValue < 100){
 				let value = this.state.progressValue + (Math.random() * 20);
 				if(value > 100) {
@@ -57,6 +57,10 @@ class ProgressPage extends React.Component {
 					</WidgetText>
 				</Widget>
 			</Dashboard>
+	}
+	
+	componentWillUnmount() {
+		clearInterval(this.setProgressId);
 	}
 }
 
