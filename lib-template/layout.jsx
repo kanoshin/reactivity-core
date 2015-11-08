@@ -9,14 +9,6 @@ import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
 
-let menuItems = [
-    { route: '/', text: 'Dashboard' },
-    { route: '/chartjs', text: 'Chart.js' },
-    { route: '/forms', text: 'Forms' },
-	{ type: MenuItemOld.Types.SUBHEADER, text: 'Pages' },
-	{ route: '/logins', text: 'Logins' }
-  ];
-
 class Layout extends React.Component {
 	constructor() {
 		super();
@@ -53,10 +45,6 @@ class Layout extends React.Component {
 				}
 			}
 		};
-		this._toggleNav = this._toggleNav.bind(this);
-		this._changeLocation = this._changeLocation.bind(this);
-		this._currentNavIndex = this._currentNavIndex.bind(this);
-		this._toggleMessageNav = this._toggleMessageNav.bind(this);
 		this.state = { menuOpen: true };
 	}
 
@@ -90,44 +78,32 @@ class Layout extends React.Component {
 				<NavBlock text='Charts'>
 					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
 				</NavBlock>
-				<NavMenuItem route='/forms'>Forms</NavMenuItem>
+				<NavBlock text='Basic elements'>
+					<NavMenuItem route='/textfields'>Text fields</NavMenuItem>
+					<NavMenuItem route='/buttons'>Buttons</NavMenuItem>
+				</NavBlock>
 				<NavBlock text='Progress'>
 					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
 					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
 					<NavMenuItem route='/timer'>Timer</NavMenuItem>
 				</NavBlock>
-				
 				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
 			<MessageNav 
 				ref={'messageNav'}
-				openRight={true} 
-				menuItems={[]} 
+				openRight={true}
 				style={this.styles.navBar} />
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
 	
-	componentDidMount() {
-		//this.refs.appBar.onLeftIconButtonTouchTap(() => this.refs.leftNav.toggle());
-	}
-	
-	_toggleNav() {
+	_toggleNav = () => {
 		this.refs.nav.toggle();
 		this.setState({menuOpen: !this.state.menuOpen});
 		window.dispatchEvent(new Event('resize'));
 	}
 	
-	_changeLocation(e, i, item) {
-		this.props.history.replaceState({}, item.route)
-	}
-	
-	_currentNavIndex() {
-		let currentPath = this.props.location.pathname;
-		return menuItems.findIndex((item) => currentPath === item.route);
-	}
-	
-	_toggleMessageNav() {
+	_toggleMessageNav = () => {
 		this.refs.messageNav.toggle();
 	}
 	

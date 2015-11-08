@@ -2,11 +2,19 @@ import React from 'react'
 import { TextField } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetTitle, Grid, Cell } from 'reactivity'
 
+let errors = {
+	requiredErrorText: 'This field is required',
+	numericErrorText: 'This field must be numeric'
+};
+
+let numericRegexp = /^[0-9]+$/i;
+
 class FormsPage extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			requiredErrorText: 'This field is required'
+			requiredErrorText: errors.requiredErrorText,
+			numericErrorText: errors.numericErrorText
 		};
 	}
 	render() {
@@ -49,23 +57,6 @@ class FormsPage extends React.Component {
 								hintText="Hint Text"
 								errorText="The error text can be as long as you want, it will wrap." />
 							</Cell>
-							{/*<TextField
-								hintText="Hint Text"
-								errorText={this.state.errorText}
-								onChange={this._handleErrorInputChange} />
-							<TextField
-								hintText="Hint Text (custom error color)"
-								errorText={this.state.error2Text}
-								errorStyle={{color:'orange'}}
-								onChange={this._handleError2InputChange}
-								defaultValue="Custom error color" />
-							<TextField
-								hintText="Disabled Hint Text"
-								disabled={true} />
-							<TextField
-								hintText="Disabled Hint Text"
-								disabled={true}
-								defaultValue="Disabled With Value" />*/}
 						</Grid>
 					</WidgetText>
 					<WidgetTitle title='Text fields with validation' />
@@ -76,6 +67,12 @@ class FormsPage extends React.Component {
 									hintText="Login"
 									errorText={this.state.requiredErrorText}
 									onChange={this._onRequiredChange} />
+							</Cell>
+							<Cell size='1/3'>
+								<TextField
+									hintText="Numeric field"
+									errorText={this.state.numericErrorText}
+									onChange={this._onNumericChange} />
 							</Cell>
 						</Grid>
 					</WidgetText>
@@ -88,7 +85,16 @@ class FormsPage extends React.Component {
 			this.setState({requiredErrorText: ''});
 		}
 		else {
-			this.setState({requiredErrorText: 'This field is required'});
+			this.setState({requiredErrorText: errors.requiredErrorText});
+		}
+	}
+	
+	_onNumericChange = (event) => {
+		if(numericRegexp.test(event.target.value)) {
+			this.setState({numericErrorText: ''});
+		}
+		else {
+			this.setState({numericErrorText: errors.numericErrorText});
 		}
 	}
 }
