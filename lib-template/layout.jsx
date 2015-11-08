@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld } from 'material-ui'
+import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles } from 'material-ui'
 import { MessageNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
@@ -9,6 +9,7 @@ import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
 
+@Styles.ThemeDecorator(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme))
 class Layout extends React.Component {
 	constructor() {
 		super();

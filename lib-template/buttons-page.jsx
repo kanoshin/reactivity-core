@@ -2,12 +2,27 @@ import React from 'react'
 import { FlatButton, FontIcon } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetTitle, Grid, Cell } from 'reactivity'
 
-class FormsPage extends React.Component {
-	constructor() {
-		super();
-		this.state = {
-		};
+let styles = {
+	buttonWithIcon: {
+		padding: '0px 16px 0px 8px'
+	},
+	icon: {
+		verticalAlign: 'top',
+    	padding: '5px 0px 0px 16px',
+		float: 'left'
 	}
+};
+
+class FormsPage extends React.Component {
+	constructor(props, context) {
+		super();
+		styles.icon.color = context.muiTheme.floatingActionButton.secondaryColor;
+	}
+	
+	static contextTypes = {
+  		muiTheme: React.PropTypes.object,
+	}
+	
 	render() {
 		return <Dashboard>
 				<Widget width={12}>
@@ -29,8 +44,8 @@ class FormsPage extends React.Component {
 								</FlatButton>
 							</Cell>
 							<Cell size='1/3'>
-								<FlatButton secondary={true} label="Go home">
-									<FontIcon className="material-icons" style={{float: 'left', verticalAlign: ''}}>home</FontIcon>
+								<FlatButton labelStyle={styles.buttonWithIcon} secondary={true} label="Go home">
+									<FontIcon style={styles.icon} className="material-icons">home</FontIcon>
 								</FlatButton>
 							</Cell>
 							<Cell size='1/3'>
