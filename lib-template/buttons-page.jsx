@@ -21,7 +21,7 @@ let styles = {
         width: '100%',
         opacity: '0',
 		overflow: 'hidden',
-    	paddingLeft: '100%'
+		paddingLeft: '100%'
 	}
 };
 
