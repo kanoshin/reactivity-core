@@ -4,6 +4,7 @@ import 'react-flexr/styles.css!'
 import Radium from 'radium'
 import { Widget } from 'reactivity'
 
+@Radium
 class Dashboard extends React.Component {
 	render() {
 		let widgets = React.Children.map(this.props.children, (child) => {
@@ -23,7 +24,5 @@ class Dashboard extends React.Component {
 			);
 	}
 }
-
-Dashboard = Radium(Dashboard);
 
 export default Dashboard

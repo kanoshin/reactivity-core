@@ -9,6 +9,7 @@ import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
 
+@Radium
 @Styles.ThemeDecorator(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme))
 class Layout extends React.Component {
 	constructor() {
@@ -120,7 +121,5 @@ class Layout extends React.Component {
 		};
   	}
 }
-
-Layout = Radium(Layout);
 
 export default Layout

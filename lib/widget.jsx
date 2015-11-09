@@ -5,6 +5,7 @@ import 'react-flexr/styles.css!'
 import { WidgetExpandControl, WidgetCloseControl, WidgetRefreshControl, WidgetControls } from 'reactivity'
 import { Card } from 'material-ui'
 
+@Radium
 class Widget extends React.Component {
 	constructor(props) {
 		super();
@@ -100,7 +101,5 @@ class Widget extends React.Component {
 		this.setState({expanded: !this.state.expanded});
 	}
 }
-
-Widget = Radium(Widget);
 
 export default Widget

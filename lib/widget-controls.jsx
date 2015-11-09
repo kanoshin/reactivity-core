@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
+@Radium
 class WidgetControls extends React.Component {
 	constructor() {
 		super();
@@ -21,7 +22,5 @@ class WidgetControls extends React.Component {
 			);
 	}
 }
-
-WidgetControls = Radium(WidgetControls);
 
 export default WidgetControls
