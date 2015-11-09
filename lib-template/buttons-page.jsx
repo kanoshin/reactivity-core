@@ -1,5 +1,6 @@
 import React from 'react'
-import { FlatButton, FontIcon } from 'material-ui'
+import Radium from 'radium'
+import { FlatButton, FontIcon, RaisedButton } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetTitle, Grid, Cell } from 'reactivity'
 
 let styles = {
@@ -25,12 +26,8 @@ let styles = {
 	}
 };
 
+@Radium
 class FormsPage extends React.Component {
-	constructor(props, context) {
-		super();
-		styles.icon.color = context.muiTheme.floatingActionButton.secondaryColor;
-	}
-	
 	static contextTypes = {
   		muiTheme: React.PropTypes.object,
 	}
@@ -38,6 +35,33 @@ class FormsPage extends React.Component {
 	render() {
 		return <Dashboard>
 				<Widget width={12}>
+					<WidgetTitle title='Raised buttons' />
+					<WidgetText>
+						<Grid>
+							<Cell size='1/3'>
+								<RaisedButton label="Default" />
+							</Cell>
+							<Cell size='1/3'>
+								<RaisedButton label="Primary" primary={true} />
+							</Cell>
+							<Cell size='1/3'>
+								<RaisedButton label="Secondary" secondary={true} />
+							</Cell>
+							<Cell size='1/3'>
+								<RaisedButton primary={true} label="Choose an Image">
+									<input type="file" id="imageButton" style={styles.imageInput}></input>
+								</RaisedButton>
+							</Cell>
+							<Cell size='1/3'>
+								<RaisedButton labelStyle={styles.buttonWithIcon} secondary={true} label="Go home">
+									<FontIcon style={Object.assign({}, styles.icon, {color:this.context.muiTheme.raisedButton.secondaryTextColor})} className="material-icons">home</FontIcon>
+								</RaisedButton>
+							</Cell>
+							<Cell size='1/3'>
+								<RaisedButton label="Disabled" disabled={true} />
+							</Cell>
+						</Grid>
+					</WidgetText>
 					<WidgetTitle title='Flat buttons' />
 					<WidgetText>
 						<Grid>
@@ -57,7 +81,7 @@ class FormsPage extends React.Component {
 							</Cell>
 							<Cell size='1/3'>
 								<FlatButton labelStyle={styles.buttonWithIcon} secondary={true} label="Go home">
-									<FontIcon style={styles.icon} className="material-icons">home</FontIcon>
+									<FontIcon style={Object.assign({}, styles.icon, {color:this.context.muiTheme.floatingActionButton.secondaryColor})} className="material-icons">home</FontIcon>
 								</FlatButton>
 							</Cell>
 							<Cell size='1/3'>
