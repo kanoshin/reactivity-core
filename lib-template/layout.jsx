@@ -83,6 +83,8 @@ class Layout extends React.Component {
 				<NavBlock text='Basic elements'>
 					<NavMenuItem route='/textfields'>Text fields</NavMenuItem>
 					<NavMenuItem route='/buttons'>Buttons</NavMenuItem>
+					<NavMenuItem route='/sliders'>Sliders</NavMenuItem>
+					<NavMenuItem route='/switchers'>Switchers</NavMenuItem>
 				</NavBlock>
 				<NavBlock text='Progress'>
 					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
