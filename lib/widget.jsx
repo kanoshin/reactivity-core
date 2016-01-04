@@ -96,8 +96,8 @@ class Widget extends React.Component {
 		this.setState({isOpen: false});
 	}
 	
-	_toggleExpand = () => {
-		this.refs.card._onExpandable();
+	_toggleExpand = (e) => {
+		this.refs.card._onExpandable(e);
 		this.setState({expanded: !this.state.expanded});
 	}
 }
