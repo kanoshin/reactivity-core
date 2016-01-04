@@ -47,7 +47,7 @@ class Layout extends React.Component {
 				}
 			}
 		};
-		this.state = { menuOpen: true };
+		this.state = { menuOpen: true, messageMenuOpen: false };
 	}
 
 	render() {
@@ -75,7 +75,8 @@ class Layout extends React.Component {
 				/>
 			<Nav ref='nav'
 				docked={true}
-				style={this.styles.navBar}>
+				style={this.styles.navBar}
+                open={this.state.menuOpen}>
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
 				<NavBlock text='Charts'>
 					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
@@ -96,19 +97,19 @@ class Layout extends React.Component {
 			<MessageNav 
 				ref={'messageNav'}
 				openRight={true}
-				style={this.styles.navBar} />
+				style={this.styles.navBar} 
+                open={this.state.messageMenuOpen} />
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
 	
 	_toggleNav = () => {
-		this.refs.nav.toggle();
 		this.setState({menuOpen: !this.state.menuOpen});
 		window.dispatchEvent(new Event('resize'));
 	}
 	
 	_toggleMessageNav = () => {
-		this.refs.messageNav.toggle();
+		this.setState({messageMenuOpen: !this.state.messageMenuOpen});
 	}
 	
 	static childContextTypes = {
