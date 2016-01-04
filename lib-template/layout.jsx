@@ -44,7 +44,14 @@ class Layout extends React.Component {
 				},
 				icon: {
 					fill: '#FFFFFF'
-				}
+				},
+                badge: {
+                    top: -2, 
+                    right: -2
+                },
+                badgeWrapper: {
+                    padding: 0
+                }
 			}
 		};
 		this.state = { menuOpen: true, messageMenuOpen: false };
@@ -62,7 +69,7 @@ class Layout extends React.Component {
 							<div style={this.styles.rightBlock.avatarWrapper}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
-                            <Badge badgeContent={4} primary={true} style={{padding: 0}} badgeStyle={{top: -2, right: -2}}>
+                            <Badge badgeContent={4} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
                                 <IconButton onTouchTap={this._toggleMessageNav}>
                                     <Message color={this.styles.rightBlock.icon.fill}  />
                                 </IconButton>
