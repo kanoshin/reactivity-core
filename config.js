@@ -23,7 +23,7 @@ System.config({
     "history": "npm:history@1.17.0",
     "jsx": "github:floatdrop/plugin-jsx@1.1.0",
     "material-ui": "npm:material-ui@0.14.0",
-    "radium": "npm:radium@0.14.3",
+    "radium": "npm:radium@0.15.3",
     "react": "npm:react@0.14.5",
     "react-chartjs": "npm:rc-chartjs@0.7.1",
     "react-dom": "npm:react-dom@0.14.5",
@@ -1118,13 +1118,13 @@ System.config({
     "npm:query-string@3.0.0": {
       "strict-uri-encode": "npm:strict-uri-encode@1.1.0"
     },
-    "npm:radium@0.14.3": {
+    "npm:radium@0.15.3": {
       "array-find": "npm:array-find@1.0.0",
       "babel": "npm:babel@5.8.34",
       "babel-plugin-flow-comments": "npm:babel-plugin-flow-comments@1.0.9",
       "exenv": "npm:exenv@1.2.0",
+      "inline-style-prefixer": "npm:inline-style-prefixer@0.5.4",
       "is-plain-object": "npm:is-plain-object@2.0.1",
-      "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rimraf": "npm:rimraf@2.4.5"
     },

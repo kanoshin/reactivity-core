@@ -31,7 +31,7 @@
       "history": "npm:history@^1.12.5",
       "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
       "material-ui": "npm:material-ui@^0.14.0",
-      "radium": "npm:radium@^0.14.1",
+      "radium": "npm:radium@^0.15.3",
       "react": "npm:react@^0.14.0",
       "react-chartjs": "npm:rc-chartjs@^0.7.1",
       "react-dom": "npm:react-dom@^0.14.0",
