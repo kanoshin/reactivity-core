@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge } from 'material-ui'
+import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge, List, ListItem, Divider } from 'material-ui'
 import { MessageNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
@@ -8,6 +8,8 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
+
+const {Colors} = Styles;
 
 @Radium
 @Styles.ThemeDecorator(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme))
@@ -42,9 +44,6 @@ class Layout extends React.Component {
 				iconMenu: {
 					verticalAlign: 'top'
 				},
-				icon: {
-					fill: '#FFFFFF'
-				},
                 badge: {
                     top: -2, 
                     right: -2
@@ -58,6 +57,22 @@ class Layout extends React.Component {
 	}
 
 	render() {
+        let iconButtonElement = (
+        <IconButton
+            touch={true}
+            tooltip="more"
+            tooltipPosition="bottom-left">
+            <MoreVertIcon color={Colors.grey400} />
+        </IconButton>
+        );
+
+        let rightIconMenu = (
+        <IconMenu iconButtonElement={iconButtonElement}>
+            <MenuItem>Reply</MenuItem>
+            <MenuItem>Forward</MenuItem>
+            <MenuItem>Delete</MenuItem>
+        </IconMenu>
+        );
 		return (
 		<div>
 			<AppBar ref='appBar' 
@@ -69,13 +84,13 @@ class Layout extends React.Component {
 							<div style={this.styles.rightBlock.avatarWrapper}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
-                            <Badge badgeContent={4} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
+                            <Badge badgeContent={5} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
                                 <IconButton onTouchTap={this._toggleMessageNav}>
-                                    <Message color={this.styles.rightBlock.icon.fill}  />
+                                    <Message color={Colors.white}  />
                                 </IconButton>
                             </Badge>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
-								<IconButton > <MoreVertIcon color={this.styles.rightBlock.icon.fill}  /></IconButton>
+								<IconButton > <MoreVertIcon color={Colors.white}  /></IconButton>
 								}>
 								<MenuItem primaryText="Settings" />
 								<MenuItem primaryText="Sign out" />
@@ -109,7 +124,69 @@ class Layout extends React.Component {
 				ref={'messageNav'}
 				openRight={true}
 				style={this.styles.navBar} 
-                open={this.state.messageMenuOpen} />
+                open={this.state.messageMenuOpen}>
+                <List subheader="Today">
+                    <ListItem
+                        leftAvatar={<Avatar src="lib-template/content/ok-128.jpg" />}
+                        rightIconButton={rightIconMenu}
+                        primaryText="Brendan Lim"
+                        secondaryText={
+                        <p>
+                            <span style={{color: Colors.darkBlack}}>Brunch this weekend?</span><br/>
+                            I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
+                        </p>
+                        }
+                        secondaryTextLines={2} />
+                    <Divider inset={true} />
+                    <ListItem
+                        leftAvatar={<Avatar src="lib-template/content/kolage-128.jpg" />}
+                        rightIconButton={rightIconMenu}
+                        primaryText="me, Scott, Jennifer"
+                        secondaryText={
+                        <p>
+                            <span style={{color: Colors.darkBlack}}>Summer BBQ</span><br/>
+                            Wish I could come, but I&apos;m out of town this weekend.
+                        </p>
+                        }
+                        secondaryTextLines={2} />
+                    <Divider inset={true} />
+                    <ListItem
+                        leftAvatar={<Avatar src="lib-template/content/uxceo-128.jpg" />}
+                        rightIconButton={rightIconMenu}
+                        primaryText="Grace Ng"
+                        secondaryText={
+                        <p>
+                            <span style={{color: Colors.darkBlack}}>Oui oui</span><br/>
+                            Do you have any Paris recs? Have you ever been?
+                        </p>
+                        }
+                        secondaryTextLines={2} />
+                    <Divider inset={true} />
+                    <ListItem
+                        leftAvatar={<Avatar src="lib-template/content/kerem-128.jpg" />}
+                        rightIconButton={rightIconMenu}
+                        primaryText="Kerem Suer"
+                        secondaryText={
+                        <p>
+                            <span style={{color: Colors.darkBlack}}>Birthday gift</span><br/>
+                            Do you have any ideas what we can get Heidi for her birthday? How about a pony?
+                        </p>
+                        }
+                        secondaryTextLines={2} />
+                    <Divider inset={true} />
+                    <ListItem
+                        leftAvatar={<Avatar src="lib-template/content/raquelromanp-128.jpg" />}
+                        rightIconButton={rightIconMenu}
+                        primaryText="Raquel Parrado"
+                        secondaryText={
+                        <p>
+                            <span style={{color: Colors.darkBlack}}>Recipe to try</span><br/>
+                            We should eat this: grated squash. Corn and tomatillo tacos.
+                        </p>
+                        }
+                        secondaryTextLines={2} />
+                    </List>
+            </MessageNav>
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
