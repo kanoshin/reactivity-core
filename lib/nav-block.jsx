@@ -3,13 +3,19 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import Radium from 'radium'
 import ExpandLess from 'material-ui/lib/svg-icons/navigation/expand-less'
 import ExpandMore from 'material-ui/lib/svg-icons/navigation/expand-more'
+import Transitions from 'material-ui/lib/styles/transitions';
+
+const itemHeight = 200;
 
 let styles = {
 	default: {
-		paddingLeft: '10px'
+		paddingLeft: '10px',
+        transition: Transitions.create('all', '400ms', '0ms', 'ease-in-out'),
+        opacity: 1
 	},
 	closed: {
-		display: 'none'
+		maxHeight: 0,
+        opacity: 0
 	}
 };
 
@@ -17,6 +23,7 @@ let styles = {
 class NavBlock extends React.Component {
 	constructor(props) {
 		super();
+        styles.default.maxHeight = itemHeight * props.children.length + 'px';
 		this.state = {
 			open: props.initiallyOpen
 		};
