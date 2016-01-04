@@ -1,5 +1,5 @@
 import React from 'react'
-import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles } from 'material-ui'
+import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge } from 'material-ui'
 import { MessageNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
@@ -62,9 +62,13 @@ class Layout extends React.Component {
 							<div style={this.styles.rightBlock.avatarWrapper}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
-							<IconButton onTouchTap={this._toggleMessageNav}> <Message style={this.styles.rightBlock.icon}  /></IconButton>
+                            <Badge badgeContent={4} primary={true} style={{padding: 0}} badgeStyle={{top: -2, right: -2}}>
+                                <IconButton onTouchTap={this._toggleMessageNav}>
+                                    <Message color={this.styles.rightBlock.icon.fill}  />
+                                </IconButton>
+                            </Badge>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
-								<IconButton > <MoreVertIcon style={this.styles.rightBlock.icon}  /></IconButton>
+								<IconButton > <MoreVertIcon color={this.styles.rightBlock.icon.fill}  /></IconButton>
 								}>
 								<MenuItem primaryText="Settings" />
 								<MenuItem primaryText="Sign out" />
