@@ -11,8 +11,44 @@ import Message from 'material-ui/lib/svg-icons/communication/message';
 
 const {Colors} = Styles;
 
+class LayoutWrapper extends React.Component {
+    static childContextTypes = {
+        muiTheme: React.PropTypes.object,
+        location: React.PropTypes.object,
+        history: React.PropTypes.object,
+        changeTheme: React.PropTypes.func
+	}
+    
+    getChildContext() {
+        return {
+            muiTheme: this.state.theme,
+            location: this.props.location,
+			history: this.props.history,
+            changeTheme: (themeName) => {
+                this.setState({
+                    theme: this.themes[themeName]
+                });
+            }
+        };
+    }
+    
+    constructor() {
+        super();
+        this.themes = {
+            light: Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme),
+            dark: Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme)
+        };
+        this.state = {
+            theme: this.themes.light
+        };
+    }
+    
+    render() {
+        return (<Layout>{this.props.children}</Layout>);
+    }
+}
+
 @Radium
-@Styles.ThemeDecorator(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme))
 class Layout extends React.Component {
 	constructor() {
 		super();
@@ -22,7 +58,7 @@ class Layout extends React.Component {
 				top: '0'
 			},
 			navBar: {
-				marginTop: '65px'
+				marginTop: '64px'
 			},
 			workZone: {
 				default: {
@@ -200,18 +236,6 @@ class Layout extends React.Component {
 	_toggleMessageNav = () => {
 		this.setState({messageMenuOpen: !this.state.messageMenuOpen});
 	}
-	
-	static childContextTypes = {
-    	location: React.PropTypes.object,
-		history: React.PropTypes.object
- 	}
-  
-  	getChildContext() {
-    	return {
-			location: this.props.location,
-			history: this.props.history
-		};
-  	}
 }
 
-export default Layout
+export default LayoutWrapper
