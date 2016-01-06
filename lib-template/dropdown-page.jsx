@@ -26,15 +26,15 @@ class DropdownPage extends React.Component {
         this.month = { value: now.getMonth() };
     }
 
-    sexChange = (e, index, value) => {
+    _sexChange = (e, index, value) => {
         this.sex.value = value;
         this.setState({value});
     };
-    weekDayChange = (e, index, value) => {
+    _weekDayChange = (e, index, value) => {
         this.weekDay.value = value;
         this.setState({value});
     };
-    monthChange = (e, index, value) => {
+    _monthChange = (e, index, value) => {
         this.month.value = value;
         this.setState({value});
     };    
@@ -46,15 +46,15 @@ class DropdownPage extends React.Component {
 					<WidgetText>
 						<Grid>
 							<Cell size='3/3'>
-                                Your sex is <DropDownMenu value={this.sex.value} onChange={this.sexChange}>
+                                Your sex is <DropDownMenu value={this.sex.value} onChange={this._sexChange}>
                                     <MenuItem value={0} primaryText="N/D"/>
                                     <MenuItem value={1} primaryText="Male"/>
                                     <MenuItem value={2} primaryText="Female"/>
                                 </DropDownMenu><br/>
-                                Current month is <DropDownMenu value={this.month.value} onChange={this.monthChange}>
+                                Current month is <DropDownMenu value={this.month.value} onChange={this._monthChange}>
                                     {monthItems}
                                 </DropDownMenu><br/>
-                                Current day of week is <DropDownMenu value={this.weekDay.value} onChange={this.weekDayChange}>
+                                Current day of week is <DropDownMenu value={this.weekDay.value} onChange={this._weekDayChange}>
                                     {weekDaysItems}
                                 </DropDownMenu> 
 							</Cell>

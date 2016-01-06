@@ -18,6 +18,7 @@ import PopoversPage from 'lib-template/popovers-page.jsx'
 import DatepickerPage from 'lib-template/datepicker-page.jsx'
 import DialogsPage from 'lib-template/dialogs-page.jsx'
 import DropdownPage from 'lib-template/dropdown-page.jsx'
+import FormPage from 'lib-template/form-page.jsx'
 
 initTouchPlugin();
 
@@ -40,6 +41,7 @@ export default {
                     <Route name='datepicker' path="/datepicker" component={DatepickerPage}/>
                     <Route name='dialogs' path="/dialogs" component={DialogsPage}/>
                     <Route name='dropdown' path="/dropdown" component={DropdownPage}/>
+                    <Route name='form' path="/form" component={FormPage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
             </Router>

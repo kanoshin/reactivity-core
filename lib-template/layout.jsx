@@ -163,6 +163,10 @@ class Layout extends React.Component {
 				style={this.styles.navBar}
                 open={this.state.menuOpen}>
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
+                <NavBlock text='Sample pages'>
+                    <NavMenuItem route='/logins'>Login</NavMenuItem>
+                    <NavMenuItem route='/form'>Form</NavMenuItem>    
+                </NavBlock>
 				<NavBlock text='Charts'>
 					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
 				</NavBlock>
@@ -175,12 +179,9 @@ class Layout extends React.Component {
                     <NavMenuItem route='/datepicker'>Datepicker</NavMenuItem>
 					<NavMenuItem route='/dialogs'>Dialogs</NavMenuItem>
                     <NavMenuItem route='/dropdown'>Dropdown</NavMenuItem>
+                    <NavMenuItem route='/progressBars'>ProgressBars</NavMenuItem>
+                    <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
 				</NavBlock>
-				<NavBlock text='Progress'>
-					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
-					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
-				</NavBlock>
-				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
             <CustomNav 
 				ref={'settingsNav'}
