@@ -13,7 +13,7 @@ class DatepickerPage extends React.Component {
 						<Grid>
 							<Cell size='3/3'>
                                 <DatePicker hintText="Dialog" container="dialog" autoOk={true} />
-                                <DatePicker hintText="Dialog (landscape)" container="dialog" autoOk={true} />
+                                <DatePicker hintText="Dialog (landscape)" container="dialog" mode="landscape" autoOk={true} />
                                 <DatePicker hintText="Inline" container="inline" />
                                 <DatePicker hintText="Inline (auto ok)" container="inline" autoOk={true} />
                                 <DatePicker hintText="Japan locale" container="inline" DateTimeFormat={Intl.DateTimeFormat} locale='ja-JP' autoOk={true}/>
