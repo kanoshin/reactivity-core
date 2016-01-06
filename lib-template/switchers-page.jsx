@@ -8,7 +8,7 @@ class SwitchersPage extends React.Component {
 	render() {
 		return <Dashboard>
 				<Widget width={12}>
-					<WidgetTitle title='Raised buttons' />
+					<WidgetTitle title='Checkboxes' />
 					<WidgetText>
 						<Grid>
 							<Cell size='1/2'>
@@ -63,7 +63,7 @@ class SwitchersPage extends React.Component {
 							</WidgetText>
 						</Cell>
 						<Cell size='1/2'>
-							<WidgetTitle title='Toggle' />
+							<WidgetTitle title='Toggles' />
 							<WidgetText>
 								<Toggle
 									name="toggleName1"
