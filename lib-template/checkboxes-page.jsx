@@ -4,7 +4,7 @@ import { RadioButtonGroup, RadioButton, Checkbox, Toggle } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetHeader, WidgetTitle, Grid, Cell } from 'reactivity'
 
 @Radium
-class SwitchersPage extends React.Component {
+class CheckboxesPage extends React.Component {
 	render() {
 		return <Dashboard>
 				<Widget width={12}>
@@ -87,4 +87,4 @@ class SwitchersPage extends React.Component {
 	}
 }
 
-export default SwitchersPage
+export default CheckboxesPage

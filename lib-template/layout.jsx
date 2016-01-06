@@ -147,14 +147,14 @@ class Layout extends React.Component {
 					<NavMenuItem route='/textfields'>Text fields</NavMenuItem>
 					<NavMenuItem route='/buttons'>Buttons</NavMenuItem>
 					<NavMenuItem route='/sliders'>Sliders</NavMenuItem>
-					<NavMenuItem route='/switchers'>Switchers</NavMenuItem>
+					<NavMenuItem route='/checkboxes'>Checkboxes</NavMenuItem>
 					<NavMenuItem route='/popovers'>Popovers</NavMenuItem>
                     <NavMenuItem route='/datepicker'>Datepicker</NavMenuItem>
+					<NavMenuItem route='/dialogs'>Dialogs</NavMenuItem>
 				</NavBlock>
 				<NavBlock text='Progress'>
 					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
 					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
-					<NavMenuItem route='/timer'>Timer</NavMenuItem>
 				</NavBlock>
 				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
