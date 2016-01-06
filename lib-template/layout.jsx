@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge, List, ListItem, Divider } from 'material-ui'
-import { MessageNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
+import { CustomNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -8,6 +8,7 @@ import MenuItem from 'material-ui/lib/menus/menu-item'
 import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
+import Settings from 'material-ui/lib/svg-icons/action/settings';
 
 const {Colors} = Styles;
 
@@ -50,6 +51,10 @@ class LayoutWrapper extends React.Component {
 
 @Radium
 class Layout extends React.Component {
+    static contextTypes = {
+  		changeTheme: React.PropTypes.func,
+	}
+    
 	constructor() {
 		super();
 		this.styles = {
@@ -71,9 +76,13 @@ class Layout extends React.Component {
 				}
 			},
 			rightBlock: {
-				avatarWrapper: {
+				avatarWrapperDisplay: {
 					display: 'inline-block',
 					verticalAlign: 'top',
+					paddingTop: '5px',
+					paddingRight: '12px'
+				},
+                avatarWrapperPadding: {
 					paddingTop: '5px',
 					paddingRight: '12px'
 				},
@@ -89,7 +98,7 @@ class Layout extends React.Component {
                 }
 			}
 		};
-		this.state = { menuOpen: true, messageMenuOpen: false };
+		this.state = { menuOpen: true, messageMenuOpen: false, settingsMenuOpen: false };
 	}
 
 	render() {
@@ -117,7 +126,7 @@ class Layout extends React.Component {
 				iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
 				iconElementRight={
 						<div>
-							<div style={this.styles.rightBlock.avatarWrapper}>
+							<div style={[this.styles.rightBlock.avatarWrapperDisplay, this.styles.rightBlock.avatarWrapperPadding]}>
 								<Avatar src='lib-template/content/avatar.jpg' />
 							</div>
                             <Badge badgeContent={5} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
@@ -125,6 +134,9 @@ class Layout extends React.Component {
                                     <Message color={Colors.white}  />
                                 </IconButton>
                             </Badge>
+                            <IconButton onTouchTap={this._toggleSettingsNav} style={{padding: 0}}>
+                                <Settings color={Colors.white}  />
+                            </IconButton>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
 								<IconButton > <MoreVertIcon color={Colors.white}  /></IconButton>
 								}>
@@ -158,7 +170,28 @@ class Layout extends React.Component {
 				</NavBlock>
 				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
-			<MessageNav 
+            <CustomNav 
+				ref={'settingsNav'}
+				openRight={true}
+				style={this.styles.navBar} 
+                open={this.state.settingsMenuOpen}>
+                <List subheader="Themes">
+                    <ListItem
+                        leftAvatar={<Avatar backgroundColor={Colors.grey200} />}
+                        primaryText="Light Theme"
+                        onTouchTap={() => {
+                            this.context.changeTheme('light');
+                        }} />
+                    <Divider />
+                    <ListItem
+                        leftAvatar={<Avatar backgroundColor={Colors.grey900} />}
+                        primaryText="Dark Theme"
+                        onTouchTap={() => {
+                            this.context.changeTheme('dark');
+                        }} />
+                </List>
+            </CustomNav>
+			<CustomNav 
 				ref={'messageNav'}
 				openRight={true}
 				style={this.styles.navBar} 
@@ -223,8 +256,8 @@ class Layout extends React.Component {
                         </p>
                         }
                         secondaryTextLines={2} />
-                    </List>
-            </MessageNav>
+                </List>
+            </CustomNav>
 			<div style={Object.assign({}, this.styles.workZone.default, !this.state.menuOpen && this.styles.workZone.wide)}>{this.props.children}</div>
 		</div>);
 	}
@@ -236,6 +269,10 @@ class Layout extends React.Component {
 	
 	_toggleMessageNav = () => {
 		this.setState({messageMenuOpen: !this.state.messageMenuOpen});
+	}
+    
+    _toggleSettingsNav = () => {
+		this.setState({settingsMenuOpen: !this.state.settingsMenuOpen});
 	}
 }
 

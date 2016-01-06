@@ -8,7 +8,7 @@ import WidgetCloseControl from 'lib/widget-close-control.jsx'
 import WidgetExpandControl from 'lib/widget-expand-control.jsx'
 import WidgetRefreshControl from 'lib/widget-refresh-control.jsx'
 import WidgetActions from 'lib/widget-actions.jsx'
-import MessageNav from 'lib/message-nav.jsx'
+import CustomNav from 'lib/custom-nav.jsx'
 import Login from 'lib/login.jsx'
 import Grid from 'lib/Grid.jsx'
 import Cell from 'lib/Cell.jsx'
@@ -27,7 +27,7 @@ export {WidgetCloseControl}
 export {WidgetExpandControl}
 export {WidgetRefreshControl}
 export {WidgetActions}
-export {MessageNav}
+export {CustomNav}
 export {Login, Grid, Cell}
 export {Login2}
 export {Login}
