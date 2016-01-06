@@ -12,9 +12,9 @@ class ProgressBarsPage extends React.Component {
 		};
 
 		this.setProgressId = setInterval(() => {
-			if(this.state.progressValue < 100){
+			if (this.state.progressValue < 100) {
 				let value = this.state.progressValue + (Math.random() * 20);
-				if(value > 100) {
+				if (value > 100) {
 					value = 100;
 				}
 				this.setState({progressValue: value});
@@ -29,7 +29,7 @@ class ProgressBarsPage extends React.Component {
 				<Widget width={12}>
 					<WidgetTitle title='Linear Progress' />
 					<WidgetText>
-						<Grid>
+						<Grid>                                
 							<Cell size='3/3'>
 								<h4>Determinate</h4>
 								<LinearProgress mode="determinate" value={this.state.progressValue} />

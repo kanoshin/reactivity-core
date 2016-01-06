@@ -41,23 +41,27 @@ class Widget extends React.Component {
 		
 		this.styles = {
 			default: {
-				padding: '0'
+				padding: '0',
+                overflow:'visible'
 			},
 			closed: {
 				display: 'none'
 			},
 			fullHeight: {
-				display: 'flex'
+				display: 'flex',
+                overflow:'visible'
 			},
 			cardWrapper: {
 				padding: '10px', 
 				width: '100%', 
 				display: 'flex', 
-				boxSizing: 'border-box'
+				boxSizing: 'border-box',
+                overflow:'visible'
 			},
 			card: {
 				position: 'relative',
-				width: '100%'
+				width: '100%',
+                overflow:'visible'
 			}
 		};
 	}
