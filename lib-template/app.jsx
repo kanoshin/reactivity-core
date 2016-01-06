@@ -14,6 +14,7 @@ import ProgressBarsPage from 'lib-template/progress-bars-page.jsx'
 import ProgressDecksPage from 'lib-template/progress-decks-page.jsx'
 import SlidersPage from 'lib-template/sliders-page.jsx'
 import SwitchersPage from 'lib-template/switchers-page.jsx'
+import PopoversPage from 'lib-template/popovers-page.jsx'
 
 initTouchPlugin();
 
@@ -32,6 +33,7 @@ export default {
                     <Route name='logins' path="/logins" component={LoginsPage}/>
                     <Route name='sliders' path="/sliders" component={SlidersPage}/>
                     <Route name='switchers' path="/switchers" component={SwitchersPage}/>
+                    <Route name='popover' path="/popovers" component={PopoversPage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
             </Router>
