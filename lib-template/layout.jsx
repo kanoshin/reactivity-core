@@ -163,6 +163,7 @@ class Layout extends React.Component {
 					<NavMenuItem route='/popovers'>Popovers</NavMenuItem>
                     <NavMenuItem route='/datepicker'>Datepicker</NavMenuItem>
 					<NavMenuItem route='/dialogs'>Dialogs</NavMenuItem>
+                    <NavMenuItem route='/dropdown'>Dropdown</NavMenuItem>
 				</NavBlock>
 				<NavBlock text='Progress'>
 					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
