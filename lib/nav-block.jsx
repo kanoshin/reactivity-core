@@ -7,23 +7,24 @@ import Transitions from 'material-ui/lib/styles/transitions';
 
 const itemHeight = 200;
 
-let styles = {
-	default: {
-		paddingLeft: '10px',
-        transition: Transitions.create('all', '400ms', '0ms', 'ease-in-out'),
-        opacity: 1
-	},
-	closed: {
-		maxHeight: 0,
-        opacity: 0
-	}
-};
-
 @Radium
 class NavBlock extends React.Component {
 	constructor(props) {
 		super();
-        styles.default.maxHeight = itemHeight * props.children.length + 'px';
+		
+		this.styles = {
+			default: {
+				paddingLeft: '10px',
+				transition: Transitions.create('all', '400ms', '0ms', 'ease-in-out'),
+				opacity: 1,
+				maxHeight: itemHeight * (props.children.length == null ? 1 : props.children.length) + 'px'
+			},
+			closed: {
+				maxHeight: 0,
+				opacity: 0
+			}
+		};
+		
 		this.state = {
 			open: props.initiallyOpen
 		};
@@ -44,7 +45,7 @@ class NavBlock extends React.Component {
 					primaryText={this.props.text} 
 					onTouchTap={this._toggle} 
 					rightIcon={this.state.open ? <ExpandLess /> : <ExpandMore />} />
-				<div style={[styles.default, !this.state.open && styles.closed]}>
+				<div style={[this.styles.default, !this.state.open && this.styles.closed]}>
 					{this.props.children}
 				</div>
 			</div>
