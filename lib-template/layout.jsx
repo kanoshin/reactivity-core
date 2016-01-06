@@ -26,9 +26,11 @@ class LayoutWrapper extends React.Component {
             location: this.props.location,
 			history: this.props.history,
             changeTheme: (themeName) => {
+                let theme = this.themes[themeName];
                 this.setState({
-                    theme: this.themes[themeName]
+                    theme: theme
                 });
+                document.body.style.backgroundColor = theme.body.backgroundColor;
             }
         };
     }
@@ -36,9 +38,18 @@ class LayoutWrapper extends React.Component {
     constructor() {
         super();
         this.themes = {
-            light: Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme),
-            dark: Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme)
+            light: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), {
+                body: {
+                    backgroundColor: '#ffffff'
+                },
+            }),
+            dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
+                body: {
+                    backgroundColor: 'rgb(146, 146, 146)'
+                }
+            })
         };
+        this.themes.dark.appBar.textColor = '#ffffff';
         this.state = {
             theme: this.themes.light
         };
