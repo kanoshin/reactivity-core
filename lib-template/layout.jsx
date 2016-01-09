@@ -55,6 +55,11 @@ class LayoutWrapper extends React.Component {
                     control: {
                         color: Colors.darkBlack
                     }
+                },
+                list: {
+                    subheader: {
+                        color: Colors.darkBlack
+                    }
                 }
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
@@ -71,6 +76,11 @@ class LayoutWrapper extends React.Component {
                         subtitleColor: Colors.grey100
                     },
                     control: {
+                        color: Colors.white
+                    }
+                },
+                list: {
+                    subheader: {
                         color: Colors.white
                     }
                 }
@@ -91,6 +101,7 @@ class LayoutWrapper extends React.Component {
 class Layout extends React.Component {
     static contextTypes = {
   		changeTheme: React.PropTypes.func,
+        muiTheme: React.PropTypes.object
 	}
     
 	constructor() {
@@ -216,7 +227,7 @@ class Layout extends React.Component {
 				openRight={true}
 				style={this.styles.navBar} 
                 open={this.state.settingsMenuOpen}>
-                <List subheader="Themes">
+                <List subheader="Themes" subheaderStyle={this.context.muiTheme.list.subheader}>
                     <ListItem
                         leftAvatar={<Avatar backgroundColor={Colors.grey200} />}
                         primaryText="Light Theme"
