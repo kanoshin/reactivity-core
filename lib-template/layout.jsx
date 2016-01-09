@@ -9,6 +9,7 @@ import IconMenu from 'material-ui/lib/menus/icon-menu'
 import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
 import Settings from 'material-ui/lib/svg-icons/action/settings';
+import Transitions from 'material-ui/lib/styles/transitions';
 
 const {Colors} = Styles;
 
@@ -80,7 +81,8 @@ class Layout extends React.Component {
 				default: {
 			    	marginTop: '88px',
     				marginLeft: '300px',
-					marginRight: '35px'
+					marginRight: '35px',
+                    transition: Transitions.create('all', '200ms', '0ms', 'ease-in-out'),
 				},
 				wide: {
 					marginLeft: '20px'
