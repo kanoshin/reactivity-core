@@ -43,10 +43,30 @@ class LayoutWrapper extends React.Component {
                 body: {
                     backgroundColor: '#ffffff'
                 },
+                widget: {
+                    header: {
+                        titleColor: Colors.darkBlack,
+                        subtitleColor: Colors.lightBlack
+                    },
+                    title: {
+                        titleColor: Colors.darkBlack,
+                        subtitleColor: Colors.lightBlack
+                    }
+                }
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
                 body: {
                     backgroundColor: 'rgb(146, 146, 146)'
+                },
+                widget: {
+                    header: {
+                        titleColor: Colors.white,
+                        subtitleColor: Colors.grey100
+                    },
+                    title: {
+                        titleColor: Colors.white,
+                        subtitleColor: Colors.grey100
+                    }
                 }
             })
         };

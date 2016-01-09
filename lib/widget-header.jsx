@@ -2,13 +2,15 @@ import React from 'react'
 import { CardHeader } from 'material-ui'
 
 class WidgetHeader extends React.Component {
+    static contextTypes = {
+  		muiTheme: React.PropTypes.object,
+	}
+    
 	render() {
-		var {
-		avatar,
-		...others
-		} = this.props;
 		return (
-			<CardHeader {...others} avatar={avatar ? avatar : <div></div>}>
+			<CardHeader {...this.props} 
+                titleColor={this.context.muiTheme.widget.header.titleColor}
+                subtitleColor={this.context.muiTheme.widget.header.subtitleColor}>
 				{this.props.children}
 			</CardHeader>
 			);
