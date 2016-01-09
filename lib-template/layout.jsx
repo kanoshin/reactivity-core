@@ -51,6 +51,9 @@ class LayoutWrapper extends React.Component {
                     title: {
                         titleColor: Colors.darkBlack,
                         subtitleColor: Colors.lightBlack
+                    },
+                    control: {
+                        color: Colors.darkBlack
                     }
                 }
             }),
@@ -66,6 +69,9 @@ class LayoutWrapper extends React.Component {
                     title: {
                         titleColor: Colors.white,
                         subtitleColor: Colors.grey100
+                    },
+                    control: {
+                        color: Colors.white
                     }
                 }
             })
