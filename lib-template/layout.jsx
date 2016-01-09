@@ -31,7 +31,11 @@ class LayoutWrapper extends React.Component {
                 this.setState({
                     theme: theme
                 });
-                document.body.style.backgroundColor = theme.body.backgroundColor;
+                for(var prop in theme.body) { 
+                    if (theme.body.hasOwnProperty(prop)) {
+                        document.body.style[prop] = theme.body[prop];
+                    }
+                }
             }
         };
     }
@@ -41,7 +45,8 @@ class LayoutWrapper extends React.Component {
         this.themes = {
             light: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), {
                 body: {
-                    backgroundColor: '#ffffff'
+                    backgroundColor: '#ffffff',
+                    backgroundImage: 'none'
                 },
                 widget: {
                     header: {
@@ -64,7 +69,32 @@ class LayoutWrapper extends React.Component {
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
                 body: {
-                    backgroundColor: 'rgb(146, 146, 146)'
+                    backgroundColor: 'rgb(146, 146, 146)',
+                    backgroundImage: 'none'
+                },
+                widget: {
+                    header: {
+                        titleColor: Colors.white,
+                        subtitleColor: Colors.grey100
+                    },
+                    title: {
+                        titleColor: Colors.white,
+                        subtitleColor: Colors.grey100
+                    },
+                    control: {
+                        color: Colors.white
+                    }
+                },
+                list: {
+                    subheader: {
+                        color: Colors.white
+                    }
+                }
+            }),
+            darkBackground: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
+                body: {
+                    backgroundImage: 'url("/lib-template/content/wooden-background.jpg")',
+                    backgroundSize: '100%'
                 },
                 widget: {
                     header: {
@@ -87,6 +117,7 @@ class LayoutWrapper extends React.Component {
             })
         };
         this.themes.dark.appBar.textColor = '#ffffff';
+        this.themes.darkBackground.appBar.textColor = '#ffffff';
         this.state = {
             theme: this.themes.light
         };
@@ -240,6 +271,13 @@ class Layout extends React.Component {
                         primaryText="Dark Theme"
                         onTouchTap={() => {
                             this.context.changeTheme('dark');
+                        }} />
+                    <Divider />
+                    <ListItem
+                        leftAvatar={<Avatar backgroundColor={Colors.grey900} />}
+                        primaryText="Background Theme"
+                        onTouchTap={() => {
+                            this.context.changeTheme('darkBackground');
                         }} />
                 </List>
             </CustomNav>
