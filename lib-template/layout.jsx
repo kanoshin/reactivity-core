@@ -274,7 +274,7 @@ class Layout extends React.Component {
                         }} />
                     <Divider />
                     <ListItem
-                        leftAvatar={<Avatar backgroundColor={Colors.grey900} />}
+                        leftAvatar={<Avatar backgroundColor={Colors.grey900}>B</Avatar>}
                         primaryText="Background Theme"
                         onTouchTap={() => {
                             this.context.changeTheme('darkBackground');
