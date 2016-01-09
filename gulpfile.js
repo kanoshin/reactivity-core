@@ -17,10 +17,13 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('serveit', ['browser-sync'], function () {
-    // gulp.watch("index.html", ['bs-reload']);
-    // gulp.watch("lib/**/*.js", ['bs-reload']);
-    // gulp.watch("lib/**/*.jsx", ['bs-reload']);
-    // gulp.watch("lib-template/**/*.js", ['bs-reload']);
-    // gulp.watch("lib-template/**/*.css", ['bs-reload']);
-    // gulp.watch("lib-template/**/*.jsx", ['bs-reload']);
+    gulp.watch("index.html", ['bs-reload']);
+    gulp.watch("lib/**/*.js", ['bs-reload']);
+    gulp.watch("lib/**/*.jsx", ['bs-reload']);
+    gulp.watch("lib-template/**/*.js", ['bs-reload']);
+    gulp.watch("lib-template/**/*.css", ['bs-reload']);
+    gulp.watch("lib-template/**/*.jsx", ['bs-reload']);
+});
+
+gulp.task('serveit-no-watch', ['browser-sync'], function () {
 });
