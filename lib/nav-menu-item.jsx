@@ -43,7 +43,7 @@ class NavMenuItem extends React.Component {
 	_trigger = () => {
 		this.context.trigger(this.id);
 		this.setState({isActive: true});
-		this.context.history.replaceState({}, this.props.route)
+		this.context.history.pushState({}, this.props.route)
 	}
 }
 

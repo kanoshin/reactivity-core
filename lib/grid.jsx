@@ -4,7 +4,7 @@ import 'react-flexr/styles.css!'
 
 class ReactivityGrid extends React.Component {
 	render() {
-		return <Grid {...this.props}>{this.props.children}</Grid>;
+		return <Grid style={{margin: '0 0 22'}} {...this.props}>{this.props.children}</Grid>;
 	}
 }
 

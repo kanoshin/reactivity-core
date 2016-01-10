@@ -13,11 +13,13 @@ class LoginPage extends React.Component {
     
 	render() {
 		return (
-            <Grid>
-                <Cell size='1/3'>
-                    123
-                </Cell>
-            </Grid>
+            <div style={{flex: 1, backgroundColor: 'red'}}>
+                <Grid>
+                    <Cell size='1/3'>
+                        123
+                    </Cell>
+                </Grid>
+            </div>
         );
 	}
 }

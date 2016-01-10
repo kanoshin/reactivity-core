@@ -200,7 +200,7 @@ class Layout extends React.Component {
         </IconMenu>
         );
 		return (
-		<div>
+		<div style={{flex: 1}}>
 			<AppBar ref='appBar' 
 				title='Reactivity' 
 				onLeftIconButtonTouchTap={this._toggleNav} 
@@ -234,7 +234,7 @@ class Layout extends React.Component {
                 open={this.state.menuOpen}>
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
                 <NavBlock text='Sample pages'>
-                    <NavMenuItem route='/logins'>Login</NavMenuItem>
+                    <NavMenuItem route='/login-page'>Login</NavMenuItem>
                     <NavMenuItem route='/form'>Form</NavMenuItem>    
                 </NavBlock>
 				<NavBlock text='Charts'>
