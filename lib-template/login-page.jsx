@@ -39,7 +39,7 @@ class LoginPage extends React.Component {
 	render() {
 		return (
             <div style={this.styles.wrapper}>
-                <div style={{margin: '250 0 0 0'}}>
+                <div style={{margin: '300 0 0 0'}}>
                     <Card style={this.styles.card}>
                         <div style={this.styles.cardContent}>
                             <TextField
@@ -49,7 +49,8 @@ class LoginPage extends React.Component {
                             <TextField
                                 hintText="Password"
                                 floatingLabelText="Password"
-                                style={this.styles.field} />
+                                style={this.styles.field}
+                                type={'password'} />
                             <div style={this.styles.buttonWrapper}>
                                 <RaisedButton 
                                     label="Log in"
