@@ -31,11 +31,6 @@ class LayoutWrapper extends React.Component {
                 this.setState({
                     theme: theme
                 });
-                for(var prop in theme.body) { 
-                    if (theme.body.hasOwnProperty(prop)) {
-                        document.body.style[prop] = theme.body[prop];
-                    }
-                }
             }
         };
     }
@@ -44,7 +39,7 @@ class LayoutWrapper extends React.Component {
         super();
         this.themes = {
             light: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.LightRawTheme), {
-                body: {
+                layout: {
                     backgroundColor: '#ffffff',
                     backgroundImage: 'none'
                 },
@@ -68,7 +63,7 @@ class LayoutWrapper extends React.Component {
                 }
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
-                body: {
+                layout: {
                     backgroundColor: 'rgb(146, 146, 146)',
                     backgroundImage: 'none'
                 },
@@ -92,7 +87,7 @@ class LayoutWrapper extends React.Component {
                 }
             }),
             darkBackground: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
-                body: {
+                layout: {
                     backgroundImage: 'url("/lib-template/content/wooden-background.jpg")',
                     backgroundSize: '100%'
                 },
@@ -203,7 +198,7 @@ class Layout extends React.Component {
         </IconMenu>
         );
 		return (
-		<div style={this.styles.wrapper}>
+		<div style={[this.styles.wrapper, this.context.muiTheme.layout]}>
 			<AppBar ref='appBar' 
 				title='Reactivity' 
 				onLeftIconButtonTouchTap={this._toggleNav} 

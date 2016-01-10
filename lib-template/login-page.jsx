@@ -13,6 +13,9 @@ class LoginPage extends React.Component {
                 flex: 1,
                 backgroundImage: 'url(/lib-template/content/wooden-background.jpg)'
             },
+            cardWrapper: {
+                margin: '300 0 0 0'
+            },
             card: {
 				width: '600px',
                 margin: '0 auto',
@@ -39,7 +42,7 @@ class LoginPage extends React.Component {
 	render() {
 		return (
             <div style={this.styles.wrapper}>
-                <div style={{margin: '300 0 0 0'}}>
+                <div style={this.styles.cardWrapper}>
                     <Card style={this.styles.card}>
                         <div style={this.styles.cardContent}>
                             <TextField
