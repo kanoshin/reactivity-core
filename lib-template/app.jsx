@@ -20,6 +20,7 @@ import DialogsPage from 'lib-template/dialogs-page.jsx'
 import DropdownPage from 'lib-template/dropdown-page.jsx'
 import FormPage from 'lib-template/form-page.jsx'
 import TablePage from 'lib-template/table-page.jsx'
+import LoginPage from 'lib-template/login-page.jsx'
 
 initTouchPlugin();
 
@@ -46,6 +47,7 @@ export default {
                     <Route name='tables' path="/tables" component={TablePage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
+                <Route path="/login-page" component={LoginPage} />
             </Router>
         ), document.getElementById('content'))
     }
