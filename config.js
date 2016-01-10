@@ -28,6 +28,7 @@ System.config({
     "react-chartjs": "npm:rc-chartjs@0.7.1",
     "react-dom": "npm:react-dom@0.14.5",
     "react-flexr": "npm:react-flexr@2.0.2",
+    "react-image-gallery": "npm:react-image-gallery@0.5.5",
     "react-progress-deck": "npm:react-progress-deck@0.0.4",
     "react-router": "npm:react-router@1.0.3",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.1",
@@ -1171,6 +1172,9 @@ System.config({
     "npm:react-flexr@2.0.2": {
       "react": "npm:react@0.14.5",
       "stilr": "npm:stilr@1.2.1"
+    },
+    "npm:react-image-gallery@0.5.5": {
+      "react-swipeable": "npm:react-swipeable@3.1.0"
     },
     "npm:react-progress-deck@0.0.4": {
       "invariant": "npm:invariant@2.2.0",
