@@ -138,6 +138,9 @@ class Layout extends React.Component {
 	constructor() {
 		super();
 		this.styles = {
+            wrapper: {
+                flex: 1
+            },
 			appBar: {
 				position: 'fixed',
 				top: '0'
@@ -200,7 +203,7 @@ class Layout extends React.Component {
         </IconMenu>
         );
 		return (
-		<div style={{flex: 1}}>
+		<div style={this.styles.wrapper}>
 			<AppBar ref='appBar' 
 				title='Reactivity' 
 				onLeftIconButtonTouchTap={this._toggleNav} 
