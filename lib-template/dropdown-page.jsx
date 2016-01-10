@@ -8,11 +8,11 @@ var weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const weekDaysItems = [];
-for (let i = 0; i < weekDays.length; i++ ) {
+for (let i = 0; i < weekDays.length; ++i) {
   weekDaysItems.push(<MenuItem value={i} key={i} primaryText={`${weekDays[i]}`}/>);
 }
 const monthItems = [];
-for (let i = 0; i < months.length; i++ ) {
+for (let i = 0; i < months.length; ++i) {
   monthItems.push(<MenuItem value={i} key={i} primaryText={`${months[i]}`}/>);
 }
 
@@ -21,22 +21,21 @@ class DropdownPage extends React.Component {
     constructor(props) {
         super(props);
        
-        this.sex = { value: 0 }
-        this.weekDay = { value: now.getDay() };
-        this.month = { value: now.getMonth() };
+        this.state = {
+            sex: 0,
+            weekDay: now.getDay(),
+            month: now.getMonth()
+        }
     }
 
     _sexChange = (e, index, value) => {
-        this.sex.value = value;
-        this.setState({value});
+        this.setState({sex: value});
     };
     _weekDayChange = (e, index, value) => {
-        this.weekDay.value = value;
-        this.setState({value});
+        this.setState({weekDay: value});
     };
     _monthChange = (e, index, value) => {
-        this.month.value = value;
-        this.setState({value});
+        this.setState({month: value});
     };    
     
 	render() {
@@ -46,15 +45,15 @@ class DropdownPage extends React.Component {
 					<WidgetText>
 						<Grid>
 							<Cell size='3/3'>
-                                Your sex is <DropDownMenu value={this.sex.value} onChange={this._sexChange}>
+                                Your sex is <DropDownMenu value={this.state.sex} onChange={this._sexChange}>
                                     <MenuItem value={0} primaryText="N/D"/>
                                     <MenuItem value={1} primaryText="Male"/>
                                     <MenuItem value={2} primaryText="Female"/>
                                 </DropDownMenu><br/>
-                                Current month is <DropDownMenu value={this.month.value} onChange={this._monthChange}>
+                                Current month is <DropDownMenu value={this.state.month} onChange={this._monthChange}>
                                     {monthItems}
                                 </DropDownMenu><br/>
-                                Current day of week is <DropDownMenu value={this.weekDay.value} onChange={this._weekDayChange}>
+                                Current day of week is <DropDownMenu value={this.state.weekDay} onChange={this._weekDayChange}>
                                     {weekDaysItems}
                                 </DropDownMenu> 
 							</Cell>
