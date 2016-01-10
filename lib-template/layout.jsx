@@ -251,6 +251,7 @@ class Layout extends React.Component {
                     <NavMenuItem route='/dropdown'>Dropdown</NavMenuItem>
                     <NavMenuItem route='/progressBars'>ProgressBars</NavMenuItem>
                     <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
+                    <NavMenuItem route='/tables'>Tables</NavMenuItem>
 				</NavBlock>
 			</Nav>
             <CustomNav 
