@@ -27,4 +27,4 @@ Reactivity is an admin web site template based on Facebook React and Google Mate
 3. Run `npm install gulp -g`
 4. Run `npm install` in your project folder
 5. Run `jspm install` in your project folder
-6. Run `gulp serveit` in your project folder (if you are using VS Code - Ctrl + Shift + P -> Run Task -> serveit)
+6. Run `gulp serveit` (or `gulp serveit-no-watch`) in your project folder (if you are using VS Code - Ctrl + Shift + P -> Run Task -> serveit)
