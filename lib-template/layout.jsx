@@ -233,7 +233,8 @@ class Layout extends React.Component {
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
                 <NavBlock text='Sample pages'>
                     <NavMenuItem route='/login-page'>Login</NavMenuItem>
-                    <NavMenuItem route='/form'>Form</NavMenuItem>    
+                    <NavMenuItem route='/form'>Form</NavMenuItem>
+                    <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
                 </NavBlock>
 				<NavBlock text='Charts'>
 					<NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
@@ -251,15 +252,6 @@ class Layout extends React.Component {
                     <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
                     <NavMenuItem route='/tables'>Tables</NavMenuItem>
                     <NavMenuItem route='/images'>Image gallery</NavMenuItem>
-				</NavBlock>
-
-				<NavBlock text='Progress'>
-					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
-					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
-				</NavBlock>
-                
-                <NavBlock text='Pages'>
-                    <NavMenuItem route='/12313212'>Decks</NavMenuItem>
 				</NavBlock>
                 
 				<NavMenuItem route='/logins'>Login</NavMenuItem>

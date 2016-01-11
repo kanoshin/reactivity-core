@@ -51,7 +51,7 @@ export default {
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
                 <Route path="/login-page" component={LoginPage} />
-                <Route path="/404" component={Error404} />
+                <Route path="/error-404" component={Error404} />
             </Router>
         ), document.getElementById('content'))
     }
