@@ -252,6 +252,17 @@ class Layout extends React.Component {
                     <NavMenuItem route='/tables'>Tables</NavMenuItem>
                     <NavMenuItem route='/images'>Image gallery</NavMenuItem>
 				</NavBlock>
+
+				<NavBlock text='Progress'>
+					<NavMenuItem route='/progressBars'>Bars</NavMenuItem>
+					<NavMenuItem route='/progressDecks'>Decks</NavMenuItem>
+				</NavBlock>
+                
+                <NavBlock text='Pages'>
+                    <NavMenuItem route='/12313212'>Decks</NavMenuItem>
+				</NavBlock>
+                
+				<NavMenuItem route='/logins'>Login</NavMenuItem>
 			</Nav>
             <CustomNav 
 				ref={'settingsNav'}

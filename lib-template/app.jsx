@@ -22,6 +22,7 @@ import FormPage from 'lib-template/form-page.jsx'
 import TablePage from 'lib-template/table-page.jsx'
 import LoginPage from 'lib-template/login-page.jsx'
 import ImageGalleryPage from 'lib-template/image-gallery-page.jsx'
+import Error404 from 'lib-template/error-404.jsx'
 
 initTouchPlugin();
 
@@ -50,6 +51,7 @@ export default {
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
                 <Route path="/login-page" component={LoginPage} />
+                <Route path="/404" component={Error404} />
             </Router>
         ), document.getElementById('content'))
     }
