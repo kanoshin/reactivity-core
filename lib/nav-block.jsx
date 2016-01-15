@@ -44,7 +44,8 @@ class NavBlock extends React.Component {
 				<MenuItem 
 					primaryText={this.props.text} 
 					onTouchTap={this._toggle} 
-					rightIcon={this.state.open ? <ExpandLess /> : <ExpandMore />} />
+					rightIcon={this.state.open ? <ExpandLess /> : <ExpandMore />}
+                    leftIcon={this.props.leftIcon} />
 				<div style={[this.styles.default, !this.state.open && this.styles.closed]}>
 					{this.props.children}
 				</div>
