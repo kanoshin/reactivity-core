@@ -10,6 +10,8 @@ import MoreVertIcon from 'material-ui/lib/svg-icons/navigation/more-vert';
 import Message from 'material-ui/lib/svg-icons/communication/message';
 import Settings from 'material-ui/lib/svg-icons/action/settings';
 import Transitions from 'material-ui/lib/styles/transitions';
+import ContentCopy from 'material-ui/lib/svg-icons/content/content-copy';
+import {Categories as IconCategories} from 'lib-template/icons.js'
 
 const {Colors} = Styles;
 
@@ -231,7 +233,7 @@ class Layout extends React.Component {
 				style={this.styles.navBar}
                 open={this.state.menuOpen}>
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
-                <NavBlock text='Sample pages'>
+                <NavBlock text='Sample pages' leftIcon={<ContentCopy/>}>
                     <NavMenuItem route='/login-page'>Login</NavMenuItem>
                     <NavMenuItem route='/form'>Form</NavMenuItem>
                     <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
@@ -254,7 +256,14 @@ class Layout extends React.Component {
                     <NavMenuItem route='/images'>Image gallery</NavMenuItem>
 				</NavBlock>
                 
-				<NavMenuItem route='/logins'>Login</NavMenuItem>
+                <NavBlock text='Icons'>
+                    {IconCategories.map(category => {
+                        return (
+                            <NavMenuItem route={`/icons/${category}`}>
+                                {category}
+                            </NavMenuItem>);
+                        })}
+				</NavBlock>
 			</Nav>
             <CustomNav 
 				ref={'settingsNav'}
