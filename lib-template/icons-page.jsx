@@ -4,6 +4,12 @@ import { IconsDict } from 'lib-template/icons.js'
 import { IconButton } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetTitle, Grid, Cell } from 'reactivity'
 
+let styles = {
+    cell: {
+        textAlign: 'center'
+    }
+};
+
 @Radium
 class IconsPage extends React.Component {
 	render() {
@@ -15,7 +21,7 @@ class IconsPage extends React.Component {
                         {IconsDict[this.props.params.category].map(iconObj => {
                             let Icon = iconObj.icon;
                             return (
-                                <Cell size={'3/12'} style={{textAlign: 'center'}}>
+                                <Cell size={'3/12'} style={styles.cell}>
                                     <IconButton>
                                         <Icon />
                                     </IconButton>
