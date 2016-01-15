@@ -22,7 +22,9 @@
     "browser-sync": "^2.9.8",
     "connect-history-api-fallback": "^1.1.0",
     "gulp": "^3.9.0",
-    "jspm": "^0.16.11"
+    "jspm": "^0.16.11",
+    "systemjs-builder": "~0.15.3",
+    "babel-core": "~6.4.0"
   },
   "jspm": {
     "format": "es6",
@@ -43,6 +45,7 @@
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "clean-css": "npm:clean-css@^3.4.9",
       "core-js": "npm:core-js@^1.1.4"
     }
   }
