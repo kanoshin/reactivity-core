@@ -16,7 +16,7 @@ class Widget extends React.Component {
 		};
 		
 		if(props.onRefresh) {
-			this.state.controls.push(<WidgetRefreshControl onTouchTap={props.onRefresh} />);
+			this.state.controls.push(<WidgetRefreshControl key="refresh" onTouchTap={props.onRefresh} />);
 		}
 		
 		let hasExpandableChild = false;
@@ -32,11 +32,11 @@ class Widget extends React.Component {
 		this.state.hasExpandableChild = hasExpandableChild;
 		
 		if(hasExpandableChild) {
-			this.state.controls.push(<WidgetExpandControl onTouchTap={this._toggleExpand} />);
+			this.state.controls.push(<WidgetExpandControl key="expand" onTouchTap={this._toggleExpand} />);
 		}
 			
 		if(props.closeControl) {
-			this.state.controls.push(<WidgetCloseControl onTouchTap={this._toggleClose} />);
+			this.state.controls.push(<WidgetCloseControl key="close" onTouchTap={this._toggleClose} />);
 		}
 		
 		this.styles = {

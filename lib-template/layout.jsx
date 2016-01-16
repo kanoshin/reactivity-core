@@ -226,8 +226,7 @@ class Layout extends React.Component {
 							</IconMenu>
 						</div>
 					}
-				style={this.styles.appBar}
-				/>
+				style={this.styles.appBar}/>
 			<Nav ref='nav'
 				docked={true}
 				style={this.styles.navBar}
@@ -257,12 +256,14 @@ class Layout extends React.Component {
 				</NavBlock>
                 
                 <NavBlock text='Icons'>
-                    {IconCategories.map(category => {
+                    {
+                        IconCategories.map((category, i) => {
                         return (
-                            <NavMenuItem route={`/icons/${category}`}>
+                            <NavMenuItem key={i} route={`/icons/${category}`}>
                                 {category}
                             </NavMenuItem>);
-                        })}
+                        })
+                    }
 				</NavBlock>
 			</Nav>
             <CustomNav 
