@@ -17,15 +17,30 @@ gulp.task('bs-reload', function () {
     browserSync.reload();
 });
 
-gulp.task('dev-build', function() {
-    console.log(Builder);
+gulp.task('release-build', function() {
     var builder = new Builder();
     return builder.loadConfig('./config.js')
         .then(function() {
             return builder.loadConfig('./lib-template/custom-config.js');
         })
         .then(function() {
-            return builder.bundle('./lib-template/app.js', './appTest.js');
+            return builder.bundle('./lib-template/app.js', './build/bundle.js', {
+                minify:true,
+                sourceMaps: true
+            });
+        });
+});
+
+gulp.task('dev-build', function() {
+    var builder = new Builder();
+    return builder.loadConfig('./config.js')
+        .then(function() {
+            return builder.loadConfig('./lib-template/custom-config.js');
+        })
+        .then(function() {
+            return builder.bundle('lib/**/* - [lib/**/*] + lib-template/**/* - [lib-template/**/*]', './build/bundle.js', {
+                sourceMaps: true
+            });
         });
 });
 
