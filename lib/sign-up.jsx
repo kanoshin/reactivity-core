@@ -3,7 +3,7 @@ import Radium from 'radium'
 import { Card, CardTitle, TextField, Checkbox, RaisedButton } from 'material-ui'
 
 @Radium
-class Login2 extends React.Component {
+class SignUp extends React.Component {
 	constructor() {
 		super();
 		this.styles = {
@@ -39,12 +39,9 @@ class Login2 extends React.Component {
 			buttonWrapper: {
 				margin: '35px 20px'
 			},
-			button: {
-				marginLeft: '82px',
-				width: '30px'
-			},
 			bottomBlock: {
-				marginTop: '20px' 
+				marginTop: '20px',
+                textAlign: 'center' 
 			}
 		};
 	
@@ -54,7 +51,7 @@ class Login2 extends React.Component {
 		return (
 				<Card style={this.styles.card}>
 					<div style={this.styles.cardTitle.header}>
-						<span style={this.styles.cardTitle.text}>Welcome Back!</span>
+						<span style={this.styles.cardTitle.text}>Sign up</span>
 					</div>
 					<div style={this.styles.cardContent}>
 						<TextField
@@ -63,10 +60,12 @@ class Login2 extends React.Component {
 						<TextField
 							hintText="Password"
 							style={this.styles.field} />
-						<div style={this.styles.bottomBlock}>
-							<a href='#'>Forgot Password?</a>
+                        <TextField
+							hintText="Email"
+							style={this.styles.field} />    
+						<div style={this.styles.bottomBlock}>							
 							<RaisedButton 
-								label="Log in"
+								label="Sign up"
 								secondary={true}
 								style={this.styles.button}/>
 						</div>
@@ -76,4 +75,4 @@ class Login2 extends React.Component {
 	}
 }
 
-export default Login2
+export default SignUp

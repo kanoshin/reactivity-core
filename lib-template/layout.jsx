@@ -281,6 +281,7 @@ class Layout extends React.Component {
                         <NavMenuItem route='/login-page'>Login</NavMenuItem>
                         <NavMenuItem route='/form'>Form</NavMenuItem>
                         <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
+                        <NavMenuItem route='/sign-up-page'>Sign up</NavMenuItem>
                     </NavBlock>
                     <NavBlock text='Charts' leftIcon={<Timeline/>}>
                         <NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>

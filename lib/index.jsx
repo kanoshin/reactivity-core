@@ -12,7 +12,7 @@ import CustomNav from 'lib/custom-nav.jsx'
 import Login from 'lib/login.jsx'
 import Grid from 'lib/grid.jsx'
 import Cell from 'lib/cell.jsx'
-import Login2 from 'lib/login2.jsx'
+import SignUp from 'lib/sign-up.jsx'
 import Nav from 'lib/nav.jsx'
 import NavMenuItem from 'lib/nav-menu-item.jsx'
 import NavBlock from 'lib/nav-block.jsx'
@@ -29,7 +29,7 @@ export {WidgetRefreshControl}
 export {WidgetActions}
 export {CustomNav}
 export {Login, Grid, Cell}
-export {Login2}
+export {SignUp}
 export {Login}
 export {Nav}
 export {NavMenuItem, NavBlock}

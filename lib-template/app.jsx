@@ -26,6 +26,7 @@ import Error404 from 'lib-template/error-404.jsx'
 import IconsPage from 'lib-template/icons-page.jsx'
 import SnackbarPage from 'lib-template/snackbar-page.jsx'
 import AutocompletePage from 'lib-template/autocomplete-page.jsx'
+import SignUpPage from 'lib-template/sign-up-page.jsx'
 
 initTouchPlugin();
 
@@ -58,6 +59,7 @@ export default {
                 </Route>
                 <Route path="/login-page" component={LoginPage} />
                 <Route path="/error-404" component={Error404} />
+                <Route path="/sign-up-page" component={SignUpPage}/>
             </Router>
         ), document.getElementById('content'))
     }
