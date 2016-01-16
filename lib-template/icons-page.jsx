@@ -2,7 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import { IconsDict } from 'lib-template/icons.js'
 import { IconButton } from 'material-ui'
-import { Dashboard, Widget, WidgetText, WidgetTitle, Grid, Cell } from 'reactivity'
+import { Dashboard, Widget, WidgetText, WidgetTitle, WidgetHeader, Grid, Cell } from 'reactivity'
 
 let styles = {
     cell: {
@@ -37,20 +37,25 @@ class IconsPage extends React.Component {
 		return (<Dashboard>
 				<Widget width={12}>
 					<WidgetTitle title={`${this.props.params.category[0].toUpperCase()}${this.props.params.category.slice(1)} Icons`} />
+                    <WidgetText>
+                        <strong>
+                        Click on icon to copy import code
+                        </strong>
+                    </WidgetText>
 					<WidgetText>
                         <Grid>
-                        {IconsDict[this.props.params.category].map(iconObj => {
-                            let Icon = iconObj.icon;
-                            return (
-                                <Cell size={'3/12'} style={styles.cell}>
-                                    <IconButton onTouchTap={() => this._copyToClipboard(this.props.params.category, iconObj.name)}>
-                                        <Icon />
-                                    </IconButton>
-                                    <div style={styles.iconName}>
-                                        {iconObj.name}
-                                    </div>
-                                </Cell>);
-                        })}
+                            {IconsDict[this.props.params.category].map(iconObj => {
+                                let Icon = iconObj.icon;
+                                return (
+                                    <Cell size={'3/12'} style={styles.cell}>
+                                        <IconButton onTouchTap={() => this._copyToClipboard(this.props.params.category, iconObj.name)}>
+                                            <Icon />
+                                        </IconButton>
+                                        <div style={styles.iconName}>
+                                            {iconObj.name}
+                                        </div>
+                                    </Cell>);
+                            })}
                         </Grid>
 					</WidgetText>
 				</Widget>
