@@ -24,6 +24,7 @@ import LoginPage from 'lib-template/login-page.jsx'
 import ImageGalleryPage from 'lib-template/image-gallery-page.jsx'
 import Error404 from 'lib-template/error-404.jsx'
 import IconsPage from 'lib-template/icons-page.jsx'
+import SnackbarPage from 'lib-template/snackbar-page.jsx'
 
 initTouchPlugin();
 
@@ -49,7 +50,8 @@ export default {
                     <Route name='form' path="/form" component={FormPage}/>
                     <Route name='tables' path="/tables" component={TablePage}/>
                     <Route name='images' path="/images" component={ImageGalleryPage}/>
-                    <Route name='icons' path="/icons/:category" component={IconsPage}/>                    
+                    <Route name='icons' path="/icons/:category" component={IconsPage}/>
+                    <Route name='snackbar' path="/snackbar" component={SnackbarPage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
                 <Route path="/login-page" component={LoginPage} />

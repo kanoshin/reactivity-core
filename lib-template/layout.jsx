@@ -283,6 +283,7 @@ class Layout extends React.Component {
                         <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
                         <NavMenuItem route='/tables'>Tables</NavMenuItem>
                         <NavMenuItem route='/images'>Image gallery</NavMenuItem>
+                        <NavMenuItem route='/snackbar'>Snackbar</NavMenuItem>
                     </NavBlock>
                     
                     <NavBlock text='Icons' leftIcon={<Image/>}>
