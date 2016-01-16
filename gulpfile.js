@@ -38,7 +38,7 @@ gulp.task('dev-build', function() {
             return builder.loadConfig('./lib-template/custom-config.js');
         })
         .then(function() {
-            return builder.bundle('material-ui + react + react-router + material-ui/lib/svg-icons', './build/bundle.js', {
+            return builder.bundle('material-ui + react + react-dom + react-router + material-ui/lib/svg-icons + radium + core-js + react-flexr', './build/bundle.js', {
                 sourceMaps: true
             });
         });
