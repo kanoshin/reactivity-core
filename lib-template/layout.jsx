@@ -271,6 +271,7 @@ class Layout extends React.Component {
                         <NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
                     </NavBlock>
                     <NavBlock text='Basic elements' leftIcon={<Code/>}>
+                        <NavMenuItem route='/autocomplete'>Autocomplete</NavMenuItem>
                         <NavMenuItem route='/textfields'>Text fields</NavMenuItem>
                         <NavMenuItem route='/buttons'>Buttons</NavMenuItem>
                         <NavMenuItem route='/sliders'>Sliders</NavMenuItem>

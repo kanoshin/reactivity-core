@@ -25,6 +25,7 @@ import ImageGalleryPage from 'lib-template/image-gallery-page.jsx'
 import Error404 from 'lib-template/error-404.jsx'
 import IconsPage from 'lib-template/icons-page.jsx'
 import SnackbarPage from 'lib-template/snackbar-page.jsx'
+import AutocompletePage from 'lib-template/autocomplete-page.jsx'
 
 initTouchPlugin();
 
@@ -52,6 +53,7 @@ export default {
                     <Route name='images' path="/images" component={ImageGalleryPage}/>
                     <Route name='icons' path="/icons/:category" component={IconsPage}/>
                     <Route name='snackbar' path="/snackbar" component={SnackbarPage}/>
+                    <Route name='autocomplete' path="/autocomplete" component={AutocompletePage}/>
                     {/*<Route path="*" component={NoMatch}/>*/}
                 </Route>
                 <Route path="/login-page" component={LoginPage} />
