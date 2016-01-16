@@ -18,7 +18,8 @@ class NavMenuItem extends React.Component {
 		trigger: React.PropTypes.func,
 		getId: React.PropTypes.func,
 		location: React.PropTypes.object,
-		history: React.PropTypes.object
+		history: React.PropTypes.object,
+        muiTheme: React.PropTypes.object
   	}
 	
 	componentDidMount() {
@@ -30,18 +31,24 @@ class NavMenuItem extends React.Component {
 	}
 	  
 	render() {
+        var { leftIcon, ...other } = this.props;
+        var patchedLeftIcon;
+        if(leftIcon) {
+            patchedLeftIcon = React.cloneElement(leftIcon, { color: this.context.muiTheme.nav.icon.color });
+        }
 		return (
 			<MenuItem id={this.id} 
 				onTouchTap={this._trigger} 
 				style={Object.assign({}, 
-				this.state.isActive && this.styles.active)} {...this.props}>
+				this.state.isActive && this.styles.active)} {...other}
+                leftIcon={patchedLeftIcon}>
 				{this.props.children}
 			</MenuItem>
 			);
 	}
     
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state !== nextState;
+        return this.state !== nextState || this.props !== nextProps;
     }
 	
 	_trigger = () => {

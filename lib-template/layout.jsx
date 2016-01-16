@@ -67,6 +67,11 @@ class LayoutWrapper extends React.Component {
                     subheader: {
                         color: Colors.darkBlack
                     }
+                },
+                nav: {
+                    icon: {
+                        color: Colors.grey600
+                    }
                 }
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
@@ -91,6 +96,11 @@ class LayoutWrapper extends React.Component {
                     subheader: {
                         color: Colors.white
                     }
+                },
+                nav: {
+                    icon: {
+                        color: Colors.white
+                    }
                 }
             }),
             darkBackground: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
@@ -113,6 +123,11 @@ class LayoutWrapper extends React.Component {
                 },
                 list: {
                     subheader: {
+                        color: Colors.white
+                    }
+                },
+                nav: {
+                    icon: {
                         color: Colors.white
                     }
                 }

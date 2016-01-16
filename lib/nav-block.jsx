@@ -10,7 +10,8 @@ const itemHeight = 200;
 @Radium
 class NavBlock extends React.Component {
     static contextTypes = {
-  		refreshScrollbar: React.PropTypes.func
+  		refreshScrollbar: React.PropTypes.func,
+        muiTheme: React.PropTypes.object
 	}
     
 	constructor(props) {
@@ -47,13 +48,18 @@ class NavBlock extends React.Component {
 	}
 
 	render() {
+        var { leftIcon } = this.props;
+        var patchedLeftIcon;
+        if(leftIcon) {
+            patchedLeftIcon = React.cloneElement(leftIcon, { color: this.context.muiTheme.nav.icon.color });
+        }
 		return (
 			<div>
 				<MenuItem 
 					primaryText={this.props.text} 
 					onTouchTap={this._toggle} 
 					rightIcon={this.state.open ? <ExpandLess /> : <ExpandMore />}
-                    leftIcon={this.props.leftIcon} />
+                    leftIcon={patchedLeftIcon} />
 				<div style={[this.styles.default, !this.state.open && this.styles.closed, this.state.hidden && this.styles.hidden]}>
 					{this.props.children}
 				</div>
@@ -62,7 +68,7 @@ class NavBlock extends React.Component {
 	}
     
     shouldComponentUpdate(nextProps, nextState) {
-        return this.state !== nextState;
+        return this.state !== nextState || this.props !== nextProps;
     }
 	
 	_toggle = () => {
