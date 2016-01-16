@@ -38,7 +38,7 @@ gulp.task('dev-build', function() {
             return builder.loadConfig('./lib-template/custom-config.js');
         })
         .then(function() {
-            return builder.bundle('lib/**/* - [lib/**/*] + lib-template/**/* - [lib-template/**/*]', './build/bundle.js', {
+            return builder.bundle('material-ui + react + react-router', './build/bundle.js', {
                 sourceMaps: true
             });
         });
