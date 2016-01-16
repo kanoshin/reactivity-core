@@ -9,7 +9,7 @@ let icons = Object.keys(SvgIcons).map(iconName => {
 let iconGroups = prefixes.map(prefix => {
     return {
         icons: icons.filter(icon => icon.name.startsWith(prefix)),
-        category: prefix
+        category: prefix.toLowerCase()
     };
 });
 

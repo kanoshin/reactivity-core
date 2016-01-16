@@ -208,7 +208,7 @@ class Layout extends React.Component {
 				iconElementRight={
 						<div>
 							<div style={[this.styles.rightBlock.avatarWrapperDisplay, this.styles.rightBlock.avatarWrapperPadding]}>
-								<Avatar src='lib-template/content/avatar.jpg' />
+								<Avatar src='/lib-template/content/avatar.jpg' />
 							</div>
                             <Badge badgeContent={5} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
                                 <IconButton onTouchTap={this._toggleMessageNav}>
@@ -259,7 +259,7 @@ class Layout extends React.Component {
                     {
                         IconCategories.map((category, i) => {
                         return (
-                            <NavMenuItem key={i} route={`/icons/${category}`}>
+                            <NavMenuItem key={i} route={`/icons/${category.toLowerCase()}`}>
                                 {category}
                             </NavMenuItem>);
                         })
@@ -301,7 +301,7 @@ class Layout extends React.Component {
                 open={this.state.messageMenuOpen}>
                 <List subheader="Today">
                     <ListItem
-                        leftAvatar={<Avatar src="lib-template/content/ok-128.jpg" />}
+                        leftAvatar={<Avatar src="/lib-template/content/ok-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="Brendan Lim"
                         secondaryText={
@@ -313,7 +313,7 @@ class Layout extends React.Component {
                         secondaryTextLines={2} />
                     <Divider inset={true} />
                     <ListItem
-                        leftAvatar={<Avatar src="lib-template/content/kolage-128.jpg" />}
+                        leftAvatar={<Avatar src="/lib-template/content/kolage-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="me, Scott, Jennifer"
                         secondaryText={
@@ -325,7 +325,7 @@ class Layout extends React.Component {
                         secondaryTextLines={2} />
                     <Divider inset={true} />
                     <ListItem
-                        leftAvatar={<Avatar src="lib-template/content/uxceo-128.jpg" />}
+                        leftAvatar={<Avatar src="/lib-template/content/uxceo-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="Grace Ng"
                         secondaryText={
@@ -337,7 +337,7 @@ class Layout extends React.Component {
                         secondaryTextLines={2} />
                     <Divider inset={true} />
                     <ListItem
-                        leftAvatar={<Avatar src="lib-template/content/kerem-128.jpg" />}
+                        leftAvatar={<Avatar src="/lib-template/content/kerem-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="Kerem Suer"
                         secondaryText={
@@ -349,7 +349,7 @@ class Layout extends React.Component {
                         secondaryTextLines={2} />
                     <Divider inset={true} />
                     <ListItem
-                        leftAvatar={<Avatar src="lib-template/content/raquelromanp-128.jpg" />}
+                        leftAvatar={<Avatar src="/lib-template/content/raquelromanp-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="Raquel Parrado"
                         secondaryText={

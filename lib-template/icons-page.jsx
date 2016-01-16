@@ -7,25 +7,46 @@ import { Dashboard, Widget, WidgetText, WidgetTitle, Grid, Cell } from 'reactivi
 let styles = {
     cell: {
         textAlign: 'center'
+    },
+    iconName: {
+        overflow: 'hidden'
     }
 };
+
+let prepareName = (name) => {
+    let res = '';
+    name.split('').forEach(ch => {
+        if(ch.toUpperCase() === ch || isDigit(ch)) {
+            if(res && !isDigit(res[res.length - 1])){
+                res += '-' + ch.toLowerCase()
+            }
+            else {
+                res += ch.toLowerCase()
+            }
+        }
+        else {
+            res += ch;
+        }
+    });
+    return res;
+}, isDigit = (ch) => ch * 0 == 0;
 
 @Radium
 class IconsPage extends React.Component {
 	render() {
 		return (<Dashboard>
 				<Widget width={12}>
-					<WidgetTitle title='Icons' />
+					<WidgetTitle title={`${this.props.params.category[0].toUpperCase()}${this.props.params.category.slice(1)} Icons`} />
 					<WidgetText>
                         <Grid>
                         {IconsDict[this.props.params.category].map(iconObj => {
                             let Icon = iconObj.icon;
                             return (
                                 <Cell size={'3/12'} style={styles.cell}>
-                                    <IconButton>
+                                    <IconButton onTouchTap={() => this._copyToClipboard(this.props.params.category, iconObj.name)}>
                                         <Icon />
                                     </IconButton>
-                                    <div>
+                                    <div style={styles.iconName}>
                                         {iconObj.name}
                                     </div>
                                 </Cell>);
@@ -35,6 +56,10 @@ class IconsPage extends React.Component {
 				</Widget>
 			</Dashboard>);
 	}
+    
+    _copyToClipboard = (category, name) => {
+        window.prompt("Copy to clipboard: Ctrl+C, Enter", `import ${name} from 'material-ui/lib/svg-icons/${category.toLowerCase()}/${prepareName(name)}'`);
+    }
 }
 
 export default IconsPage
