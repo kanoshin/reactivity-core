@@ -54,7 +54,7 @@ class SnackbarExampleSimple extends React.Component {
         />
         <br />
         <TextField
-          floatingLabelText="Auto Hide Duration in ms"
+          floatingLabelText="Auto Hide Duration in seconds"
           value={this.state.autoHideDuration}
           onChange={this.handleChangeDuration}
         />
@@ -62,7 +62,7 @@ class SnackbarExampleSimple extends React.Component {
           open={this.state.open}
           message={this.state.message}
           action="undo"
-          autoHideDuration={this.state.autoHideDuration}
+          autoHideDuration={this.state.autoHideDuration * 1000}
           onActionTouchTap={this.handleActionTouchTap}
           onRequestClose={this.handleRequestClose}
         />
