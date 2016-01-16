@@ -39,6 +39,10 @@ class NavMenuItem extends React.Component {
 			</MenuItem>
 			);
 	}
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.state !== nextState;
+    }
 	
 	_trigger = () => {
 		this.context.trigger(this.id);

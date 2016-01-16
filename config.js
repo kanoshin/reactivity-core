@@ -32,6 +32,7 @@ System.config({
     "react-image-gallery": "npm:react-image-gallery@0.5.6",
     "react-progress-deck": "npm:react-progress-deck@0.0.4",
     "react-router": "npm:react-router@1.0.3",
+    "react-scrollbar": "npm:react-scrollbar@0.3.1",
     "react-tap-event-plugin": "npm:react-tap-event-plugin@0.2.1",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
@@ -376,6 +377,9 @@ System.config({
       "source-map": "npm:source-map@0.4.4",
       "url": "github:jspm/nodelibs-url@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+	},
+    "npm:classnames@1.2.2": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
     "npm:combined-stream@1.0.5": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -837,6 +841,9 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "is-buffer": "npm:is-buffer@1.1.1"
     },
+    "npm:line-height@0.1.1": {
+      "computed-style": "npm:computed-style@0.1.4"
+    },
     "npm:lodash._basecallback@3.3.1": {
       "lodash._baseisequal": "npm:lodash._baseisequal@3.0.7",
       "lodash._bindcallback": "npm:lodash._bindcallback@3.0.1",
@@ -1209,6 +1216,12 @@ System.config({
       "invariant": "npm:invariant@2.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "warning": "npm:warning@2.1.0"
+    },
+    "npm:react-scrollbar@0.3.1": {
+      "classnames": "npm:classnames@1.2.2",
+      "line-height": "npm:line-height@0.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@0.14.6"
     },
     "npm:react-tap-event-plugin@0.2.1": {
       "fbjs": "npm:fbjs@0.2.1",

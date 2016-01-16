@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge, List, ListItem, Divider } from 'material-ui'
 import { CustomNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
+import ScrollArea from 'react-scrollbar'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -143,8 +144,12 @@ class Layout extends React.Component {
 				top: '0'
 			},
 			navBar: {
-				marginTop: '64px'
+				marginTop: '64px',
+                overflow: 'hidden'
 			},
+            area: {
+                height: '400'
+            },
 			workZone: {
 				default: {
 			    	marginTop: '88px',
@@ -201,7 +206,7 @@ class Layout extends React.Component {
         );
 		return (
 		<div style={[this.styles.wrapper, this.context.muiTheme.layout]}>
-			<AppBar ref='appBar' 
+            <AppBar ref='appBar' 
 				title='Reactivity' 
 				onLeftIconButtonTouchTap={this._toggleNav} 
 				iconElementLeft={<IconButton onTouchTap={this._toggleNav}>{this.state.menuOpen ? <NavigationClose /> : <Menu />}</IconButton>} 
@@ -227,9 +232,10 @@ class Layout extends React.Component {
 						</div>
 					}
 				style={this.styles.appBar}/>
-			<Nav ref='nav'
-				docked={true}
-				style={this.styles.navBar}
+            
+            <Nav ref='nav'
+                docked={true}
+                style={this.styles.navBar}
                 open={this.state.menuOpen}>
 				<NavMenuItem route='/'>Dashboard</NavMenuItem>
                 <NavBlock text='Sample pages' leftIcon={<ContentCopy/>}>
