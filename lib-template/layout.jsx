@@ -12,6 +12,10 @@ import Message from 'material-ui/lib/svg-icons/communication/message';
 import Settings from 'material-ui/lib/svg-icons/action/settings';
 import Transitions from 'material-ui/lib/styles/transitions';
 import ContentCopy from 'material-ui/lib/svg-icons/content/content-copy';
+import Timeline from 'material-ui/lib/svg-icons/action/timeline'
+import Dashboard from 'material-ui/lib/svg-icons/action/dashboard'
+import Code from 'material-ui/lib/svg-icons/action/code'
+import Image from 'material-ui/lib/svg-icons/image/image'
 import {Categories as IconCategories} from 'lib-template/icons.js'
 
 const {Colors} = Styles;
@@ -251,16 +255,16 @@ class Layout extends React.Component {
                 style={this.styles.navBar}
                 open={this.state.menuOpen}>
                 <ScrollArea style={this.styles.area} horizontal={false} ref='scrollbar'>
-                    <NavMenuItem route='/'>Dashboard</NavMenuItem>
+                    <NavMenuItem route='/' leftIcon={<Dashboard/>}>Dashboard</NavMenuItem>
                     <NavBlock text='Sample pages' leftIcon={<ContentCopy/>}>
                         <NavMenuItem route='/login-page'>Login</NavMenuItem>
                         <NavMenuItem route='/form'>Form</NavMenuItem>
                         <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
                     </NavBlock>
-                    <NavBlock text='Charts'>
+                    <NavBlock text='Charts' leftIcon={<Timeline/>}>
                         <NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
                     </NavBlock>
-                    <NavBlock text='Basic elements'>
+                    <NavBlock text='Basic elements' leftIcon={<Code/>}>
                         <NavMenuItem route='/textfields'>Text fields</NavMenuItem>
                         <NavMenuItem route='/buttons'>Buttons</NavMenuItem>
                         <NavMenuItem route='/sliders'>Sliders</NavMenuItem>
@@ -275,7 +279,7 @@ class Layout extends React.Component {
                         <NavMenuItem route='/images'>Image gallery</NavMenuItem>
                     </NavBlock>
                     
-                    <NavBlock text='Icons'>
+                    <NavBlock text='Icons' leftIcon={<Image/>}>
                         {
                         IconCategories.map((category, i) => {
                         return (
