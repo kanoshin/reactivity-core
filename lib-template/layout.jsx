@@ -201,7 +201,13 @@ class Layout extends React.Component {
                 }
 			}
 		};
-		this.state = { menuOpen: true, messageMenuOpen: false, settingsMenuOpen: false };
+		this.state = { 
+            menuOpen: true, 
+            rightBar: {
+                messageMenuOpen: false, 
+                settingsMenuOpen: false 
+            }
+        };
 	}
 
 	render() {
@@ -233,11 +239,11 @@ class Layout extends React.Component {
 								<Avatar src='/lib-template/content/avatar.jpg' />
 							</div>
                             <Badge badgeContent={5} primary={true} style={this.styles.rightBlock.badgeWrapper} badgeStyle={this.styles.rightBlock.badge}>
-                                <IconButton onTouchTap={this._toggleMessageNav}>
+                                <IconButton onTouchTap={() => this._toggleRightNav('messageMenuOpen')}>
                                     <Message color={Colors.white}  />
                                 </IconButton>
                             </Badge>
-                            <IconButton onTouchTap={this._toggleSettingsNav} style={{padding: 0}}>
+                            <IconButton onTouchTap={() => this._toggleRightNav('settingsMenuOpen')} style={{padding: 0}}>
                                 <Settings color={Colors.white}  />
                             </IconButton>
 							<IconMenu style={this.styles.rightBlock.iconMenu} iconButtonElement={
@@ -295,7 +301,7 @@ class Layout extends React.Component {
 				ref={'settingsNav'}
 				openRight={true}
 				style={this.styles.navBar} 
-                open={this.state.settingsMenuOpen}>
+                open={this.state.rightBar.settingsMenuOpen}>
                 <List subheader="Themes" subheaderStyle={this.context.muiTheme.list.subheader}>
                     <ListItem
                         leftAvatar={<Avatar backgroundColor={Colors.grey200} />}
@@ -323,7 +329,7 @@ class Layout extends React.Component {
 				ref={'messageNav'}
 				openRight={true}
 				style={this.styles.navBar} 
-                open={this.state.messageMenuOpen}>
+                open={this.state.rightBar.messageMenuOpen}>
                 <List subheader="Today">
                     <ListItem
                         leftAvatar={<Avatar src="/lib-template/content/ok-128.jpg" />}
@@ -395,12 +401,15 @@ class Layout extends React.Component {
 		window.dispatchEvent(new Event('resize'));
 	}
 	
-	_toggleMessageNav = () => {
-		this.setState({messageMenuOpen: !this.state.messageMenuOpen});
-	}
-    
-    _toggleSettingsNav = () => {
-		this.setState({settingsMenuOpen: !this.state.settingsMenuOpen});
+	_toggleRightNav = (name) => {
+        let newState = {
+            rightBar: {
+            }
+        };
+        Object.assign(newState.rightBar, this.state.rightBar);
+        Object.keys(newState.rightBar).forEach(key => newState.rightBar[key] = false);
+        newState.rightBar[name] = !this.state.rightBar[name];
+		this.setState(newState);
 	}
 }
 
