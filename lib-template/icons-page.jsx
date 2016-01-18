@@ -47,7 +47,7 @@ class IconsPage extends React.Component {
                             {IconsDict[this.props.params.category].map(iconObj => {
                                 let Icon = iconObj.icon;
                                 return (
-                                    <Cell size={'3/12'} style={styles.cell}>
+                                    <Cell size={'3/12'} style={styles.cell} key={iconObj.name}>
                                         <IconButton onTouchTap={() => this._copyToClipboard(this.props.params.category, iconObj.name)}>
                                             <Icon />
                                         </IconButton>

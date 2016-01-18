@@ -72,6 +72,14 @@ class LayoutWrapper extends React.Component {
                     icon: {
                         color: Colors.grey600
                     }
+                },
+                messageListItem: {
+                    span: {
+                        color: Colors.darkBlack
+                    },
+                    text: {
+                        color: Colors.lightBlack
+                    }
                 }
             }),
             dark: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
@@ -101,6 +109,14 @@ class LayoutWrapper extends React.Component {
                     icon: {
                         color: Colors.white
                     }
+                },
+                messageListItem: {
+                    span: {
+                        color: Colors.fullWhite
+                    },
+                    text: {
+                        color: Colors.darkWhite
+                    }
                 }
             }),
             darkBackground: Object.assign(Styles.ThemeManager.getMuiTheme(Styles.DarkRawTheme), {
@@ -129,6 +145,14 @@ class LayoutWrapper extends React.Component {
                 nav: {
                     icon: {
                         color: Colors.white
+                    }
+                },
+                messageListItem: {
+                    span: {
+                        color: Colors.fullWhite
+                    },
+                    text: {
+                        color: Colors.darkWhite
                     }
                 }
             })
@@ -348,14 +372,14 @@ class Layout extends React.Component {
 				openRight={true}
 				style={this.styles.navBar} 
                 open={this.state.rightBar.messageMenuOpen}>
-                <List subheader="Today">
+                <List subheader="Today" subheaderStyle={this.context.muiTheme.list.subheader}>
                     <ListItem
                         leftAvatar={<Avatar src="/lib-template/content/ok-128.jpg" />}
                         rightIconButton={rightIconMenu}
                         primaryText="Brendan Lim"
                         secondaryText={
-                        <p>
-                            <span style={{color: Colors.darkBlack}}>Brunch this weekend?</span><br/>
+                        <p style={this.context.muiTheme.messageListItem.text}>
+                            <span style={this.context.muiTheme.messageListItem.span}>Brunch this weekend?</span><br/>
                             I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
                         </p>
                         }
@@ -366,8 +390,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="me, Scott, Jennifer"
                         secondaryText={
-                        <p>
-                            <span style={{color: Colors.darkBlack}}>Summer BBQ</span><br/>
+                        <p style={this.context.muiTheme.messageListItem.text}>
+                            <span style={this.context.muiTheme.messageListItem.span}>Summer BBQ</span><br/>
                             Wish I could come, but I&apos;m out of town this weekend.
                         </p>
                         }
@@ -378,8 +402,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Grace Ng"
                         secondaryText={
-                        <p>
-                            <span style={{color: Colors.darkBlack}}>Oui oui</span><br/>
+                        <p style={this.context.muiTheme.messageListItem.text}>
+                            <span style={this.context.muiTheme.messageListItem.span}>Oui oui</span><br/>
                             Do you have any Paris recs? Have you ever been?
                         </p>
                         }
@@ -390,8 +414,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Kerem Suer"
                         secondaryText={
-                        <p>
-                            <span style={{color: Colors.darkBlack}}>Birthday gift</span><br/>
+                        <p style={this.context.muiTheme.messageListItem.text}>
+                            <span style={this.context.muiTheme.messageListItem.span}>Birthday gift</span><br/>
                             Do you have any ideas what we can get Heidi for her birthday? How about a pony?
                         </p>
                         }
@@ -402,8 +426,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Raquel Parrado"
                         secondaryText={
-                        <p>
-                            <span style={{color: Colors.darkBlack}}>Recipe to try</span><br/>
+                        <p style={this.context.muiTheme.messageListItem.text}>
+                            <span style={this.context.muiTheme.messageListItem.span}>Recipe to try</span><br/>
                             We should eat this: grated squash. Corn and tomatillo tacos.
                         </p>
                         }
