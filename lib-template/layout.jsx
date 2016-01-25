@@ -189,9 +189,6 @@ class Layout extends React.Component {
 				marginTop: '64px',
                 overflow: 'hidden'
 			},
-            area: {
-                height: '100%'
-            },
 			workZone: {
 				default: {
 			    	marginTop: '88px',

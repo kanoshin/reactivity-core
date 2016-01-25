@@ -7,6 +7,11 @@ class Nav extends React.Component {
 		super();
 		this.menuItemSubscribers = [];
 		this.menuItemId = 0;
+        this.styles = {
+            area: {
+                height: '100%'
+            }
+		};
 	}
 
 	static childContextTypes = {
@@ -29,11 +34,11 @@ class Nav extends React.Component {
 	  
 	render() {
 		return (
-            <ScrollArea style={this.styles.area} horizontal={false}>
-                <LeftNav ref='leftNav' {...this.props}>
+            <LeftNav ref='leftNav' {...this.props}>
+                <ScrollArea style={this.styles.area} horizontal={false}>
                     {this.props.children}
-                </LeftNav>
-            </ScrollArea>
+                </ScrollArea>
+            </LeftNav>
 			);
 	}
 	
