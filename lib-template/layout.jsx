@@ -1,7 +1,6 @@
 import React from 'react'
 import { AppBar, LeftNav, IconButton, Avatar, MenuItem as MenuItemOld, Styles, Badge, List, ListItem, Divider } from 'material-ui'
 import { CustomNav, Nav, NavMenuItem, NavBlock } from 'reactivity'
-import ScrollArea from 'react-scrollbar'
 import Radium from 'radium'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
 import Menu from 'material-ui/lib/svg-icons/navigation/menu'
@@ -176,19 +175,6 @@ class Layout extends React.Component {
         muiTheme: React.PropTypes.object
 	}
     
-    static childContextTypes = {
-        refreshScrollbar: React.PropTypes.func
-	}
-    
-    getChildContext() {
-        var _this = this;
-        return {
-            refreshScrollbar: () => {
-                _this.refs.scrollbar.scrollArea.refresh();
-            }
-        };
-    }
-    
 	constructor() {
 		super();
 		this.styles = {
@@ -299,45 +285,43 @@ class Layout extends React.Component {
                 docked={true}
                 style={this.styles.navBar}
                 open={this.state.menuOpen}>
-                <ScrollArea style={this.styles.area} horizontal={false} ref='scrollbar'>
-                    <NavMenuItem route='/' leftIcon={<Dashboard/>}>Dashboard</NavMenuItem>
-                    <NavBlock text='Sample pages' leftIcon={<ContentCopy/>}>
-                        <NavMenuItem route='/login-page'>Login</NavMenuItem>
-                        <NavMenuItem route='/form'>Form</NavMenuItem>
-                        <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
-                        <NavMenuItem route='/sign-up-page'>Sign up</NavMenuItem>
-                    </NavBlock>
-                    <NavBlock text='Charts' leftIcon={<Timeline/>}>
-                        <NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
-                    </NavBlock>
-                    <NavBlock text='Basic elements' leftIcon={<Code/>}>
-                        <NavMenuItem route='/autocomplete'>Autocomplete</NavMenuItem>
-                        <NavMenuItem route='/textfields'>Text fields</NavMenuItem>
-                        <NavMenuItem route='/buttons'>Buttons</NavMenuItem>
-                        <NavMenuItem route='/sliders'>Sliders</NavMenuItem>
-                        <NavMenuItem route='/checkboxes'>Checkboxes</NavMenuItem>
-                        <NavMenuItem route='/popovers'>Popovers</NavMenuItem>
-                        <NavMenuItem route='/datepicker'>Datepicker</NavMenuItem>
-                        <NavMenuItem route='/dialogs'>Dialogs</NavMenuItem>
-                        <NavMenuItem route='/dropdown'>Dropdown</NavMenuItem>
-                        <NavMenuItem route='/progressBars'>ProgressBars</NavMenuItem>
-                        <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
-                        <NavMenuItem route='/tables'>Tables</NavMenuItem>
-                        <NavMenuItem route='/images'>Image gallery</NavMenuItem>
-                        <NavMenuItem route='/snackbar'>Snackbar</NavMenuItem>
-                    </NavBlock>
-                    
-                    <NavBlock text='Icons' leftIcon={<Image/>}>
-                        {
-                        IconCategories.map((category, i) => {
-                        return (
-                            <NavMenuItem key={i} route={`/icons/${category.toLowerCase()}`}>
-                                {category}
-                            </NavMenuItem>);
-                        })
-                    }
-                    </NavBlock>
-                </ScrollArea>
+                <NavMenuItem route='/' leftIcon={<Dashboard/>}>Dashboard</NavMenuItem>
+                <NavBlock text='Sample pages' leftIcon={<ContentCopy/>}>
+                    <NavMenuItem route='/login-page'>Login</NavMenuItem>
+                    <NavMenuItem route='/form'>Form</NavMenuItem>
+                    <NavMenuItem route='/error-404'>Error 404</NavMenuItem>    
+                    <NavMenuItem route='/sign-up-page'>Sign up</NavMenuItem>
+                </NavBlock>
+                <NavBlock text='Charts' leftIcon={<Timeline/>}>
+                    <NavMenuItem route='/chartjs'>Chart.js</NavMenuItem>
+                </NavBlock>
+                <NavBlock text='Basic elements' leftIcon={<Code/>}>
+                    <NavMenuItem route='/autocomplete'>Autocomplete</NavMenuItem>
+                    <NavMenuItem route='/textfields'>Text fields</NavMenuItem>
+                    <NavMenuItem route='/buttons'>Buttons</NavMenuItem>
+                    <NavMenuItem route='/sliders'>Sliders</NavMenuItem>
+                    <NavMenuItem route='/checkboxes'>Checkboxes</NavMenuItem>
+                    <NavMenuItem route='/popovers'>Popovers</NavMenuItem>
+                    <NavMenuItem route='/datepicker'>Datepicker</NavMenuItem>
+                    <NavMenuItem route='/dialogs'>Dialogs</NavMenuItem>
+                    <NavMenuItem route='/dropdown'>Dropdown</NavMenuItem>
+                    <NavMenuItem route='/progressBars'>ProgressBars</NavMenuItem>
+                    <NavMenuItem route='/progressDecks'>ProgressDecks</NavMenuItem>
+                    <NavMenuItem route='/tables'>Tables</NavMenuItem>
+                    <NavMenuItem route='/images'>Image gallery</NavMenuItem>
+                    <NavMenuItem route='/snackbar'>Snackbar</NavMenuItem>
+                </NavBlock>
+                
+                <NavBlock text='Icons' leftIcon={<Image/>}>
+                    {
+                    IconCategories.map((category, i) => {
+                    return (
+                        <NavMenuItem key={i} route={`/icons/${category.toLowerCase()}`}>
+                            {category}
+                        </NavMenuItem>);
+                    })
+                }
+                </NavBlock>
 			</Nav>
             <CustomNav 
 				ref={'settingsNav'}

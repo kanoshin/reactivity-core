@@ -11,7 +11,8 @@ const itemHeight = 200;
 class NavBlock extends React.Component {
     static contextTypes = {
   		refreshScrollbar: React.PropTypes.func,
-        muiTheme: React.PropTypes.object
+        muiTheme: React.PropTypes.object,
+        scrollArea: React.PropTypes.object
 	}
     
 	constructor(props) {
@@ -77,13 +78,13 @@ class NavBlock extends React.Component {
         if (this.state.open) {
             setTimeout(() => {
                 this.setState({hidden: !this.state.open});
-                this.context.refreshScrollbar();
+                this.context.scrollArea.refresh();
             }, 400);
         }
         else {
             this.setState({hidden: this.state.open});
             setTimeout(() => {
-                this.context.refreshScrollbar();
+                this.context.scrollArea.refresh();
             }, 200);
         }
 	}

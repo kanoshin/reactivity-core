@@ -1,5 +1,6 @@
 import React from 'react'
 import { LeftNav } from 'material-ui'
+import ScrollArea from 'react-scrollbar'
 
 class Nav extends React.Component {
 	constructor() {
@@ -28,9 +29,11 @@ class Nav extends React.Component {
 	  
 	render() {
 		return (
-			<LeftNav ref='leftNav' {...this.props}>
-				{this.props.children}
-			</LeftNav>
+            <ScrollArea style={this.styles.area} horizontal={false}>
+                <LeftNav ref='leftNav' {...this.props}>
+                    {this.props.children}
+                </LeftNav>
+            </ScrollArea>
 			);
 	}
 	
