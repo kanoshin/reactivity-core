@@ -186,8 +186,9 @@ class Layout extends React.Component {
 				top: '0'
 			},
 			navBar: {
-				marginTop: '64px',
-                overflow: 'hidden'
+				paddingTop: '64px',
+                overflow: 'hidden',
+                zIndex: 1000
 			},
 			workZone: {
 				default: {
