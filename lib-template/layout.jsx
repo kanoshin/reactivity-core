@@ -422,7 +422,8 @@ class Layout extends React.Component {
 	
 	_toggleNav = () => {
 		this.setState({menuOpen: !this.state.menuOpen});
-		window.dispatchEvent(new Event('resize'));
+        window.setTimeout(()=>window.dispatchEvent(new Event('resize')), 300);
+		//window.dispatchEvent(new Event('resize'));
 	}
 	
 	_toggleRightNav = (name) => {

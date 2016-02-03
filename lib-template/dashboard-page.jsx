@@ -12,6 +12,8 @@ import FileFolder from 'material-ui/lib/svg-icons/file/folder';
 import ActionAssignment from 'material-ui/lib/svg-icons/action/assignment';
 import Colors from 'material-ui/lib/styles/colors';
 import EditorInsertChart from 'material-ui/lib/svg-icons/editor/insert-chart';
+import { Sparklines, SparklinesLine, SparklinesSpots, SparklinesBars } from 'react-sparklines'
+import ChartJs from 'react-chartjs'
 import { 
 	Dashboard,
 	Widget,
@@ -57,21 +59,96 @@ class DashboardPage extends React.Component {
 	            deselectOnClickaway: false,
 	            height: '350px',
 	        },
-        };  
+            sparklineUsersData: [25, 16, 18, 22, 12, 15, 19, 22, 28, 33, 39, 
+                                40, 52, 33, 26, 28, 12, 12, 15, 19, 22, 28, 
+                                33, 39, 40, 52],
+            sparklineCpuData: [90, 88, 55, 68, 62, 62, 40, 32, 33, 25, 66, 88, 
+                                99, 100, 120, 100, 84, 88, 73, 66, 
+                                60, 88, 99, 55, 33, 88, 120]
+        };
+        this.sparklineInterval = window.setInterval(() => {
+            let newUsersValues = this.state.sparklineUsersData.slice();
+            let last = newUsersValues.shift();
+            newUsersValues.push(last);
+            let newCpuValues = this.state.sparklineCpuData.slice();
+            last = newCpuValues.shift();
+            newCpuValues.push(last);
+            this.setState({sparklineUsersData: newUsersValues, sparklineCpuData: newCpuValues});
+        }, 1000);
 	}
+    
+    componentWillUnmount() {
+        window.clearInterval(this.sparklineInterval);
+    }
 
 	render() {
+        let BarChart = ChartJs.Bar;
+		let barChartData = {
+			labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			datasets: [
+				{
+					fillColor: Colors.lightGreen400,
+					strokeColor: "rgba(220,220,220,1)",
+					pointColor: "rgba(220,220,220,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(220,220,220,1)",
+					data: [65, 59, 80, 81, 56, 55, 65, 75, 88, 90, 94, 105]
+				}
+			]
+		};
+		let barChartOptions = {
+            animation: false,
+            
+			responsive: true,
+			
+			//Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
+			scaleBeginAtZero : true,
+		
+			//Boolean - Whether grid lines are shown across the chart
+			scaleShowGridLines : false,
+            
+            scaleShowLabels: false,
+            
+            scaleLineColor: 'transparent',
+		
+			//String - Colour of the grid lines
+			scaleGridLineColor : "rgba(0,0,0,.05)",
+		
+			//Number - Width of the grid lines
+			scaleGridLineWidth : 1,
+		
+			//Boolean - Whether to show horizontal lines (except X axis)
+			scaleShowHorizontalLines: false,
+		
+			//Boolean - Whether to show vertical lines (except Y axis)
+			scaleShowVerticalLines: false,
+		
+			//Boolean - If there is a stroke on each bar
+			barShowStroke : false,
+		
+			//Number - Pixel width of the bar stroke
+			barStrokeWidth : 2,
+		
+			//Number - Spacing between each of the X value sets
+			barValueSpacing : 5,
+		
+			//Number - Spacing between data sets within X values
+			barDatasetSpacing : 1,
+		
+			//String - A legend template
+			legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+		};
 		return (
 			<Dashboard fullHeight={true}>
                 <Widget width={9} closeControl={true} refreshControl={true}>
 					<WidgetHeader
-						title="Growth Rate">
+						title="Average Growth Rate">
 					</WidgetHeader>
-					<WidgetText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+					<WidgetText style={{paddingTop: 0}}>
+                        <div style={{marginLeft: 10, marginRight: 50}}>
+                            <BarChart data={barChartData} options={barChartOptions}/>
+                        </div>
 					</WidgetText>
 				</Widget>
                 <Widget width={3}>
@@ -155,6 +232,50 @@ class DashboardPage extends React.Component {
                                         </div>
                                     </div>
                                 </span>
+                            </WidgetText>
+                        </Widget>
+                    </Dashboard>
+                </Cell>
+                <Cell size={'1/2'}>
+                    <Dashboard fullHeight={true}>
+                        <Widget width={5}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <div>
+                                                <Sparklines 
+                                                    data={this.state.sparklineUsersData} 
+                                                    limit={10}>
+                                                    <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
+                                                </Sparklines>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                            <WidgetText style={{textAlign: 'center', paddingTop: 0}}>
+                                Requests per second
+                            </WidgetText>
+                        </Widget>
+                        <Widget width={5}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <div>
+                                                <Sparklines 
+                                                    data={this.state.sparklineCpuData} 
+                                                    limit={10}>
+                                                    <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
+                                                </Sparklines>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                            <WidgetText style={{textAlign: 'center', paddingTop: 0}}>
+                                CPU usage
                             </WidgetText>
                         </Widget>
                     </Dashboard>

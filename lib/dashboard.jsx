@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
 			}
 		});
 		return (
-			<Grid>
+			<Grid style={{margin: 0}}>
 				{widgets}
 			</Grid>
 			);
