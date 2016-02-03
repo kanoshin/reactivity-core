@@ -1,6 +1,17 @@
 import React from 'react'
 import { IconButton, RaisedButton } from 'material-ui'
 import NavigationClose from 'material-ui/lib/svg-icons/navigation/close'
+import Wifi from 'material-ui/lib/svg-icons/notification/wifi'
+import FreeBreakfast from 'material-ui/lib/svg-icons/places/free-breakfast'
+import Memory from 'material-ui/lib/svg-icons/hardware/memory'
+import Storage from 'material-ui/lib/svg-icons/device/storage'
+import DeveloperBoard from 'material-ui/lib/svg-icons/hardware/developer-board'
+import DesktopMac from 'material-ui/lib/svg-icons/hardware/desktop-mac'
+import ActionInfo from 'material-ui/lib/svg-icons/action/info';
+import FileFolder from 'material-ui/lib/svg-icons/file/folder';
+import ActionAssignment from 'material-ui/lib/svg-icons/action/assignment';
+import Colors from 'material-ui/lib/styles/colors';
+import EditorInsertChart from 'material-ui/lib/svg-icons/editor/insert-chart';
 import { 
 	Dashboard,
 	Widget,
@@ -10,7 +21,9 @@ import {
 	WidgetCloseControl,
 	WidgetExpandControl,
 	WidgetRefreshControl,
-	WidgetActions
+	WidgetActions,
+    Grid,
+    Cell
 } from 'reactivity'
 
 import {
@@ -21,6 +34,12 @@ import {
 	TableHeaderColumn,
 	TableRow,
 	TableRowColumn,
+    List,
+    ListItem,
+    Checkbox,
+    Toggle,
+    Divider,
+    Avatar
 } from 'material-ui'
 
 class DashboardPage extends React.Component {
@@ -44,7 +63,7 @@ class DashboardPage extends React.Component {
 	render() {
 		return (
 			<Dashboard fullHeight={true}>
-				<Widget width={12} closeControl={true}>
+                <Widget width={9} closeControl={true}>
 					<WidgetHeader
 						title="Title"
 						subtitle="Subtitle">
@@ -56,112 +75,91 @@ class DashboardPage extends React.Component {
 						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
 					</WidgetText>
 				</Widget>
-				<Widget width={6} closeControl={true}>
-					<WidgetHeader
-						title="Title"
-						subtitle="Subtitle">
-					</WidgetHeader>
+                <Widget width={3}>
 					<WidgetText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+						<List subheader="Folders" insetSubheader={true}>
+                            <ListItem
+                                leftAvatar={<Avatar icon={<FileFolder />} />}
+                                rightIcon={<ActionInfo />}
+                                primaryText="Photos"
+                                secondaryText="Jan 9, 2014"
+                            />
+                            <ListItem
+                                leftAvatar={<Avatar icon={<FileFolder />} />}
+                                rightIcon={<ActionInfo />}
+                                primaryText="Work"
+                                secondaryText="Jan 28, 2014"
+                            />
+                            </List>
+                            <Divider inset={true} />
+                            <List subheader="Files" insetSubheader={true}>
+                            <ListItem
+                                leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={Colors.blue500} />}
+                                rightIcon={<ActionInfo />}
+                                primaryText="Vacation itinerary"
+                                secondaryText="Jan 20, 2014"
+                            />
+                            <ListItem
+                                leftAvatar={<Avatar icon={<EditorInsertChart />} backgroundColor={Colors.yellow600} />}
+                                rightIcon={<ActionInfo />}
+                                primaryText="Kitchen remodel"
+                                secondaryText="Jan 10, 2014"
+                            />
+                            </List>
 					</WidgetText>
 				</Widget>
-				<Widget width={6} initiallyExpanded={true} closeControl={true} onRefresh={()=>{console.log('refresh')}}>
-					<WidgetHeader
-						title="Title">
-					</WidgetHeader>
-					<WidgetText expandable={true}>
-						<Table
-                            height={this.state.tableSettings.height}
-                            fixedHeader={this.state.tableSettings.fixedHeader}
-                            fixedFooter={this.state.tableSettings.fixedFooter}
-                            selectable={this.state.tableSettings.selectable}
-                            multiSelectable={this.state.tableSettings.multiSelectable}
-                            onRowSelection={this._onRowSelection}>
-                            <TableHeader enableSelectAll={this.state.tableSettings.enableSelectAll}>
-                                <TableRow>
-                                    <TableHeaderColumn colSpan="3">
-                                        Common Header
-                                    </TableHeaderColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableHeaderColumn tooltip='The ID'>ID</TableHeaderColumn>
-                                    <TableHeaderColumn tooltip='The Name'>Name</TableHeaderColumn>
-                                    <TableHeaderColumn tooltip='The Status'>Status</TableHeaderColumn>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody
-                                deselectOnClickaway={this.state.tableSettings.deselectOnClickaway}
-                                showRowHover={this.state.tableSettings.showRowHover}
-                                stripedRows={this.state.tableSettings.stripedRows}>
-                                <TableRow selected={true}>
-                                    <TableRowColumn>1</TableRowColumn>
-                                    <TableRowColumn>John Smith</TableRowColumn>
-                                    <TableRowColumn>Employed</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn>2</TableRowColumn>
-                                    <TableRowColumn>Randal White</TableRowColumn>
-                                    <TableRowColumn>Unemployed</TableRowColumn>
-                                </TableRow>
-                                <TableRow selected={true}>
-                                    <TableRowColumn>3</TableRowColumn>
-                                    <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                                    <TableRowColumn>Employed</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn>4</TableRowColumn>
-                                    <TableRowColumn>Steve Brown</TableRowColumn>
-                                    <TableRowColumn>Employed</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn>5</TableRowColumn>
-                                    <TableRowColumn>Joyce Whitten</TableRowColumn>
-                                    <TableRowColumn>Employed</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn>6</TableRowColumn>
-                                    <TableRowColumn>Samuel Roberts</TableRowColumn>
-                                    <TableRowColumn>Unemployed</TableRowColumn>
-                                </TableRow>
-                                <TableRow>
-                                    <TableRowColumn>7</TableRowColumn>
-                                    <TableRowColumn>Adam Moore</TableRowColumn>
-                                    <TableRowColumn>Employed</TableRowColumn>
-                                </TableRow>
-                            </TableBody>
-                            <TableFooter>
-                                <TableRow>
-                                    <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-                                        Common Footer
-                                    </TableRowColumn>
-                                </TableRow>
-                            </TableFooter>
-                        </Table>
-					</WidgetText>
-				</Widget>
-				<Widget width={9} controls={[<WidgetCloseControl/>]}>
-					<WidgetActions>
-						<RaisedButton label="Action1" primary={true}/>
-    					<RaisedButton label="Action2" secondary={true}/>
-					</WidgetActions>
-					<WidgetText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-					</WidgetText>
-				</Widget>
-				<Widget width={3}>
-					<WidgetText>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-						Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-						Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-					</WidgetText>
-				</Widget>
+                <Cell size={'1/2'}>
+                    <Dashboard fullHeight={true}>
+                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <DesktopMac style={{position: 'absolute', top: 10, left: 10}}/>
+                                            <div>OS X</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                        </Widget>
+                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <DeveloperBoard style={{position: 'absolute', top: 10, left: 10}}/>
+                                            <div>2.7 GHz</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                        </Widget>
+                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <Memory style={{position: 'absolute', top: 10, left: 10}}/>
+                                            <div>32 GB</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                        </Widget>
+                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
+                            <WidgetText>
+                                <span style={{display: 'block'}}>
+                                    <div>
+                                        <div style={{marginLeft:0, paddingLeft: 30}}>
+                                            <Storage style={{position: 'absolute', top: 10, left: 10}}/>
+                                            <div>1 TB</div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </WidgetText>
+                        </Widget>
+                    </Dashboard>
+                </Cell>
 			</Dashboard>
 			);
 	}

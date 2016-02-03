@@ -75,13 +75,14 @@ class Widget extends React.Component {
 	}
 	
 	render() {
+        let {style, ...other} = this.props;
 		return (
 			<Cell size={this.props.width + '/12'} style={Object.assign({}, 
 				this.styles.default, 
 				this.props.fullHeight && (!this.state.hasExpandableChild || this.state.expanded) && this.styles.fullHeight, 
 				!this.state.isOpen && this.styles.closed)}>
 				<div style={this.styles.cardWrapper}>
-				<Card ref={'card'} {...this.props} style={this.styles.card}>
+				<Card ref={'card'} {...other} style={Object.assign({}, this.styles.card, style)}>
 					<WidgetControls>
 						{this.state.controls}
 					</WidgetControls>
