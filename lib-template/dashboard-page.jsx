@@ -63,10 +63,9 @@ class DashboardPage extends React.Component {
 	render() {
 		return (
 			<Dashboard fullHeight={true}>
-                <Widget width={9} closeControl={true}>
+                <Widget width={9} closeControl={true} refreshControl={true}>
 					<WidgetHeader
-						title="Title"
-						subtitle="Subtitle">
+						title="Growth Rate">
 					</WidgetHeader>
 					<WidgetText>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit.

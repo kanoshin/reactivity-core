@@ -35,7 +35,7 @@ class Widget extends React.Component {
 			this.state.controls.push(<WidgetExpandControl key="expand" onTouchTap={this._toggleExpand} />);
 		}
 			
-		if(props.closeControl) {
+		if(props.onClose) {
 			this.state.controls.push(<WidgetCloseControl key="close" onTouchTap={this._toggleClose} />);
 		}
 		
@@ -97,13 +97,15 @@ class Widget extends React.Component {
 		close: React.PropTypes.func
 	}
 	
-	_toggleClose = () => {
+	_toggleClose = (e) => {
 		this.setState({isOpen: false});
+        this.onClose(e);
 	}
 	
 	_toggleExpand = (e) => {
 		this.refs.card._onExpandable(e);
 		this.setState({expanded: !this.state.expanded});
+        this.onExpand(e);
 	}
 }
 
