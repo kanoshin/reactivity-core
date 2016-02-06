@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-import { IconsDict } from 'lib-template/icons.js'
+import { IconsDict } from 'lib-template/icons-dict.js'
 import { IconButton } from 'material-ui'
 import { Dashboard, Widget, WidgetText, WidgetTitle, WidgetHeader, Grid, Cell } from 'reactivity'
 

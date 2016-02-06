@@ -15,7 +15,7 @@ import Timeline from 'material-ui/lib/svg-icons/action/timeline'
 import Dashboard from 'material-ui/lib/svg-icons/action/dashboard'
 import Code from 'material-ui/lib/svg-icons/action/code'
 import Image from 'material-ui/lib/svg-icons/image/image'
-import {Categories as IconCategories} from 'lib-template/icons.js'
+import {Categories as IconCategories} from 'lib-template/icons-categories.js'
 
 const {Colors} = Styles;
 

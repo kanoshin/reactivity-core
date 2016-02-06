@@ -1,12 +1,11 @@
+import {Categories as IconCategories} from 'lib-template/icons-categories.js'
 import * as SvgIcons from 'material-ui/lib/svg-icons'
 
 let icons = Object.keys(SvgIcons).map(iconName => {
     return {icon: SvgIcons[iconName], name: iconName};
-}), prefixes = ['Action', 'Alert', 'Av', 'Communication', 'Content', 'Device', 'Editor',
-    'File', 'Hardware', 'Image', 'Maps', 'Navigation', 'Notification', 'Places', 'Social',
-    'Toggle'];
+});
     
-let iconGroups = prefixes.map(prefix => {
+let iconGroups = IconCategories.map(prefix => {
     return {
         icons: icons.filter(icon => icon.name.startsWith(prefix)),
         category: prefix.toLowerCase()
@@ -21,4 +20,3 @@ iconGroups.forEach((group) => {
 });
 
 export {iconDict as IconsDict};
-export {prefixes as Categories}
