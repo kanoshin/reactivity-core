@@ -24,9 +24,8 @@ gulp.task('release-build', function() {
             return builder.loadConfig('./lib-template/custom-config.js');
         })
         .then(function() {
-            return builder.bundle('lib-template/app.js', './build/bundle.js', {
-                minify:true,
-                sourceMaps: true
+            return builder.bundle('lib-template/**/*.jsx', './build/bundle.js', {
+                minify:true
             });
         });
 });
