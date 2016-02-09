@@ -16,6 +16,7 @@ import SignUp from 'lib/sign-up.jsx'
 import Nav from 'lib/nav.jsx'
 import NavMenuItem from 'lib/nav-menu-item.jsx'
 import NavBlock from 'lib/nav-block.jsx'
+import StackedWidget from 'lib/stacked-widget.jsx'
 
 export {Dashboard}
 export {Widget}
@@ -28,8 +29,14 @@ export {WidgetExpandControl}
 export {WidgetRefreshControl}
 export {WidgetActions}
 export {CustomNav}
-export {Login, Grid, Cell}
-export {SignUp}
-export {Login}
-export {Nav}
-export {NavMenuItem, NavBlock}
+export {
+    Login,
+    Grid,
+    Cell,
+    SignUp,
+    Login,
+    Nav,
+    NavMenuItem, 
+    NavBlock, 
+    StackedWidget
+}

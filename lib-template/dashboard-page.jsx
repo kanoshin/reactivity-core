@@ -25,7 +25,8 @@ import {
 	WidgetRefreshControl,
 	WidgetActions,
     Grid,
-    Cell
+    Cell,
+    StackedWidget
 } from 'reactivity'
 
 import {
@@ -38,7 +39,6 @@ import {
 	TableRowColumn,
     List,
     ListItem,
-    Checkbox,
     Toggle,
     Divider,
     Avatar
@@ -141,7 +141,7 @@ class DashboardPage extends React.Component {
 		};
 		return (
 			<Dashboard fullHeight={true}>
-                <Widget width={9} closeControl={true} refreshControl={true}>
+                <Widget width={6} closeControl={true} refreshControl={true}>
 					<WidgetHeader
 						title="Average Growth Rate">
 					</WidgetHeader>
@@ -150,6 +150,54 @@ class DashboardPage extends React.Component {
                             <BarChart data={barChartData} options={barChartOptions}/>
                         </div>
 					</WidgetText>
+				</Widget>
+                <StackedWidget width={3}>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <div>
+                                        <Sparklines 
+                                            data={this.state.sparklineUsersData} 
+                                            limit={10}>
+                                            <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
+                                        </Sparklines>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <div>
+                                        <Sparklines 
+                                            data={this.state.sparklineCpuData} 
+                                            limit={10}>
+                                            <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
+                                        </Sparklines>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+				</StackedWidget>
+                <Widget width={3}>
+					<WidgetText>
+                        <List>
+                            <ListItem
+                            primaryText="When calls and notifications arrive"
+                            secondaryText="Always interrupt"
+                            />
+                        </List>
+                        <Divider />
+                        <List subheader="Priority interruptions">
+                            <ListItem primaryText="Events and reminders" rightToggle={<Toggle />} />
+                            <ListItem primaryText="Calls" rightToggle={<Toggle />} />
+                            <ListItem primaryText="Messages" rightToggle={<Toggle />} />
+                        </List>
+                    </WidgetText>
 				</Widget>
                 <Widget width={3}>
 					<WidgetText>

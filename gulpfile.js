@@ -25,7 +25,7 @@ gulp.task('release-build', function() {
         })
         .then(function() {
             return builder.bundle('lib-template/**/*.jsx', './build/bundle.js', {
-                minify:true
+                minify: true
             });
         });
 });
@@ -37,8 +37,8 @@ gulp.task('dev-build', function() {
             return builder.loadConfig('./lib-template/custom-config.js');
         })
         .then(function() {
-            return builder.bundle('material-ui + react + react-dom + react-router + material-ui/lib/svg-icons + radium + core-js + react-flexr', './build/bundle.js', {
-                sourceMaps: true
+            return builder.bundle('lib-template/**/*.jsx - [lib-template/**/*.jsx] - [lib/**/*.jsx]', './build/bundle.js', {
+                minify: true
             });
         });
 });
