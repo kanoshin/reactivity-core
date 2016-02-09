@@ -199,7 +199,40 @@ class DashboardPage extends React.Component {
                         </List>
                     </WidgetText>
 				</Widget>
-                <Widget width={3}>
+                <Widget width={5}>
+                    <Table>
+                        <TableHeader>
+                        <TableRow>
+                            <TableHeaderColumn>ID</TableHeaderColumn>
+                            <TableHeaderColumn>Name</TableHeaderColumn>
+                            <TableHeaderColumn>Status</TableHeaderColumn>
+                        </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                        <TableRow>
+                            <TableRowColumn>1</TableRowColumn>
+                            <TableRowColumn>John Smith</TableRowColumn>
+                            <TableRowColumn>Employed</TableRowColumn>
+                        </TableRow>
+                        <TableRow>
+                            <TableRowColumn>2</TableRowColumn>
+                            <TableRowColumn>Randal White</TableRowColumn>
+                            <TableRowColumn>Unemployed</TableRowColumn>
+                        </TableRow>
+                        <TableRow>
+                            <TableRowColumn>3</TableRowColumn>
+                            <TableRowColumn>Stephanie Sanders</TableRowColumn>
+                            <TableRowColumn>Employed</TableRowColumn>
+                        </TableRow>
+                        <TableRow>
+                            <TableRowColumn>4</TableRowColumn>
+                            <TableRowColumn>Steve Brown</TableRowColumn>
+                            <TableRowColumn>Employed</TableRowColumn>
+                        </TableRow>
+                        </TableBody>
+                    </Table>
+                </Widget>
+                <Widget width={4}>
 					<WidgetText>
 						<List subheader="Folders" insetSubheader={true}>
                             <ListItem
@@ -232,102 +265,48 @@ class DashboardPage extends React.Component {
                             </List>
 					</WidgetText>
 				</Widget>
-                <Cell size={'1/2'}>
-                    <Dashboard fullHeight={true}>
-                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <DesktopMac style={{position: 'absolute', top: 10, left: 10}}/>
-                                            <div>OS X</div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                        </Widget>
-                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <DeveloperBoard style={{position: 'absolute', top: 10, left: 10}}/>
-                                            <div>2.7 GHz</div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                        </Widget>
-                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <Memory style={{position: 'absolute', top: 10, left: 10}}/>
-                                            <div>32 GB</div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                        </Widget>
-                        <Widget width={6} style={{backgroundColor: Colors.lightGreen400}}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <Storage style={{position: 'absolute', top: 10, left: 10}}/>
-                                            <div>1 TB</div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                        </Widget>
-                    </Dashboard>
-                </Cell>
-                <Cell size={'1/2'}>
-                    <Dashboard fullHeight={true}>
-                        <Widget width={5}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <div>
-                                                <Sparklines 
-                                                    data={this.state.sparklineUsersData} 
-                                                    limit={10}>
-                                                    <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
-                                                </Sparklines>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                            <WidgetText style={{textAlign: 'center', paddingTop: 0}}>
-                                Requests per second
-                            </WidgetText>
-                        </Widget>
-                        <Widget width={5}>
-                            <WidgetText>
-                                <span style={{display: 'block'}}>
-                                    <div>
-                                        <div style={{marginLeft:0, paddingLeft: 30}}>
-                                            <div>
-                                                <Sparklines 
-                                                    data={this.state.sparklineCpuData} 
-                                                    limit={10}>
-                                                    <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
-                                                </Sparklines>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </span>
-                            </WidgetText>
-                            <WidgetText style={{textAlign: 'center', paddingTop: 0}}>
-                                CPU usage
-                            </WidgetText>
-                        </Widget>
-                    </Dashboard>
-                </Cell>
+                <StackedWidget width={3} style={{backgroundColor: Colors.lightGreen400}}>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <DesktopMac style={{position: 'absolute', top: 10, left: 10}}/>
+                                    <div>OS X</div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <DeveloperBoard style={{position: 'absolute', top: 10, left: 10}}/>
+                                    <div>2.7 GHz</div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <Memory style={{position: 'absolute', top: 10, left: 10}}/>
+                                    <div>32 GB</div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                    <WidgetText>
+                        <span style={{display: 'block'}}>
+                            <div>
+                                <div style={{marginLeft:0, paddingLeft: 30}}>
+                                    <Storage style={{position: 'absolute', top: 10, left: 10}}/>
+                                    <div>1 TB</div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                </StackedWidget>
 			</Dashboard>
 			);
 	}
