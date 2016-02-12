@@ -12,6 +12,7 @@ import FileFolder from 'material-ui/lib/svg-icons/file/folder';
 import ActionAssignment from 'material-ui/lib/svg-icons/action/assignment';
 import Colors from 'material-ui/lib/styles/colors';
 import EditorInsertChart from 'material-ui/lib/svg-icons/editor/insert-chart';
+import Usb from 'material-ui/lib/svg-icons/device/usb'
 import { Sparklines, SparklinesLine, SparklinesSpots, SparklinesBars } from 'react-sparklines'
 import ChartJs from 'react-chartjs'
 import { 
@@ -43,6 +44,24 @@ import {
     Divider,
     Avatar
 } from 'material-ui'
+
+let style = {
+    deviceInfo: {
+        wrapper: {
+            display: 'block'
+        },
+        container: {
+            marginLeft: 0, 
+            paddingLeft: 30,
+            paddingTop: 5
+        },
+        icon: {
+            position: 'absolute', 
+            top: 16, 
+            left: 10
+        }
+    }
+};
 
 class DashboardPage extends React.Component {
 	constructor(props) {
@@ -247,61 +266,65 @@ class DashboardPage extends React.Component {
                                 primaryText="Work"
                                 secondaryText="Jan 28, 2014"
                             />
-                            </List>
-                            <Divider inset={true} />
-                            <List subheader="Files" insetSubheader={true}>
-                            <ListItem
-                                leftAvatar={<Avatar icon={<ActionAssignment />} backgroundColor={Colors.blue500} />}
-                                rightIcon={<ActionInfo />}
-                                primaryText="Vacation itinerary"
-                                secondaryText="Jan 20, 2014"
-                            />
+                        </List>
+                        <Divider inset={true} />
+                        <List subheader="Files" insetSubheader={true}>
                             <ListItem
                                 leftAvatar={<Avatar icon={<EditorInsertChart />} backgroundColor={Colors.yellow600} />}
                                 rightIcon={<ActionInfo />}
                                 primaryText="Kitchen remodel"
                                 secondaryText="Jan 10, 2014"
                             />
-                            </List>
+                        </List>
 					</WidgetText>
 				</Widget>
                 <StackedWidget width={3} style={{backgroundColor: Colors.lightGreen400}}>
                     <WidgetText>
-                        <span style={{display: 'block'}}>
+                        <span style={style.deviceInfo.wrapper}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <DesktopMac style={{position: 'absolute', top: 10, left: 10}}/>
+                                <div style={style.deviceInfo.container}>
+                                    <DesktopMac style={style.deviceInfo.icon}/>
                                     <div>OS X</div>
                                 </div>
                             </div>
                         </span>
                     </WidgetText>
                     <WidgetText>
-                        <span style={{display: 'block'}}>
+                        <span style={style.deviceInfo.wrapper}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <DeveloperBoard style={{position: 'absolute', top: 10, left: 10}}/>
+                                <div style={style.deviceInfo.container}>
+                                    <DeveloperBoard style={style.deviceInfo.icon}/>
                                     <div>2.7 GHz</div>
                                 </div>
                             </div>
                         </span>
                     </WidgetText>
                     <WidgetText>
-                        <span style={{display: 'block'}}>
+                        <span style={style.deviceInfo.wrapper}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <Memory style={{position: 'absolute', top: 10, left: 10}}/>
+                                <div style={style.deviceInfo.container}>
+                                    <Memory style={style.deviceInfo.icon}/>
                                     <div>32 GB</div>
                                 </div>
                             </div>
                         </span>
                     </WidgetText>
                     <WidgetText>
-                        <span style={{display: 'block'}}>
+                        <span style={style.deviceInfo.wrapper}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <Storage style={{position: 'absolute', top: 10, left: 10}}/>
+                                <div style={style.deviceInfo.container}>
+                                    <Storage style={style.deviceInfo.icon}/>
                                     <div>1 TB</div>
+                                </div>
+                            </div>
+                        </span>
+                    </WidgetText>
+                    <WidgetText>
+                        <span style={style.deviceInfo.wrapper}>
+                            <div>
+                                <div style={style.deviceInfo.container}>
+                                    <Usb style={style.deviceInfo.icon}/>
+                                    <div>USB Type-C</div>
                                 </div>
                             </div>
                         </span>
