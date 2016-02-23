@@ -30,7 +30,12 @@ class StackedWidget extends React.Component {
 				position: 'relative',
 				width: '100%',
                 overflow:'visible'
-			}
+			},
+            cardVertCentered: {
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+            }
 		};
 	}
 	
@@ -41,7 +46,7 @@ class StackedWidget extends React.Component {
                 {React.Children.map(this.props.children, child => {
                     return (
                         <div style={this.styles.cardWrapper}>
-                            <Card ref={'card'} {...other} style={Object.assign({}, this.styles.card, style)}>
+                            <Card ref={'card'} {...other} style={Object.assign({}, this.styles.card, child.props.centered && this.styles.cardVertCentered, style)}>
                                 {child}
                             </Card>
                         </div>

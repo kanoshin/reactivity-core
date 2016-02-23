@@ -171,14 +171,16 @@ class DashboardPage extends React.Component {
 					</WidgetText>
 				</Widget>
                 <StackedWidget width={3}>
-                    <WidgetText>
+                    <WidgetText centered={true}>
                         <span style={{display: 'block'}}>
                             <div>
                                 <div style={{marginLeft:0, paddingLeft: 30}}>
                                     <div>
                                         <Sparklines 
                                             data={this.state.sparklineUsersData} 
-                                            limit={10}>
+                                            limit={20}
+                                            height={70}
+                                            width={300}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
@@ -186,14 +188,16 @@ class DashboardPage extends React.Component {
                             </div>
                         </span>
                     </WidgetText>
-                    <WidgetText>
+                    <WidgetText centered={true}>
                         <span style={{display: 'block'}}>
                             <div>
                                 <div style={{marginLeft:0, paddingLeft: 30}}>
                                     <div>
                                         <Sparklines 
                                             data={this.state.sparklineCpuData} 
-                                            limit={10}>
+                                            limit={20}
+                                            height={70}
+                                            width={300}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
@@ -221,33 +225,38 @@ class DashboardPage extends React.Component {
                 <Widget width={5}>
                     <Table>
                         <TableHeader>
-                        <TableRow>
-                            <TableHeaderColumn>ID</TableHeaderColumn>
-                            <TableHeaderColumn>Name</TableHeaderColumn>
-                            <TableHeaderColumn>Status</TableHeaderColumn>
-                        </TableRow>
+                            <TableRow>
+                                <TableHeaderColumn>ID</TableHeaderColumn>
+                                <TableHeaderColumn>Name</TableHeaderColumn>
+                                <TableHeaderColumn>Position</TableHeaderColumn>
+                            </TableRow>
                         </TableHeader>
                         <TableBody>
-                        <TableRow>
-                            <TableRowColumn>1</TableRowColumn>
-                            <TableRowColumn>John Smith</TableRowColumn>
-                            <TableRowColumn>Employed</TableRowColumn>
-                        </TableRow>
-                        <TableRow>
-                            <TableRowColumn>2</TableRowColumn>
-                            <TableRowColumn>Randal White</TableRowColumn>
-                            <TableRowColumn>Unemployed</TableRowColumn>
-                        </TableRow>
-                        <TableRow>
-                            <TableRowColumn>3</TableRowColumn>
-                            <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                            <TableRowColumn>Employed</TableRowColumn>
-                        </TableRow>
-                        <TableRow>
-                            <TableRowColumn>4</TableRowColumn>
-                            <TableRowColumn>Steve Brown</TableRowColumn>
-                            <TableRowColumn>Employed</TableRowColumn>
-                        </TableRow>
+                            <TableRow>
+                                <TableRowColumn>1</TableRowColumn>
+                                <TableRowColumn>John Smith</TableRowColumn>
+                                <TableRowColumn>CEO</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>2</TableRowColumn>
+                                <TableRowColumn>Randal White</TableRowColumn>
+                                <TableRowColumn>CTO</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>3</TableRowColumn>
+                                <TableRowColumn>Stephanie Sanders</TableRowColumn>
+                                <TableRowColumn>Developer</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>4</TableRowColumn>
+                                <TableRowColumn>Steve Brown</TableRowColumn>
+                                <TableRowColumn>Frontend</TableRowColumn>
+                            </TableRow>
+                            <TableRow>
+                                <TableRowColumn>5</TableRowColumn>
+                                <TableRowColumn>Lewis Smith</TableRowColumn>
+                                <TableRowColumn>Manager</TableRowColumn>
+                            </TableRow>
                         </TableBody>
                     </Table>
                 </Widget>
