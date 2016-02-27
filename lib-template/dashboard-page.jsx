@@ -83,7 +83,8 @@ class DashboardPage extends React.Component {
                                 33, 39, 40, 52],
             sparklineCpuData: [90, 88, 55, 68, 62, 62, 40, 32, 33, 25, 66, 88, 
                                 99, 100, 120, 100, 84, 88, 73, 66, 
-                                60, 88, 99, 55, 33, 88, 120]
+                                60, 88, 99, 55, 33, 88, 120],
+            chartToShow: 'bar'
         };
         this.sparklineInterval = window.setInterval(() => {
             let newUsersValues = this.state.sparklineUsersData.slice();
@@ -102,6 +103,7 @@ class DashboardPage extends React.Component {
 
 	render() {
         let BarChart = ChartJs.Bar;
+        let LineChart = ChartJs.Line;
 		let barChartData = {
 			labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 			datasets: [
@@ -112,6 +114,19 @@ class DashboardPage extends React.Component {
 					pointStrokeColor: "#fff",
 					pointHighlightFill: "#fff",
 					pointHighlightStroke: "rgba(220,220,220,1)",
+					data: [65, 59, 80, 81, 56, 55, 65, 75, 88, 90, 94, 105]
+				}
+			]
+		}, lineChartData = {
+			labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+			datasets: [
+				{
+					fillColor: "rgba(216,48,48,1)",
+					strokeColor: "rgba(216,48,48,1)",
+					pointColor: "rgba(216,48,48,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(216,48,48,1)",
 					data: [65, 59, 80, 81, 56, 55, 65, 75, 88, 90, 94, 105]
 				}
 			]
@@ -157,7 +172,46 @@ class DashboardPage extends React.Component {
 		
 			//String - A legend template
 			legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
-		};
+		}, lineChartOptions = {
+            animation: false,
+            
+			responsive: true,
+            
+            ///Boolean - Whether grid lines are shown across the chart
+            scaleShowGridLines : false,
+
+            //String - Colour of the grid lines
+            scaleLineColor: 'transparent',
+            
+            scaleGridLineColor : "rgba(0,0,0,.05)",
+
+            //Boolean - Whether to show horizontal lines (except X axis)
+            scaleShowHorizontalLines: false,
+
+            //Boolean - Whether to show vertical lines (except Y axis)
+            scaleShowVerticalLines: false,
+
+            //Boolean - Whether the line is curved between points
+            bezierCurve : true,
+
+            //Number - Tension of the bezier curve between points
+            bezierCurveTension : 0.4,
+
+            //Boolean - Whether to show a dot for each point
+            pointDot : false,
+
+            //Boolean - Whether to show a stroke for datasets
+            datasetStroke : false,
+
+            //Number - Pixel width of dataset stroke
+            datasetStrokeWidth : 2,
+
+            //Boolean - Whether to fill the dataset with a colour
+            datasetFill : true,
+
+            //String - A legend template
+            legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+        };
 		return (
 			<Dashboard fullHeight={true}>
                 <Widget width={6} closeControl={true} refreshControl={true}>
@@ -166,7 +220,7 @@ class DashboardPage extends React.Component {
 					</WidgetHeader>
 					<WidgetText style={{paddingTop: 0}}>
                         <div style={{marginLeft: 10, marginRight: 50}}>
-                            <BarChart data={barChartData} options={barChartOptions}/>
+                            {this.state.chartToShow === 'bar' ? <BarChart data={barChartData} options={barChartOptions}/> : <LineChart data={lineChartData} options={lineChartOptions}/>}
                         </div>
 					</WidgetText>
 				</Widget>
@@ -210,15 +264,15 @@ class DashboardPage extends React.Component {
 					<WidgetText>
                         <List>
                             <ListItem
-                            primaryText="When calls and notifications arrive"
-                            secondaryText="Always interrupt"
+                            primaryText="Chart controls"
                             />
                         </List>
                         <Divider />
-                        <List subheader="Priority interruptions">
-                            <ListItem primaryText="Events and reminders" rightToggle={<Toggle />} />
-                            <ListItem primaryText="Calls" rightToggle={<Toggle />} />
-                            <ListItem primaryText="Messages" rightToggle={<Toggle />} />
+                        <List subheader="Main chart">
+                            <ListItem primaryText="Bar" rightToggle={<Toggle ref='barToggle' defaultToggled={true} onToggle={this._enableBarChart} />} 
+                                />
+                            <ListItem primaryText="Line" rightToggle={<Toggle ref='lineToggle' onToggle={this._enableLineChart} />} 
+                                />
                         </List>
                     </WidgetText>
 				</Widget>
@@ -342,6 +396,26 @@ class DashboardPage extends React.Component {
 			</Dashboard>
 			);
 	}
+    
+    _enableBarChart = () => {
+        if(this.refs.barToggle.isToggled()) {
+            this.setState({chartToShow: 'bar'});
+            this.refs.lineToggle.setToggled(false);
+        } else {
+            this.setState({chartToShow: 'line'});
+            this.refs.lineToggle.setToggled(true);
+        }
+    }
+    
+    _enableLineChart = () => {
+        if(this.refs.lineToggle.isToggled()) {
+            this.setState({chartToShow: 'line'});
+            this.refs.barToggle.setToggled(false);
+        } else {
+            this.setState({chartToShow: 'bar'});
+            this.refs.barToggle.setToggled(true);
+        }
+    }
 }
 
 export default DashboardPage
