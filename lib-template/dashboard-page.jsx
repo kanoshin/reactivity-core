@@ -179,6 +179,8 @@ class DashboardPage extends React.Component {
             
             ///Boolean - Whether grid lines are shown across the chart
             scaleShowGridLines : false,
+            
+            scaleShowLabels: false,
 
             //String - Colour of the grid lines
             scaleLineColor: 'transparent',
