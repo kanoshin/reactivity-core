@@ -84,9 +84,10 @@ class DashboardPage extends React.Component {
             sparklineCpuData: [90, 88, 55, 68, 62, 62, 40, 32, 33, 25, 66, 88, 
                                 99, 100, 120, 100, 84, 88, 73, 66, 
                                 60, 88, 99, 55, 33, 88, 120],
-            chartToShow: 'bar'
+            chartToShow: 'bar',
+            speed: 1000
         };
-        this.sparklineInterval = window.setInterval(() => {
+        this.sparklineHandler = () => {
             let newUsersValues = this.state.sparklineUsersData.slice();
             let last = newUsersValues.shift();
             newUsersValues.push(last);
@@ -94,7 +95,7 @@ class DashboardPage extends React.Component {
             last = newCpuValues.shift();
             newCpuValues.push(last);
             this.setState({sparklineUsersData: newUsersValues, sparklineCpuData: newCpuValues});
-        }, 1000);
+        };
 	}
     
     componentWillUnmount() {
@@ -102,6 +103,8 @@ class DashboardPage extends React.Component {
     }
 
 	render() {
+        window.clearInterval(this.sparklineInterval);
+        this.sparklineInterval = window.setInterval(this.sparklineHandler, this.state.speed);
         let BarChart = ChartJs.Bar;
         let LineChart = ChartJs.Line;
 		let barChartData = {
@@ -271,9 +274,11 @@ class DashboardPage extends React.Component {
                         </List>
                         <Divider />
                         <List subheader="Main chart">
-                            <ListItem primaryText="Bar" rightToggle={<Toggle ref='barToggle' defaultToggled={true} onToggle={this._enableBarChart} />} 
-                                />
-                            <ListItem primaryText="Line" rightToggle={<Toggle ref='lineToggle' onToggle={this._enableLineChart} />} 
+                            <ListItem primaryText="Bar" rightToggle={<Toggle ref='barToggle' defaultToggled={true} onToggle={this._enableBarChart} />} />
+                            <ListItem primaryText="Line" rightToggle={<Toggle ref='lineToggle' onToggle={this._enableLineChart} />} />
+                        </List>
+                        <List subheader="CPU/RAM charts">
+                            <ListItem primaryText="Fast speed" rightToggle={<Toggle ref='speedToggle' onToggle={this._setSpeed} />} 
                                 />
                         </List>
                     </WidgetText>
@@ -416,6 +421,14 @@ class DashboardPage extends React.Component {
         } else {
             this.setState({chartToShow: 'bar'});
             this.refs.barToggle.setToggled(true);
+        }
+    }
+    
+    _setSpeed = () => {
+        if(this.refs.speedToggle.isToggled()) {
+            this.setState({speed: 300});
+        } else {
+            this.setState({speed: 1000});
         }
     }
 }
