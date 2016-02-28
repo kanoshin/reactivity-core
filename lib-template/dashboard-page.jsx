@@ -243,6 +243,10 @@ class DashboardPage extends React.Component {
             //String - A legend template
             legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
         };
+        let sparklinesWidth = (((window.innerWidth - 400)/(1920 - 400)) * 376) - 76
+        if(sparklinesWidth < 0)
+            sparklinesWidth = 0;
+        
 		return (
 			<Dashboard fullHeight={true}>
                 <Widget width={6} closeControl={true} refreshControl={true}>
@@ -265,7 +269,7 @@ class DashboardPage extends React.Component {
                                             data={this.state.sparklineUsersData} 
                                             limit={20}
                                             height={70}
-                                            width={(((window.innerWidth - 400)/(1920 - 400)) * 376) - 76}>
+                                            width={sparklinesWidth}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
@@ -282,7 +286,7 @@ class DashboardPage extends React.Component {
                                             data={this.state.sparklineCpuData} 
                                             limit={20}
                                             height={70}
-                                            width={(((window.innerWidth - 400)/(1920 - 400)) * 376) - 76}>
+                                            width={sparklinesWidth}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
