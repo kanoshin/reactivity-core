@@ -63,6 +63,39 @@ let style = {
     }
 };
 
+let tableData = [
+    {
+        index:1,
+        name:"John Smith",
+        status: "CEO",
+        selected: false
+    },
+    {
+        index:2,
+        name:"Randal White",
+        status: "CTO",
+        selected: false
+    },
+    {
+        index:3,
+        name:"Stephanie Sanders",
+        status: "Developer",
+        selected: false
+    },
+    {
+        index:4,
+        name:"Steve Brown",
+        status: "Frontend",
+        selected: false
+    },
+    {
+        index:5,
+        name:"Lewis Smith",
+        status: "Manager",
+        selected: false
+    },
+]
+
 class DashboardPage extends React.Component {
     static contextTypes = {
         muiTheme: React.PropTypes.object
@@ -71,17 +104,6 @@ class DashboardPage extends React.Component {
 	constructor(props) {
 		super(props);
 	    this.state = {
-	    	tableSettings: {
-	            fixedHeader: true,
-	            fixedFooter: true,
-	            stripedRows: false,
-	            showRowHover: false,
-	            selectable: true,
-	            multiSelectable: true,
-	            enableSelectAll: true,
-	            deselectOnClickaway: false,
-	            height: '350px',
-	        },
             sparklineUsersData: [25, 16, 18, 22, 12, 15, 19, 22, 28, 33, 39, 
                                 40, 52, 33, 26, 28, 12, 12, 15, 19, 22, 28, 
                                 33, 39, 40, 52],
@@ -243,7 +265,7 @@ class DashboardPage extends React.Component {
                                             data={this.state.sparklineUsersData} 
                                             limit={20}
                                             height={70}
-                                            width={300}>
+                                            width={(((window.innerWidth - 400)/(1920 - 400)) * 376) - 76}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
@@ -260,7 +282,7 @@ class DashboardPage extends React.Component {
                                             data={this.state.sparklineCpuData} 
                                             limit={20}
                                             height={70}
-                                            width={300}>
+                                            width={(((window.innerWidth - 400)/(1920 - 400)) * 376) - 76}>
                                             <SparklinesLine style={{ stroke: "none", fill: "#8e44af", fillOpacity: "1" }}/>
                                         </Sparklines>
                                     </div>
@@ -288,7 +310,7 @@ class DashboardPage extends React.Component {
                     </WidgetText>
 				</Widget>
                 <Widget width={5}>
-                    <Table>
+                    <Table onRowSelection={this._onRowSelection}>
                         <TableHeader>
                             <TableRow>
                                 <TableHeaderColumn>ID</TableHeaderColumn>
@@ -297,31 +319,13 @@ class DashboardPage extends React.Component {
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            <TableRow>
-                                <TableRowColumn>1</TableRowColumn>
-                                <TableRowColumn>John Smith</TableRowColumn>
-                                <TableRowColumn>CEO</TableRowColumn>
+                            {tableData.map( row => (
+                            <TableRow selected={row.selected}>
+                                <TableRowColumn>{row.index}</TableRowColumn>
+                                <TableRowColumn>{row.name}</TableRowColumn>
+                                <TableRowColumn>{row.status}</TableRowColumn>
                             </TableRow>
-                            <TableRow>
-                                <TableRowColumn>2</TableRowColumn>
-                                <TableRowColumn>Randal White</TableRowColumn>
-                                <TableRowColumn>CTO</TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>3</TableRowColumn>
-                                <TableRowColumn>Stephanie Sanders</TableRowColumn>
-                                <TableRowColumn>Developer</TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>4</TableRowColumn>
-                                <TableRowColumn>Steve Brown</TableRowColumn>
-                                <TableRowColumn>Frontend</TableRowColumn>
-                            </TableRow>
-                            <TableRow>
-                                <TableRowColumn>5</TableRowColumn>
-                                <TableRowColumn>Lewis Smith</TableRowColumn>
-                                <TableRowColumn>Manager</TableRowColumn>
-                            </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                 </Widget>
@@ -434,6 +438,11 @@ class DashboardPage extends React.Component {
         } else {
             this.setState({speed: 1000});
         }
+    }
+    
+    _onRowSelection = (selectedRows) => {
+        tableData.forEach((dataRow) => dataRow.selected = false);
+        selectedRows.forEach((i) => tableData[i].selected = true);
     }
 }
 
