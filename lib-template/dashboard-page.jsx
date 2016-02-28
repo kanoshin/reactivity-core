@@ -64,6 +64,10 @@ let style = {
 };
 
 class DashboardPage extends React.Component {
+    static contextTypes = {
+        muiTheme: React.PropTypes.object
+	}
+    
 	constructor(props) {
 		super(props);
 	    this.state = {
@@ -348,7 +352,7 @@ class DashboardPage extends React.Component {
                         </List>
 					</WidgetText>
 				</Widget>
-                <StackedWidget width={3} style={{backgroundColor: Colors.lightGreen400}}>
+                <StackedWidget width={3} style={this.context.muiTheme.widget.stacked}>
                     <WidgetText>
                         <span style={style.deviceInfo.wrapper}>
                             <div>

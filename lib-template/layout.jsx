@@ -60,6 +60,9 @@ class LayoutWrapper extends React.Component {
                     },
                     control: {
                         color: Colors.darkBlack
+                    },
+                    stacked: {
+                        backgroundColor: Colors.lightGreen400
                     }
                 },
                 list: {
@@ -97,6 +100,9 @@ class LayoutWrapper extends React.Component {
                     },
                     control: {
                         color: Colors.white
+                    },
+                    stacked: {
+                        backgroundColor: Colors.pinkA400
                     }
                 },
                 list: {
@@ -134,6 +140,9 @@ class LayoutWrapper extends React.Component {
                     },
                     control: {
                         color: Colors.white
+                    },
+                    stacked: {
+                        backgroundColor: Colors.pinkA400
                     }
                 },
                 list: {
