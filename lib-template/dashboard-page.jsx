@@ -303,11 +303,11 @@ class DashboardPage extends React.Component {
                             />
                         </List>
                         <Divider />
-                        <List subheader="Main chart">
+                        <List subheader="Main chart" subheaderStyle={this.context.muiTheme.list.subheader}>
                             <ListItem primaryText="Bar" rightToggle={<Toggle ref='barToggle' defaultToggled={true} onToggle={this._enableBarChart} />} />
                             <ListItem primaryText="Line" rightToggle={<Toggle ref='lineToggle' onToggle={this._enableLineChart} />} />
                         </List>
-                        <List subheader="CPU/RAM charts">
+                        <List subheader="CPU/RAM charts" subheaderStyle={this.context.muiTheme.list.subheader}>
                             <ListItem primaryText="Fast speed" rightToggle={<Toggle ref='speedToggle' onToggle={this._setSpeed} />} 
                                 />
                         </List>
@@ -335,7 +335,7 @@ class DashboardPage extends React.Component {
                 </Widget>
                 <Widget width={4}>
 					<WidgetText>
-						<List subheader="Folders" insetSubheader={true}>
+						<List subheader="Folders" insetSubheader={true} subheaderStyle={this.context.muiTheme.list.subheader}>
                             <ListItem
                                 leftAvatar={<Avatar icon={<FileFolder />} />}
                                 rightIcon={<ActionInfo />}
@@ -350,7 +350,7 @@ class DashboardPage extends React.Component {
                             />
                         </List>
                         <Divider inset={true} />
-                        <List subheader="Files" insetSubheader={true}>
+                        <List subheader="Files" insetSubheader={true} subheaderStyle={this.context.muiTheme.list.subheader}>
                             <ListItem
                                 leftAvatar={<Avatar icon={<EditorInsertChart />} backgroundColor={Colors.yellow600} />}
                                 rightIcon={<ActionInfo />}
