@@ -68,19 +68,19 @@ class LayoutWrapper extends React.Component {
                 list: {
                     subheader: {
                         color: Colors.darkBlack
+                    },
+                    listItem: {
+                        span: {
+                            color: Colors.darkBlack
+                        },
+                        text: {
+                            color: Colors.lightBlack
+                        }
                     }
                 },
                 nav: {
                     icon: {
                         color: Colors.grey600
-                    }
-                },
-                messageListItem: {
-                    span: {
-                        color: Colors.darkBlack
-                    },
-                    text: {
-                        color: Colors.lightBlack
                     }
                 }
             }),
@@ -108,19 +108,19 @@ class LayoutWrapper extends React.Component {
                 list: {
                     subheader: {
                         color: Colors.white
+                    },
+                    listItem: {
+                        span: {
+                            color: Colors.fullWhite
+                        },
+                        text: {
+                            color: Colors.darkWhite
+                        }
                     }
                 },
                 nav: {
                     icon: {
                         color: Colors.white
-                    }
-                },
-                messageListItem: {
-                    span: {
-                        color: Colors.fullWhite
-                    },
-                    text: {
-                        color: Colors.darkWhite
                     }
                 }
             }),
@@ -148,19 +148,19 @@ class LayoutWrapper extends React.Component {
                 list: {
                     subheader: {
                         color: Colors.white
+                    },
+                    listItem: {
+                        span: {
+                            color: Colors.darkBlack
+                        },
+                        text: {
+                            color: Colors.lightBlack
+                        }
                     }
                 },
                 nav: {
                     icon: {
                         color: Colors.white
-                    }
-                },
-                messageListItem: {
-                    span: {
-                        color: Colors.fullWhite
-                    },
-                    text: {
-                        color: Colors.darkWhite
                     }
                 }
             })
@@ -369,8 +369,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Brendan Lim"
                         secondaryText={
-                        <p style={this.context.muiTheme.messageListItem.text}>
-                            <span style={this.context.muiTheme.messageListItem.span}>Brunch this weekend?</span><br/>
+                        <p style={this.context.muiTheme.list.listItem.text}>
+                            <span style={this.context.muiTheme.list.listItem.span}>Brunch this weekend?</span><br/>
                             I&apos;ll be in your neighborhood doing errands this weekend. Do you want to grab brunch?
                         </p>
                         }
@@ -381,8 +381,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="me, Scott, Jennifer"
                         secondaryText={
-                        <p style={this.context.muiTheme.messageListItem.text}>
-                            <span style={this.context.muiTheme.messageListItem.span}>Summer BBQ</span><br/>
+                        <p style={this.context.muiTheme.list.listItem.text}>
+                            <span style={this.context.muiTheme.list.listItem.span}>Summer BBQ</span><br/>
                             Wish I could come, but I&apos;m out of town this weekend.
                         </p>
                         }
@@ -393,8 +393,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Grace Ng"
                         secondaryText={
-                        <p style={this.context.muiTheme.messageListItem.text}>
-                            <span style={this.context.muiTheme.messageListItem.span}>Oui oui</span><br/>
+                        <p style={this.context.muiTheme.list.listItem.text}>
+                            <span style={this.context.muiTheme.list.listItem.span}>Oui oui</span><br/>
                             Do you have any Paris recs? Have you ever been?
                         </p>
                         }
@@ -405,8 +405,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Kerem Suer"
                         secondaryText={
-                        <p style={this.context.muiTheme.messageListItem.text}>
-                            <span style={this.context.muiTheme.messageListItem.span}>Birthday gift</span><br/>
+                        <p style={this.context.muiTheme.list.listItem.text}>
+                            <span style={this.context.muiTheme.list.listItem.span}>Birthday gift</span><br/>
                             Do you have any ideas what we can get Heidi for her birthday? How about a pony?
                         </p>
                         }
@@ -417,8 +417,8 @@ class Layout extends React.Component {
                         rightIconButton={rightIconMenu}
                         primaryText="Raquel Parrado"
                         secondaryText={
-                        <p style={this.context.muiTheme.messageListItem.text}>
-                            <span style={this.context.muiTheme.messageListItem.span}>Recipe to try</span><br/>
+                        <p style={this.context.muiTheme.list.listItem.text}>
+                            <span style={this.context.muiTheme.list.listItem.span}>Recipe to try</span><br/>
                             We should eat this: grated squash. Corn and tomatillo tacos.
                         </p>
                         }

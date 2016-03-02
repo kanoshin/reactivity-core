@@ -186,6 +186,8 @@ class DashboardPage extends React.Component {
 		
 			//Boolean - Whether to show vertical lines (except Y axis)
 			scaleShowVerticalLines: false,
+            
+            scaleFontColor: this.context.muiTheme.cardText.textColor,
 		
 			//Boolean - If there is a stroke on each bar
 			barShowStroke : false,
@@ -239,6 +241,8 @@ class DashboardPage extends React.Component {
 
             //Boolean - Whether to fill the dataset with a colour
             datasetFill : true,
+            
+            scaleFontColor: this.context.muiTheme.cardText.textColor,
 
             //String - A legend template
             legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
@@ -255,7 +259,7 @@ class DashboardPage extends React.Component {
 					</WidgetHeader>
 					<WidgetText style={{paddingTop: 0}}>
                         <div style={{marginLeft: 10, marginRight: 50}}>
-                            {this.state.chartToShow === 'bar' ? <BarChart data={barChartData} options={barChartOptions}/> : <LineChart data={lineChartData} options={lineChartOptions}/>}
+                            {this.state.chartToShow === 'bar' ? <BarChart data={barChartData} options={barChartOptions} redraw /> : <LineChart data={lineChartData} options={lineChartOptions} redraw />}
                         </div>
 					</WidgetText>
 				</Widget>
@@ -340,13 +344,21 @@ class DashboardPage extends React.Component {
                                 leftAvatar={<Avatar icon={<FileFolder />} />}
                                 rightIcon={<ActionInfo />}
                                 primaryText="Photos"
-                                secondaryText="Jan 9, 2014"
+                                secondaryText={
+                                    <p style={this.context.muiTheme.list.listItem.text}>
+                                        Jan 9, 2014
+                                    </p>
+                                }
                             />
                             <ListItem
                                 leftAvatar={<Avatar icon={<FileFolder />} />}
                                 rightIcon={<ActionInfo />}
                                 primaryText="Work"
-                                secondaryText="Jan 28, 2014"
+                                secondaryText={
+                                    <p style={this.context.muiTheme.list.listItem.text}>
+                                        Jan 28, 2014
+                                    </p>
+                                }
                             />
                         </List>
                         <Divider inset={true} />
@@ -355,7 +367,11 @@ class DashboardPage extends React.Component {
                                 leftAvatar={<Avatar icon={<EditorInsertChart />} backgroundColor={Colors.yellow600} />}
                                 rightIcon={<ActionInfo />}
                                 primaryText="Kitchen remodel"
-                                secondaryText="Jan 10, 2014"
+                                secondaryText={
+                                    <p style={this.context.muiTheme.list.listItem.text}>
+                                        Jan 10, 2014
+                                    </p>
+                                }
                             />
                         </List>
 					</WidgetText>
