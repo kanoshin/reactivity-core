@@ -267,8 +267,8 @@ class DashboardPage extends React.Component {
                     <WidgetText centered={true}>
                         <span style={{display: 'block'}}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <div>
+                                <div>
+                                    <div style={{textAlign: 'center'}}>
                                         <Sparklines 
                                             data={this.state.sparklineUsersData} 
                                             limit={20}
@@ -284,8 +284,8 @@ class DashboardPage extends React.Component {
                     <WidgetText centered={true}>
                         <span style={{display: 'block'}}>
                             <div>
-                                <div style={{marginLeft:0, paddingLeft: 30}}>
-                                    <div>
+                                <div>
+                                    <div style={{textAlign: 'center'}}>
                                         <Sparklines 
                                             data={this.state.sparklineCpuData} 
                                             limit={20}
