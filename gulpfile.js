@@ -25,7 +25,7 @@ gulp.task('release-build', function() {
         })
         .then(function() {
             return builder.buildStatic('lib-template/app.js + lib-template/**/*.jsx', './build/bundle.js', {
-                minify: false
+                minify: true
             });
         });
 });
